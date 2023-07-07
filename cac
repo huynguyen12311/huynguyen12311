@@ -620,11 +620,12 @@ while _G.Destination do
 local user = tostring(game.Players.LocalPlayer.Name)
 game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(game:GetService("Players")[""..user].Backpack.Compass.Poser.Value)
 game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game:GetService("Workspace")[""..user].Compass.Power.Value
+local user = tostring(game.Players.LocalPlayer.Name)
 for i,v in pairs(Lp.Backpack:GetChildren()) do 
     if v:IsA("Tool") and string.find(v.Name, "Compass")
         v:Activate()
         wait()
-    end 
+end 
      end
     else
         _G.Destination = false
