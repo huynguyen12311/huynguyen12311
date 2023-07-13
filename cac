@@ -1,874 +1,1148 @@
-if game.PlaceId == 8569358381 then
+if game.placeId == 8569358381 or game.placeId == 3237168 then
 local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHeptc/Kavo-UI-Library/main/source.lua"))()
-local Window = Library.CreateLib("One Piece Legendary | Made by Khai", "BloodTheme", colors)
-
-local Tab = Window:NewTab("Haki")
-local Tab2 = Window:NewTab("Islands/Players")
-local Tab3 = Window:NewTab("Sam")
-local Tab4 = Window:NewTab("Weapon Spams")
-local Tab5 = Window:NewTab("Farming")
-local Tab6 = Window:NewTab("FruitFarming")
-local Tab7 = Window:NewTab("Kill Players")
-local Tab8 = Window:NewTab("Misc")
-local Tab9 = Window:NewTab("Drinks")
-
-
-local HakiSection = Tab:NewSection("Select a method")
-local TPSection = Tab2:NewSection("Teleports")
-local SamSection = Tab3:NewSection("Sam Quests")
-local DrinkingSection = Tab9:NewSection("Drinks")
-local FarmingSection = Tab5:NewSection("Spawn")
-local FarmingSection3 = Tab5:NewSection("Extra")
-local FFarmingSection = Tab6:NewSection("Light Fruit")
-local FFarmingSection2 = Tab6:NewSection("Quake Fruit")
-local FFarmingSection3 = Tab6:NewSection("Rumble Fruit")
-local KPSection = Tab7:NewSection("Players")
-local KPSection2 = Tab7:NewSection("Quake Fruit")
-local KPSection3 = Tab7:NewSection("Light Fruit")
-local MiscSection = Tab8:NewSection("Random Shit")
-local WeaponSection1 = Tab4:NewSection("Yoru")
-local WeaponSection2 = Tab4:NewSection("Seastone Cestus")
-
-local Settings = Window:NewTab("Settings")
+local Window = Library.CreateLib("IRENKISS SCRIPT | OPL: ARNACHY", "Serpent", colors)
+local Tab = Window:NewTab("SAM DUPE")
+local Tab2 = Window:NewTab("DRINK DUPE")
+local Tab3 = Window:NewTab(" AFFINITIES DUPE")
+local Tab4 = Window:NewTab("GRAB/DROP TOOLS")
+local Tab5 = Window:NewTab("FRUIT FARMING")
+local Tab6 = Window:NewTab("PLAYER KILL")
+local Tab7 = Window:NewTab("SERVER")
+local KILLSection = Tab:NewSection(" ┇ DUPE SAM (DUPE ALL TOKEN YOU GOT) ┇ ")
+local KILLSection2 = Tab:NewSection(" ┇ ADD SAM'S TOKEN (RESETSTATS, BE CAREFUL) ┇ ")
+local DRINKSection = Tab2:NewSection(" ┇ DRINK DUPE ┇ ")
+local AFFSection = Tab3:NewSection(" ┇ AFFINITIES DUPE ┇ ")
+local DropSection = Tab4:NewSection(" ┇ DROP TOOLS ┇ ")
+local GrabSection = Tab4:NewSection(" ┇ GRAB TOOLS ┇ ")
+local FFarmSection = Tab5:NewSection(" ┇ LIGHT FARM ┇ ")
+local FFarmSection2 = Tab5:NewSection(" ┇ QUAKE FARM ┇ ")
+local SHAVESection = Tab6:NewSection(" ┇ KILL ALL PLAYER ┇ ")
+local AboutSection = Tab6:NewSection(" ┇ ABOUT PLAYER ┇ ")
+local CampSection = Tab6:NewSection(" ┇ CAMP METHOD┇ ")
+local ServerSection = Tab7:NewSection(" ┇ ABOUT THE SERVER ┇ ")
+local Settings = Window:NewTab("SETTINGS")
 local SettingsSection = Settings:NewSection("Settings")
 local ColorSection = Settings:NewSection("Ui Color")
-local PLRS = {}
-for i,v in pairs(game:GetService("Players"):GetChildren()) do
-    table.insert(PLRS,v.Name)
+
+DropSection:NewButton("Drop All Compasses","Drop", function()
+local plr = game.Players.LocalPlayer
+for i,v in pairs(plr.Backpack:GetChildren()) do
+if v.Name == "Compass" then
+v.Parent = plr.Character
+  end
 end
-
------------------------------------ Weapon Spams
-WeaponSection1:NewSlider("Yoru Speed", "Increase/Decrease", 50, 1, function(s) -- 50 (MaxValue) | 0 (MinValue)
-    Speed = s
+local compass = plr.Character:FindFirstChild("Compass")
+for i,v in pairs(plr.Character:GetChildren()) do
+if v.Name == "Compass" then
+v.Parent = workspace
+  end
+end
+end)
+KILLSection:NewButton("Dupe Sam","dupe", function()
+repeat wait() until game:IsLoaded() 
+repeat wait() until game.Players.LocalPlayer.Character:FindFirstChild("Humanoid") ~= nil
+local plr = game.Players.LocalPlayer
+local plr = game.Players.LocalPlayer
+game:GetService("Workspace").UserData["User_"..plr.UserId].UpdateClothing_Extras:FireServer("A","\255",34)
+wait(1)
+if plr.PlayerGui.Load.Frame.Visible == true then
+for i,v in pairs(getconnections(game:GetService("Players").LocalPlayer.PlayerGui.Load.Frame.Load.MouseButton1Click)) do
+       v:Fire()
+   end
+end
+repeat task.wait()
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(4795, 570, -7047)
+until plr.Backpack:FindFirstChild("Melee")
+spawn(function()
+for i = 1,99999999 do
+workspace.Merchants.QuestMerchant.Clickable.Retum:FireServer("Claim10")
+wait(0.7)
+end
+end)
+repeat task.wait()
+until plr.Backpack:FindFirstChild("Compass")
+spawn(function()
+for i = 1,99999999 do
+for i,v in pairs(plr.Backpack:GetChildren()) do
+if v.Name == "Compass" then
+v.Parent = plr.Character
+  end
+end
+wait(0.5)
+end
+end)
+repeat task.wait()
+until plr.Character:FindFirstChild("Compass")
+spawn(function()
+for i = 1,99999999 do
+local compass = plr.Character:FindFirstChild("Compass")
+for i,v in pairs(plr.Character:GetChildren()) do
+if v.Name == "Compass" then
+v.Parent = workspace
+  end
+end
+wait(0.5)
+end
+end)
+local plr = game.Players.LocalPlayer
+repeat task.wait()
+until workspace.UserData["User_"..plr.UserId].Data.CompassTokens.Value == 0
+wait(0.5)
+game.Players.LocalPlayer:Kick("Rejoining  Please Wait...")
+game:GetService("TeleportService"):TeleportToPlaceInstance(game.PlaceId, game.JobId)
 end)
 
-WeaponSection1:NewToggle("Yoru Spam", "Spams Yoru m1", function(state)
-    if state then
-        _G.Yoru = true
-        local Players = game:GetService("Players")
-        local Plr = Players.LocalPlayer
-        local Character = Plr.Character
-        local Yoru = Character:FindFirstChild("Yoru")
-        local Environment
-while _G.Yoru do
-    wait()
-    pcall(function()
-    for i,v in pairs(getconnections(Yoru["RequestAnimation"].OnClientEvent)) do 
-        Environment = getsenv(Yoru["AnimationController"])
-    end
-        wait()
-    for i = 1, Speed do
-    Yoru["RequestAnimation"]:FireServer(Environment.PlaceId)
+KILLSection:NewButton("Teleport To Dupe Place","teleport", function()
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(4795, 570, -7047)
+end)
+
+KILLSection:NewToggle("Auto Find Compass",false,function(bool)
+            getgenv().autofindsam = bool
+            while getgenv().autofindsam do wait()
+                pcall(function()
+                        if game.Players.LocalPlayer.Backpack:FindFirstChild("Compass") and not game.Players.LocalPlayer.Character:FindFirstChild("Compass") then
+                            game.Players.LocalPlayer.Backpack:FindFirstChild("Compass").Parent = game.Players.LocalPlayer.Character
+                        elseif game.Players.LocalPlayer.Character:FindFirstChild("Compass") then
+                            game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(game.Players.LocalPlayer.Character:FindFirstChild("Compass").Poser.Value)
+                        end
+                game.Players.LocalPlayer.Character.Compass:Activate()
+    
+       end)
     end
     end)
-    end
+KILLSection:NewButton("Compasses Quest","Open SAM GUI", function()
+for i,v in pairs(game:GetService("Workspace").Merchants.QuestMerchant:GetDescendants()) do
+if v:IsA("ClickDetector") then
+fireclickdetector(v)
+end
+end
+end)
+KILLSection2:NewButton("Auto Token (needs sam in inventory)","Reset Stats your account", function()
+getgenv().start = true
+while getgenv().start do wait(0.3)
+if game.Players.LocalPlayer.Backpack:FindFirstChild("Compass") then
+game.Players.LocalPlayer.Character.Humanoid:EquipTool(game.Players.LocalPlayer.Backpack["Compass"])
+end
+for i,v in pairs(game.Players.LocalPlayer.Character:GetChildren()) do
+            if v.Name == "Compass" then
+            if not workspace.UserData["User_"..game.Players.LocalPlayer.UserId].Data.QQQ_Weekly3.Value == true then
+local args = {[1] = "Claim",[2] = "Weekly3"}workspace:WaitForChild("UserData"):WaitForChild("User_"..game.Players.LocalPlayer.UserId):WaitForChild("ChallengesRemote"):FireServer(unpack(args))
 else
-        _G.Yoru = false
-    end
+workspace:WaitForChild("UserData"):WaitForChild("User_"..game.Players.LocalPlayer.UserId):WaitForChild("Stats"):FireServer()
+end
+                game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(v.Poser.Value)
+                if game.Players.LocalPlayer.Character:FindFirstChild("Compass") then
+                game.Players.LocalPlayer.Character.Compass:Activate()
+                end
+            else
+            game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-1296, 218, -1350)
+            end
+        end
+end
 end)
+KILLSection2:NewButton("Stop Auto Token","Stop Auto Token", function()
+getgenv().start = false
+end)
+DropSection:NewButton("Drop Common Box","nil", function()
+local plr = game.Players.LocalPlayer
+for i,v in pairs(plr.Backpack:GetChildren()) do
+		if v:IsA("Tool") and string.find(v.Name, "Common Box") then
+			v.Parent = plr.Character
+		end
+	end
+	wait()
+	for i,v in pairs(plr.Character:GetChildren()) do
+		if v:IsA("Tool") and string.find(v.Name, "Common Box") then
+			v.Parent = workspace
+		end
+	end
+end)
+DropSection:NewButton("Drop Uncommon Box","nil", function()
+local plr = game.Players.LocalPlayer
+for i,v in pairs(plr.Backpack:GetChildren()) do
+		if v:IsA("Tool") and string.find(v.Name, "Uncommon Box") then
+			v.Parent = plr.Character
+		end
+	end
+	wait()
+	for i,v in pairs(plr.Character:GetChildren()) do
+		if v:IsA("Tool") and string.find(v.Name, "Uncommon Box") then
+			v.Parent = workspace
+		end
+	end
+end)
+DropSection:NewButton("Drop Rare Box","nil", function()
+local plr = game.Players.LocalPlayer
+for i,v in pairs(plr.Backpack:GetChildren()) do
+		if v:IsA("Tool") and string.find(v.Name, "Rare Box") then
+			v.Parent = plr.Character
+		end
+	end
+	wait()
+	for i,v in pairs(plr.Character:GetChildren()) do
+		if v:IsA("Tool") and string.find(v.Name, "Rare Box") then
+			v.Parent = workspace
+		end
+	end
+end)
+DropSection:NewButton("Drop Ultra Rare Box","nil", function()
+local plr = game.Players.LocalPlayer
+for i,v in pairs(plr.Backpack:GetChildren()) do
+		if v:IsA("Tool") and string.find(v.Name, "Ultra Rare Box") then
+			v.Parent = plr.Character
+		end
+	end
+	wait()
+	for i,v in pairs(plr.Character:GetChildren()) do
+		if v:IsA("Tool") and string.find(v.Name, "Ultra Rare Box") then
+			v.Parent = workspace
+		end
+	end
+end)
+DRINKSection:NewButton("Dupe Mode (Turn On Before Duping)","Turn On Before Dupe", function()
+local plr = game.Players.LocalPlayer
+game:GetService("Workspace").UserData["User_"..plr.UserId].UpdateClothing_Extras:FireServer("A","\255",34)
+end)
+DRINKSection:NewDropdown("The Drink", "Buys chosen drinks", {"Cider+", "Lemonade+", "Juice+", "Smoothie+"}, function(An)
+getgenv().selectdrink = An
+end)
+DRINKSection:NewTextBox("Drink Amount", "Makes you buy drinks", function(amount)
+          getgenv().amountdrink = amount
 
-WeaponSection2:NewSlider("Seastone Speed", "Increase/Decrease", 50, 1, function(ss) -- 50 (MaxValue) | 0 (MinValue)
-    Speed2 = ss
 end)
-
-WeaponSection2:NewToggle("Seastone Spam", "Spams Seastone Cestus", function(state)
-    if state then
-        _G.Cestus = true
-        local Players = game:GetService("Players")
-        local Plr = Players.LocalPlayer
-        local Character = Plr.Character
-        local Cestus = Character:FindFirstChild("Seastone Cestus")
-        local Environment
-while _G.Cestus do
-    wait()
-    pcall(function()
-    for i,v in pairs(getconnections(Cestus["RequestAnimation"].OnClientEvent)) do 
-        Environment = getsenv(Cestus["AnimationController"])
-    end
-        wait()
-    for i = 1, Speed2 do
-    Cestus["RequestAnimation"]:FireServer(Environment.PlaceId)
-    end
-    end)
-    end
-else
-        _G.Cestus = false
-    end
-end)
------------------------------------ Misc
-
-MiscSection:NewButton("Immortal", "Makes you immortal to all attacks but heart steal", function()
-local plr = game.Players.LocalPlayer.Name
-game:GetService("Workspace")[""..plr].Damage:Destroy()
-end)
-
-MiscSection:NewToggle("Anti-Stun", "Removes Stun", function(state)
-    if state then
-        _G.NoStun = true
-    pcall(function()
-        while _G.NoStun do
-            wait()
-        game:GetService("Players").LocalPlayer["DF_Disabled"] = false
-    end
-end)
-else
-        _G.NoStun = false
-    end
-end)
-
-MiscSection:NewButton("Anti-mod", "Kicks if a mod is in server or joins server", function()
-    local Pedo = {
-        1135910299,520944,43247021
+DRINKSection:NewButton("Buy Drink","Buy",function()
+local buydrink = getgenv().selectdrink
+            local amountdrinkbuy = getgenv().amountdrink
+            if buydrink == "Cider+" then
+    for i = 1,amountdrink do
+    local args = {
+        [1] = "Cider+"
     }
     
-    for _, v in pairs(game:GetService("Players"):GetPlayers()) do
-        for _, v1 in pairs(Pedo) do
-            if v.UserId == v1 then
-                game:GetService("Players").LocalPlayer:Kick("Admin is in the server")
-            end
-        end
+    workspace.Merchants.BetterDrinkMerchant.Clickable.Retum:FireServer(unpack(args))
     end
+    elseif buydrink == "Lemonade+" then
+        
+    for i = 1,amountdrink do
+    local args = {
+        [1] = "Lemonade+"
+    }
     
-    game:GetService("Players").PlayerAdded:Connect(function(r)
-        for _, v in pairs(Pedo) do
-            if r.UserId == v then
-                game:GetService("Players").LocalPlayer:Kick("Admin has joined the server")
-            end
-        end
-    end)
-    end)
-
-MiscSection:NewButton("Expertise GUI", "Shows the Expertise GUI", function()
-    for i,v in pairs(game:GetService("Workspace").Merchants.ExpertiseMerchant:GetDescendants()) do
-    if v:IsA("ClickDetector") then
-    fireclickdetector(v)
+    workspace.Merchants.BetterDrinkMerchant.Clickable.Retum:FireServer(unpack(args))
     end
+            elseif buydrink == "Juice+" then
+    for i = 1,amountdrink do
+    local args = {
+        [1] = "Juice+"
+    }
+    
+    workspace.Merchants.BetterDrinkMerchant.Clickable.Retum:FireServer(unpack(args))
     end
-    end)
-
-MiscSection:NewButton("Affinity Gui", "Shows the affinity diviners gui so u can spin", function()
-    for i,v in pairs(game:GetService("Workspace").Merchants.AffinityMerchant:GetDescendants()) do
-    if v:IsA("ClickDetector") then
-    fireclickdetector(v)
+    elseif buydrink == "Smoothie+" then
+        for i = 1,amountdrink do
+    
+    local args = {
+        [1] = "Smoothie+"
+    }
+    
+    workspace.Merchants.BetterDrinkMerchant.Clickable.Retum:FireServer(unpack(args))
     end
-    end
-    end)
-
-MiscSection:NewDropdown("Present", "Collect Chosen presents", {"Hourly Presents", "Daily Presents"}, function(AnF)
-    ChosenOne = AnF
-    end)
-
-MiscSection:NewTextBox("Present Amount", "Collects presents", function(text)
-    local plrid = tostring(game.Players.LocalPlayer.UserId)
-    for i = 1,(text) do
-    if ChosenOne == "Hourly Presents" then
-    wait()
-    workspace.UserData["User_"..plrid].ClaimRewardHourly:FireServer("RewardMark")
-    end
-    if ChosenOne == "Daily Presents" then
-        workspace.UserData["User_"..plrid].ClaimRewardDaily:FireServer("RewardMark")
-    end
-end
-    end)
-
-MiscSection:NewButton("ModMenu", "Hold alt or press emotes, this is a safe 1", function()
-game:GetService("Players").LocalPlayer.PlayerGui.Emotes.Frame.Spec.Visible = true
-game:GetService("Players").LocalPlayer.PlayerGui.Emotes.Frame.Spec.BanId.Visible = false
-game:GetService("Players").LocalPlayer.PlayerGui.Emotes.Frame.Spec.OfflineBan.Visible = false
-game:GetService("Players").LocalPlayer.PlayerGui.Emotes.Frame.Spec.Ban.Visible = false
-game:GetService("Players").LocalPlayer.PlayerGui.Emotes.Frame.Spec.JoinId.Visible = false
-game:GetService("Players").LocalPlayer.PlayerGui.Emotes.Frame.Spec["OfflineBan_Text"].Visible = false
-game:GetService("Players").LocalPlayer.PlayerGui.Emotes.Frame.Spec["Ban_Text"].Visible = false
-game:GetService("Players").LocalPlayer.PlayerGui.Emotes.Frame.Spec["BanId_Text"].Visible = false
-game:GetService("Players").LocalPlayer.PlayerGui.Emotes.Frame.Spec["Join_Text"].Visible = false
-game:GetService("Players").LocalPlayer.PlayerGui.Emotes.Frame.Spec.Join.Visible = false
-game:GetService("Players").LocalPlayer.PlayerGui.Emotes.Frame.Spec["JoinId_Text"].Visible = false
-game:GetService("Players").LocalPlayer.PlayerGui.Emotes.Frame.Spec.Template.Frame.E.Visible = false
-game:GetService("Players").LocalPlayer.PlayerGui.Emotes.Frame.Spec.Template.Frame.A.Visible = false
-game:GetService("Players").LocalPlayer.PlayerGui.Emotes.Frame.Spec.Template.Frame.B.Visible = false
-game:GetService("Players").LocalPlayer.PlayerGui.Emotes.Frame.Spec.Template.Frame.D.Visible = false
-game:GetService("Players").LocalPlayer.PlayerGui.Emotes.Frame.Spec.Template.Frame.C.Visible = false
-game:GetService("Players").LocalPlayer.PlayerGui.Emotes.Frame.Spec.Template.Frame.E2.Visible = false
-end)
-
-MiscSection:NewButton("Emotes", "Gives emotes you also have to press it in each server", function()
-local plrid = tostring(game.Players.LocalPlayer.UserId)
-Game.Workspace.UserData["User_"..plrid].Data.CB_Mark1.Value = true
-Game.Workspace.UserData["User_"..plrid].Data.CB_Mark2.Value = true
-Game.Workspace.UserData["User_"..plrid].Data.CB_Mark3.Value = true
-Game.Workspace.UserData["User_"..plrid].Data.CB_Mark4.Value = true
-Game.Workspace.UserData["User_"..plrid].Data.CB_Mark5.Value = true
-Game.Workspace.UserData["User_"..plrid].Data.CB_Mark6.Value = true
-Game.Workspace.UserData["User_"..plrid].Data.CB_Mark7.Value = true
-Game.Workspace.UserData["User_"..plrid].Data.CB_Mark8.Value = true
-Game.Workspace.UserData["User_"..plrid].Data.CB_Mark9.Value = true
-Game.Workspace.UserData["User_"..plrid].Data.CB_Mark10.Value = true
-Game.Workspace.UserData["User_"..plrid].Data.CB_Mark11.Value = true
-Game.Workspace.UserData["User_"..plrid].Data.CB_Mark12.Value = true
-Game.Workspace.UserData["User_"..plrid].Data.CB_Mark13.Value = true
-Game.Workspace.UserData["User_"..plrid].Data.CB_Mark14.Value = true
-Game.Workspace.UserData["User_"..plrid].Data.CB_Mark15.Value = true
-Game.Workspace.UserData["User_"..plrid].Data.CB_Mark16.Value = true
-end)
-
------------------------------------ Kill Players
-local dropdown =  KPSection:NewDropdown("Select Player", "", PLRS, function(f)
-    Choose2 = f
-end)
-
-KPSection:NewButton("Refresh PLR List", "Refreshes Dropdown", function(aa)
-    local PLRS = {}
-    for i,v in pairs(game:GetService("Players"):GetChildren()) do
-    table.insert(PLRS,v.Name)
-    end
-    dropdown:Refresh(PLRS)
-    end)
-
-KPSection3:NewToggle("Light Spam" , "Kills Player", function(state)
-    if state then
-    _G.AutoLight = true
-    local x = getsenv(game:GetService("Players").LocalPlayer.Character.Powers.Light)
-    local vp = x.VTCrv
-    while _G.AutoLight do
-        wait(0.2)
-        for i,v in pairs(game:GetService("Workspace"):GetChildren()) do
-            if v.Name == Choose2 then
-                game:GetService("Players").LocalPlayer.Character.Powers.Light.RemoteEvent:FireServer(vp,"LightPower2", "StopCharging",v.HumanoidRootPart.CFrame,workspace.IslandCaver.Stones.Stone, 100)
-            end
-            end
-     end
-    else
-        _G.AutoLight = false
-     end
-    end)
-
-KPSection2:NewToggle("Quake Spam" , "Kills Player", function(state)
-    if state then
-    _G.AutoQuake = true
-    local x = getsenv(game:GetService("Players").LocalPlayer.Character.Powers.Quake)
-    local vp = x.VTCebvc
-    while _G.AutoQuake do
-        wait(0)
-        pcall(function()
-        for i,v in pairs(game:GetService("Workspace"):GetChildren()) do
-            if v.Name == Choose2 then
-                game:GetService("Players").LocalPlayer.Character.Powers.Quake.RemoteEvent:FireServer(vp,"QuakePower4", "StopCharging",workspace.IslandCaver.Stones.Stone,v.HumanoidRootPart.CFrame,100,Vector3.new(-290.4129333496094, 266.8401794433594, -103.8988037109375))
-            end
         end
         end)
-        end
-    else
-        _G.AutoQuake = false
-    end
-    end)
------------------------------------ FruitFarming
-FFarmingSection3:NewToggle("Rumble Farm3" , "Kills Krizma NPC's", function(state)
-if state then
-_G.AutoRumble = true
-local x = getsenv(game:GetService("Players").LocalPlayer.Character.Powers.Rumble)
-local v = x.VTCzyhf
-while _G.AutoRumble do
-    wait(8)
-game:GetService("Players").LocalPlayer.Character.Powers.Rumble.RemoteEvent:FireServer(v,"RumblePower8","StopCharging",Vector3.new(-991.578857421875, 217.1343994140625, 1664.7615966796875),workspace.Enemies:FindFirstChild("Lv17 Thug").HumanoidRootPart,200,Vector3.new(-0.7139230966567993, -0.5779988169670105, 0.39526084065437317))
-game:GetService("Players").LocalPlayer.Character.Powers.Rumble.RemoteEvent:FireServer(v,"RumblePower8","StopCharging",Vector3.new(-1053.3848876953125, 217.19288635253906, 1681.0531005859375),workspace.Enemies:FindFirstChild("Lv17 Thug").HumanoidRootPart,200,Vector3.new(-0.7139230966567993, -0.5779988169670105, 0.39526084065437317))
-game:GetService("Players").LocalPlayer.Character.Powers.Rumble.RemoteEvent:FireServer(v,"RumblePower8","StopCharging",Vector3.new(-1055.0928955078125, 218.02655029296875, 1663.1973876953125),workspace.Enemies:FindFirstChild("Lv17 Thug").HumanoidRootPart,200,Vector3.new(-0.7139230966567993, -0.5779988169670105, 0.39526084065437317))
-game:GetService("Players").LocalPlayer.Character.Powers.Rumble.RemoteEvent:FireServer(v,"RumblePower8","StopCharging",Vector3.new(-1053.102294921875, 217.51536560058594, 1646.76416015625),workspace.Enemies:FindFirstChild("Lv17 Thug").HumanoidRootPart,200,Vector3.new(-0.7139230966567993, -0.5779988169670105, 0.39526084065437317))
-game:GetService("Players").LocalPlayer.Character.Powers.Rumble.RemoteEvent:FireServer(v,"RumblePower8","StopCharging",Vector3.new(-906.1535034179688, 216.06491088867188, 1623.90380859375),workspace.Enemies:FindFirstChild("Lv17 Thug").HumanoidRootPart,200,Vector3.new(-0.7139230966567993, -0.5779988169670105, 0.39526084065437317))
-game:GetService("Players").LocalPlayer.Character.Powers.Rumble.RemoteEvent:FireServer(v,"RumblePower8","StopCharging",Vector3.new(-1012.9547119140625, 324.14837646484375, 1688.389404296875),workspace.Enemies:FindFirstChild("Lv17 Thug").HumanoidRootPart,200,Vector3.new(-0.7139230966567993, -0.5779988169670105, 0.39526084065437317))
-game:GetService("Players").LocalPlayer.Character.Powers.Rumble.RemoteEvent:FireServer(v,"RumblePower8","StopCharging",Vector3.new(-984.7723999023438, 283, 1613.73681640625),workspace.Enemies:FindFirstChild("Lv17 Thug").HumanoidRootPart,200,Vector3.new(-0.7139230966567993, -0.5779988169670105, 0.39526084065437317))
-game:GetService("Players").LocalPlayer.Character.Powers.Rumble.RemoteEvent:FireServer(v,"RumblePower8","StopCharging",Vector3.new(-1037.58544921875, 215.7229461669922, 1508.449951171875),workspace.Enemies:FindFirstChild("Lv17 Thug").HumanoidRootPart,200,Vector3.new(-0.7139230966567993, -0.5779988169670105, 0.39526084065437317))
- end
-else
-    _G.AutoRumble = false
- end
-end)
-
-FFarmingSection3:NewToggle("Rumble Farm2" , "Kills Cave NPC's", function(state)
-if state then
-_G.AutoRumble = true
-local x = getsenv(game:GetService("Players").LocalPlayer.Character.Powers.Rumble)
-local v = x.VTCzyhf
-while _G.AutoRumble do
-game:GetService("Players").LocalPlayer.Character.Powers.Rumble.RemoteEvent:FireServer(v,"RumblePower8","StopCharging",Vector3.new(-1166.3197021484375, 219.90908813476562, -1580.827880859375),workspace.Enemies:FindFirstChild("Lv17 Thug").HumanoidRootPart,200,Vector3.new(-1420.2213134765625, 240.68174743652344, -1599.0550537109375))
-wait(4)
-game:GetService("Players").LocalPlayer.Character.Powers.Rumble.RemoteEvent:FireServer(v,"RumblePower8","StopCharging",Vector3.new(-1202.275390625, 254.9381866455078, -1662.3792724609375),workspace.Enemies:FindFirstChild("Lv17 Thug").HumanoidRootPart,200,Vector3.new(-1420.2213134765625, 240.68174743652344, -1599.0550537109375))
-wait(4)
-game:GetService("Players").LocalPlayer.Character.Powers.Rumble.RemoteEvent:FireServer(v,"RumblePower8","StopCharging",Vector3.new(-1287.9407958984375, 248.89393615722656, -1654.454833984375),workspace.Enemies:FindFirstChild("Lv17 Thug").HumanoidRootPart,200,Vector3.new(-1420.2213134765625, 240.68174743652344, -1599.0550537109375))
-wait(4)
-game:GetService("Players").LocalPlayer.Character.Powers.Rumble.RemoteEvent:FireServer(v,"RumblePower8","StopCharging",Vector3.new(-1271.0579833984375, 263.09088134765625, -1792.6419677734375),workspace.Enemies:FindFirstChild("Lv17 Thug").HumanoidRootPart,200,Vector3.new(-1420.2213134765625, 240.68174743652344, -1599.0550537109375))
-wait(4)
-game:GetService("Players").LocalPlayer.Character.Powers.Rumble.RemoteEvent:FireServer(v,"RumblePower8","StopCharging",Vector3.new(-1340.6353759765625, 245.81817626953125, -1626.208740234375),workspace.Enemies:FindFirstChild("Lv17 Thug").HumanoidRootPart,200,Vector3.new(-1420.2213134765625, 240.68174743652344, -1599.0550537109375))
-wait(4)
-game:GetService("Players").LocalPlayer.Character.Powers.Rumble.RemoteEvent:FireServer(v,"RumblePower8","StopCharging",Vector3.new(-1432.870849609375, 257.8327941894531, -1652.255615234375),workspace.Enemies:FindFirstChild("Lv17 Thug").HumanoidRootPart,200,Vector3.new(-1420.2213134765625, 240.68174743652344, -1599.0550537109375))
- end
-else
-    _G.AutoRumble = false
- end
-end)
-
-FFarmingSection3:NewToggle("Rumble Farm1" , "Kills Cave NPC's", function(state)
-if state then
-_G.AutoRumble = true
-local x = getsenv(game:GetService("Players").LocalPlayer.Character.Powers.Rumble)
-local v = x.VTCzyhf
-while _G.AutoRumble do
-    wait(7)
- game:GetService("Players").LocalPlayer.Character.Powers.Rumble.RemoteEvent:FireServer(v,"RumblePower8","StopCharging",Vector3.new(67.43363189697266, 217.19859313964844, -924.2767333984375),workspace.Firepit.Part,200,Vector3.new(4.660553932189941, 305.5, -942.0166625976562))
- end
-else
-    _G.AutoRumble = false
- end
-end)
-
-FFarmingSection2:NewToggle("Quake Farm" , "Kills every NPCS", function(state)
-if state then
-_G.AutoQuake = true
-local x = getsenv(game:GetService("Players").LocalPlayer.Character.Powers.Quake)
-local v = x.VTCebvc
-while _G.AutoQuake do
-    wait(1)
-    game:GetService("Players").LocalPlayer.Character.Powers.Quake.RemoteEvent:FireServer(v,"QuakePower4", "StopCharging",workspace.IslandCaver.Stones.Stone,CFrame.new(Vector3.new(-1848.4346923828125, 222, -450.0833740234375), Vector3.new(-0.5347824096679688, -0.43560168147087097, -0.7240573167800903)),100,Vector3.new(-1848.4346923828125, 222, -450.0833740234375), Vector3.new(-0.5347824096679688, -0.43560168147087097, -0.7240573167800903))
-    wait(0.5)
-    game:GetService("Players").LocalPlayer.Character.Powers.Quake.RemoteEvent:FireServer(v,"QuakePower4", "StopCharging",workspace.IslandCaver.Stones.Stone,CFrame.new(Vector3.new(-1898.96728515625, 225.03367614746094, -200.6829071044922), Vector3.new(-0.9484627842903137, -0.18392488360404968, 0.25805023312568665)),100,Vector3.new(-1898.96728515625, 225.03367614746094, -200.6829071044922), Vector3.new(-0.9484627842903137, -0.18392488360404968, 0.25805023312568665))
-    wait(0.5)
-    game:GetService("Players").LocalPlayer.Character.Powers.Quake.RemoteEvent:FireServer(v,"QuakePower4", "StopCharging",workspace.IslandCaver.Stones.Stone,CFrame.new(Vector3.new(-1749.58203125, 224.88922119140625, -134.49240112304688), Vector3.new(-0.6882264614105225, -0.40487319231033325, 0.6020150184631348)),100,Vector3.new(-1749.58203125, 224.88922119140625, -134.49240112304688), Vector3.new(-0.6882264614105225, -0.40487319231033325, 0.6020150184631348))
-    wait(0.5)
-    game:GetService("Players").LocalPlayer.Character.Powers.Quake.RemoteEvent:FireServer(v,"QuakePower4", "StopCharging",workspace.IslandCaver.Stones.Stone,CFrame.new(Vector3.new(-1622.5482177734375, 225.85337829589844, -200.26828002929688), Vector3.new(-0.3189719319343567, -0.7127735018730164, 0.6246685981750488)),100,Vector3.new(-1622.5482177734375, 225.85337829589844, -200.26828002929688), Vector3.new(-0.3189719319343567, -0.7127735018730164, 0.6246685981750488))
-    wait(0.5)
-    game:GetService("Players").LocalPlayer.Character.Powers.Quake.RemoteEvent:FireServer(v,"QuakePower4", "StopCharging",workspace.IslandCaver.Stones.Stone,CFrame.new(Vector3.new(1002.1565551757812, 214, 3349.3857421875), Vector3.new(-0.2978745698928833, -0.6442758440971375, 0.7044001221656799)),100,Vector3.new(1002.1565551757812, 214, 3349.3857421875), Vector3.new(-0.2978745698928833, -0.6442758440971375, 0.7044001221656799))
-    wait(0.5)
-    game:GetService("Players").LocalPlayer.Character.Powers.Quake.RemoteEvent:FireServer(v,"QuakePower4", "StopCharging",workspace.IslandCaver.Stones.Stone,CFrame.new(Vector3.new(2167.46923828125, 213, -631.9636840820312), Vector3.new(0.6589730978012085, -0.6376858949661255, -0.3988874852657318)),100,Vector3.new(2167.46923828125, 213, -631.9636840820312), Vector3.new(0.6589730978012085, -0.6376858949661255, -0.3988874852657318))
-    wait(0.5)
-    game:GetService("Players").LocalPlayer.Character.Powers.Quake.RemoteEvent:FireServer(v,"QuakePower4", "StopCharging",workspace.IslandCaver.Stones.Stone,CFrame.new(Vector3.new(1178.6993408203125, 212.26193237304688, -263.04681396484375), Vector3.new(0.04516664147377014, -0.9571055173873901, 0.28619781136512756)),100,Vector3.new(1178.6993408203125, 212.26193237304688, -263.04681396484375), Vector3.new(0.04516664147377014, -0.9571055173873901, 0.28619781136512756))
-    wait(0.5)
-    game:GetService("Players").LocalPlayer.Character.Powers.Quake.RemoteEvent:FireServer(v,"QuakePower4", "StopCharging",workspace.IslandCaver.Stones.Stone,CFrame.new(Vector3.new(-1040.117919921875, 215, 1662.1202392578125), Vector3.new(0.9582481980323792, -0.13812202215194702, 0.2503652274608612)), 100,Vector3.new(-1040.117919921875, 215, 1662.1202392578125), Vector3.new(0.9582481980323792, -0.13812202215194702, 0.2503652274608612))
-    wait(0.5)
-    game:GetService("Players").LocalPlayer.Character.Powers.Quake.RemoteEvent:FireServer(v,"QuakePower4", "StopCharging",workspace.IslandCaver.Stones.Stone,CFrame.new(Vector3.new(-988.4560546875, 283, 1616.5068359375), Vector3.new(-0.44781866669654846, -0.36267393827438354, 0.8172675371170044)), 100,Vector3.new(-988.4560546875, 283, 1616.5068359375), Vector3.new(-0.44781866669654846, -0.36267393827438354, 0.8172675371170044))
-    wait(0.5)
-    game:GetService("Players").LocalPlayer.Character.Powers.Quake.RemoteEvent:FireServer(v,"QuakePower4", "StopCharging",workspace.IslandCaver.Stones.Stone,CFrame.new(Vector3.new(-1037.58544921875, 215.7229461669922, 1508.449951171875), Vector3.new(-0.7139230966567993, -0.5779988169670105, 0.39526084065437317)),100,Vector3.new(-1037.58544921875, 215.7229461669922, 1508.449951171875), Vector3.new(-0.7139230966567993, -0.5779988169670105, 0.39526084065437317))
-    wait(0.5)
-    game:GetService("Players").LocalPlayer.Character.Powers.Quake.RemoteEvent:FireServer(v,"QuakePower4", "StopCharging",workspace.IslandCaver.Stones.Stone,CFrame.new(Vector3.new(-908.2176513671875, 214, 1621.364990234375), Vector3.new(-0.21460314095020294, -0.40479180216789246, 0.88886958360672)),100,Vector3.new(-908.2176513671875, 214, 1621.364990234375), Vector3.new(-0.21460314095020294, -0.40479180216789246, 0.88886958360672))
-    wait(0.5)
-    game:GetService("Players").LocalPlayer.Character.Powers.Quake.RemoteEvent:FireServer(v,"QuakePower4", "StopCharging",workspace.IslandCaver.Stones.Stone,CFrame.new(Vector3.new(-248.8604736328125, 273.4266052246094, 355.64453125), Vector3.new(0.6645273566246033, -0.5016912817955017, -0.5538134574890137)),100,Vector3.new(-248.8604736328125, 273.4266052246094, 355.64453125), Vector3.new(0.6645273566246033, -0.5016912817955017, -0.5538134574890137))
-    wait(0.5)
-    game:GetService("Players").LocalPlayer.Character.Powers.Quake.RemoteEvent:FireServer(v,"QuakePower4", "StopCharging",workspace.IslandCaver.Stones.Stone,CFrame.new(Vector3.new(-319.3795471191406, 272.3931884765625, 388.7362060546875), Vector3.new(0.5347911715507507, -0.7442643046379089, -0.40008631348609924)),100,Vector3.new(-319.3795471191406, 272.3931884765625, 388.7362060546875), Vector3.new(0.5347911715507507, -0.7442643046379089, -0.40008631348609924))
-    wait(0.5)
-    game:GetService("Players").LocalPlayer.Character.Powers.Quake.RemoteEvent:FireServer(v,"QuakePower4", "StopCharging",workspace.IslandCaver.Stones.Stone,CFrame.new(Vector3.new(-315.74334716796875, 270.4518737792969, 307.21185302734375), Vector3.new(0.4924789369106293, -0.6783868670463562, -0.5452118515968323)),100,Vector3.new(-315.74334716796875, 270.4518737792969, 307.21185302734375), Vector3.new(0.4924789369106293, -0.6783868670463562, -0.5452118515968323))
-    wait(0.5)
-    game:GetService("Players").LocalPlayer.Character.Powers.Quake.RemoteEvent:FireServer(v,"QuakePower4", "StopCharging",workspace.IslandCaver.Stones.Stone,CFrame.new(Vector3.new(-178.00997924804688, 272.4919128417969, 390.1238708496094), Vector3.new(0.6851771473884583, -0.678036093711853, -0.26608139276504517)),100,Vector3.new(-178.00997924804688, 272.4919128417969, 390.1238708496094), Vector3.new(0.6851771473884583, -0.678036093711853, -0.26608139276504517))
-    wait(0.5)
-    game:GetService("Players").LocalPlayer.Character.Powers.Quake.RemoteEvent:FireServer(v,"QuakePower4", "StopCharging",workspace.IslandCaver.Stones.Stone,CFrame.new(Vector3.new(-159.9521026611328, 269.81768798828125, 312.1455993652344), Vector3.new(0.6065837144851685, -0.7200759649276733, -0.33696722984313965)),100,Vector3.new(-159.9521026611328, 269.81768798828125, 312.1455993652344), Vector3.new(0.6065837144851685, -0.7200759649276733, -0.33696722984313965))
-    wait(0.5)
-    game:GetService("Players").LocalPlayer.Character.Powers.Quake.RemoteEvent:FireServer(v,"QuakePower4", "StopCharging",workspace.IslandCaver.Stones.Stone,CFrame.new(Vector3.new(89.97474670410156, 299.3000183105469, -936.1035766601562), Vector3.new(0.2870140075683594, -0.6174480319023132, -0.7323803305625916)),100,Vector3.new(89.97474670410156, 299.3000183105469, -936.1035766601562), Vector3.new(0.2870140075683594, -0.6174480319023132, -0.7323803305625916))
-    wait(0.5)
-    game:GetService("Players").LocalPlayer.Character.Powers.Quake.RemoteEvent:FireServer(v,"QuakePower4", "StopCharging",workspace.IslandCaver.Stones.Stone,CFrame.new(Vector3.new(-1169.5670166015625, 219.90908813476562, -1588.0274658203125), Vector3.new(0.015137090347707272, -0.6970996260643005, -0.7168144583702087)),100,Vector3.new(-1169.5670166015625, 219.90908813476562, -1588.0274658203125), Vector3.new(0.015137090347707272, -0.6970996260643005, -0.7168144583702087))
-    wait(0.5)
-    game:GetService("Players").LocalPlayer.Character.Powers.Quake.RemoteEvent:FireServer(v,"QuakePower4", "StopCharging",workspace.IslandCaver.Stones.Stone,CFrame.new(Vector3.new(-1201.4923095703125, 254.11367797851562, -1660.2674560546875), Vector3.new(0.04675392061471939, -0.6955714225769043, -0.7169341444969177)),100,Vector3.new(-1201.4923095703125, 254.11367797851562, -1660.2674560546875), Vector3.new(0.04675392061471939, -0.6955714225769043, -0.7169341444969177))
-    wait(0.5)
-    game:GetService("Players").LocalPlayer.Character.Powers.Quake.RemoteEvent:FireServer(v,"QuakePower4", "StopCharging",workspace.IslandCaver.Stones.Stone,CFrame.new(Vector3.new(-1288.0887451171875, 245.90695190429688, -1653.00537109375), Vector3.new(0.025024037808179855, -0.7537118196487427, -0.6567284464836121)),100,Vector3.new(-1288.0887451171875, 245.90695190429688, -1653.00537109375))
-    wait(0.5)
-    game:GetService("Players").LocalPlayer.Character.Powers.Quake.RemoteEvent:FireServer(v,"QuakePower4", "StopCharging",workspace.IslandCaver.Stones.Stone,CFrame.new(Vector3.new(-1339.789306640625, 245.81817626953125, -1634.641845703125), Vector3.new(0.07458476722240448, -0.6587507128715515, -0.7486552596092224)),100,Vector3.new(-1339.789306640625, 245.81817626953125, -1634.641845703125), Vector3.new(0.07458476722240448, -0.6587507128715515, -0.7486552596092224))
-    wait(0.5)
-    game:GetService("Players").LocalPlayer.Character.Powers.Quake.RemoteEvent:FireServer(v,"QuakePower4", "StopCharging",workspace.IslandCaver.Stones.Stone,CFrame.new(Vector3.new(-1432.3958740234375, 256.3514709472656, -1652.33984375), Vector3.new(0.007446270436048508, -0.6148971319198608, -0.7885722517967224)),100,Vector3.new(-1432.3958740234375, 256.3514709472656, -1652.33984375), Vector3.new(0.007446270436048508, -0.6148971319198608, -0.7885722517967224))
-    wait(0.5)
-    game:GetService("Players").LocalPlayer.Character.Powers.Quake.RemoteEvent:FireServer(v,"QuakePower4", "StopCharging",workspace.IslandCaver.Stones.Stone,CFrame.new(Vector3.new(-1270.039794921875, 263.09088134765625, -1793.016357421875), Vector3.new(0.32165566086769104, -0.4306340515613556, -0.8432627320289612)),100,Vector3.new(-1270.039794921875, 263.09088134765625, -1793.016357421875), Vector3.new(0.32165566086769104, -0.4306340515613556, -0.8432627320289612))
- end
-else
-    _G.AutoQuake = false
- end
-end)
-
-FFarmingSection:NewToggle("Light Farm" , "Kills a few NPCS", function(state)
-    if state then
-    local x = getsenv(game:GetService("Players").LocalPlayer.Character.Powers.Light)
-    local v = x.VTCrv
-    _G.Light = true
-    while _G.Light do 
-    game:GetService("Players").LocalPlayer.Character.Powers.Light.RemoteEvent:FireServer(v,"LightPower2", "StopCharging",CFrame.new(Vector3.new(-988.4560546875, 283, 1616.5068359375), Vector3.new(-0.44781866669654846, -0.36267393827438354, 0.8172675371170044)),workspace.IslandCaver.Stones.Stone, 100)
-    wait(0.5)
-    game:GetService("Players").LocalPlayer.Character.Powers.Light.RemoteEvent:FireServer(v,"LightPower2", "StopCharging",CFrame.new(Vector3.new(-1037.58544921875, 215.7229461669922, 1508.449951171875), Vector3.new(-0.7139230966567993, -0.5779988169670105, 0.39526084065437317)),workspace.IslandCaver.Stones.Stone, 100)
-    wait(0.5)
-    game:GetService("Players").LocalPlayer.Character.Powers.Light.RemoteEvent:FireServer(v,"LightPower2", "StopCharging",CFrame.new(Vector3.new(-908.2176513671875, 214, 1621.364990234375), Vector3.new(-0.21460314095020294, -0.40479180216789246, 0.88886958360672)),workspace.IslandCaver.Stones.Stone, 100)
-    wait(0.5)
-    game:GetService("Players").LocalPlayer.Character.Powers.Light.RemoteEvent:FireServer(v,"LightPower2", "StopCharging",CFrame.new(Vector3.new(-248.8604736328125, 273.4266052246094, 355.64453125), Vector3.new(0.6645273566246033, -0.5016912817955017, -0.5538134574890137)),workspace.IslandCaver.Stones.Stone, 100)
-    wait(0.5)
-    game:GetService("Players").LocalPlayer.Character.Powers.Light.RemoteEvent:FireServer(v,"LightPower2", "StopCharging",CFrame.new(Vector3.new(-319.3795471191406, 272.3931884765625, 388.7362060546875), Vector3.new(0.5347911715507507, -0.7442643046379089, -0.40008631348609924)),workspace.IslandCaver.Stones.Stone, 100)
-    wait(0.5)
-    game:GetService("Players").LocalPlayer.Character.Powers.Light.RemoteEvent:FireServer(v,"LightPower2", "StopCharging",CFrame.new(Vector3.new(-315.74334716796875, 270.4518737792969, 307.21185302734375), Vector3.new(0.4924789369106293, -0.6783868670463562, -0.5452118515968323)),workspace.IslandCaver.Stones.Stone, 100)
-    wait(0.5)
-    game:GetService("Players").LocalPlayer.Character.Powers.Light.RemoteEvent:FireServer(v,"LightPower2", "StopCharging",CFrame.new(Vector3.new(-178.00997924804688, 272.4919128417969, 390.1238708496094), Vector3.new(0.6851771473884583, -0.678036093711853, -0.26608139276504517)),workspace.IslandCaver.Stones.Stone, 100)
-    wait(0.5)
-    game:GetService("Players").LocalPlayer.Character.Powers.Light.RemoteEvent:FireServer(v,"LightPower2", "StopCharging",CFrame.new(Vector3.new(-159.9521026611328, 269.81768798828125, 312.1455993652344), Vector3.new(0.6065837144851685, -0.7200759649276733, -0.33696722984313965)),workspace.IslandCaver.Stones.Stone, 100)
-    wait(0.5)
-    game:GetService("Players").LocalPlayer.Character.Powers.Light.RemoteEvent:FireServer(v,"LightPower2", "StopCharging",CFrame.new(Vector3.new(89.97474670410156, 299.3000183105469, -936.1035766601562), Vector3.new(0.2870140075683594, -0.6174480319023132, -0.7323803305625916)),workspace.IslandCaver.Stones.Stone, 100)
-    wait(0.5)
-    game:GetService("Players").LocalPlayer.Character.Powers.Light.RemoteEvent:FireServer(v,"LightPower2", "StopCharging",CFrame.new(Vector3.new(-1169.5670166015625, 219.90908813476562, -1588.0274658203125), Vector3.new(0.015137090347707272, -0.6970996260643005, -0.7168144583702087)),workspace.IslandCaver.Stones.Stone, 100)
-    wait(0.5)
-    game:GetService("Players").LocalPlayer.Character.Powers.Light.RemoteEvent:FireServer(v,"LightPower2", "StopCharging",CFrame.new(Vector3.new(-1201.4923095703125, 254.11367797851562, -1660.2674560546875), Vector3.new(0.04675392061471939, -0.6955714225769043, -0.7169341444969177)),workspace.IslandCaver.Stones.Stone, 100)
-    wait(0.5)
-    game:GetService("Players").LocalPlayer.Character.Powers.Light.RemoteEvent:FireServer(v,"LightPower2", "StopCharging",CFrame.new(Vector3.new(-1288.0887451171875, 245.90695190429688, -1653.00537109375), Vector3.new(0.025024037808179855, -0.7537118196487427, -0.6567284464836121)),workspace.IslandCaver.Stones.Stone, 100)
-    wait(0.5)
-    game:GetService("Players").LocalPlayer.Character.Powers.Light.RemoteEvent:FireServer(v,"LightPower2", "StopCharging",CFrame.new(Vector3.new(-1339.789306640625, 245.81817626953125, -1634.641845703125), Vector3.new(0.07458476722240448, -0.6587507128715515, -0.7486552596092224)),workspace.IslandCaver.Stones.Stone, 100)
-    wait(0.5)
-    game:GetService("Players").LocalPlayer.Character.Powers.Light.RemoteEvent:FireServer(v,"LightPower2", "StopCharging",CFrame.new(Vector3.new(-1432.3958740234375, 256.3514709472656, -1652.33984375), Vector3.new(0.007446270436048508, -0.6148971319198608, -0.7885722517967224)),workspace.IslandCaver.Stones.Stone, 100)
-    wait(0.5)
-    game:GetService("Players").LocalPlayer.Character.Powers.Light.RemoteEvent:FireServer(v,"LightPower2", "StopCharging",CFrame.new(Vector3.new(-1270.039794921875, 263.09088134765625, -1793.016357421875), Vector3.new(0.32165566086769104, -0.4306340515613556, -0.8432627320289612)),workspace.IslandCaver.Stones.Stone, 100)
- end
-else
-    _G.Light = false
- end
-end)
-
------------------------------------ Farming
-FarmingSection3:NewButton("Infinite Yield", "Uses Inf yield gui", function()
-loadstring(game:HttpGet(('https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source'),true))()
-end)
-
-FarmingSection:NewToggle("Suicide", "Kills u for farming purposes", function(state)
-    if state then
-        _G.AutoDrown = true
-while _G.AutoDrown do
-    wait(1)
-    spawn(function()
-    for i = 1,5 do
-local args = {
-    [1] = "NOPLS"
-}
-
-game:GetService("Players").LocalPlayer.Character.Drown:FireServer(unpack(args))
-end
-end)
-end
-else
-        _G.AutoDrown = false
-    end
-end)
-
-FarmingSection:NewSlider("Dark Vortex Time", "Increase/Decrease time to wait until you use dark vortex", 50, 5, function(f) -- 50 (MaxValue) | 0 (MinValue)
-    DT = f
-end)
-
-FarmingSection:NewToggle("Dark Vortex", "Auto uses dark vortex for farming", function(state)
-    if state then
-        _G.AutoDark = true
-while _G.AutoDark do
-    wait(DT)
-    local x = getsenv(game:GetService("Players").LocalPlayer.Character.Powers.Dark)
-    local v = x.VTCjebaj
-local args = {
-    [1] = v,
-    [2] = "DarkPower8",
-    [3] = "Create",
-    [4] = CFrame.new(Vector3.new(-274.5000305175781, 225.91897583007812, -506.1360778808594), Vector3.new(-0.5358331203460693, 0.01048304419964552, 0.8442589044570923)),
-    [5] = workspace.StoneBridge.Beach
-}
-
-game:GetService("Players").LocalPlayer.Character.Powers.Dark.RemoteEvent:FireServer(unpack(args))
-end
-else
-        _G.AutoDark = false
-    end
-end)
-
-FarmingSection:NewToggle("Auto Spawn", "Spawns you at Cave Docks Automatically", function(state)
-        if state then
-            _G.AutoSpawn = true
-            setfpscap(15)
-    while _G.AutoSpawn do 
-    wait(4)
-    local Players = game:GetService("Players")
-    local Lp = Players.LocalPlayer
-    local Character = Lp.Character or Lp.CharacterAdded:Wait()
-    local Humanoid = Character:FindFirstChild("Humanoid")
-    Humanoid.Died:Connect(function()
-        local Character = Lp.CharacterAdded:Wait()
-        local WeaponRemote = Character:WaitForChild("Weapons")
-        local CharacterTrait = Character:WaitForChild("CharacterTrait")
-        local ClothingRemote = CharacterTrait:WaitForChild("ClothingTrigger")
-        WeaponRemote:FireServer()
-        ClothingRemote:FireServer()
-        Character:WaitForChild("HumanoidRootPart").CFrame = CFrame.new(-128.048264, 215.999954, -753.320984, 0.999702752, -1.25554733e-09, 0.0243795477, 4.81836904e-10, 1, 3.17419158e-08, -0.0243795477, -3.17207345e-08, 0.999702752)
-    end)
-    Lp.CharacterAdded:Connect(function(Char)
-        Char:WaitForChild("Humanoid").Died:Connect(function()
-        local Character = Lp.CharacterAdded:Wait()
-        local WeaponRemote = Character:WaitForChild("Weapons")
-        local CharacterTrait = Character:WaitForChild("CharacterTrait")
-        local ClothingRemote = CharacterTrait:WaitForChild("ClothingTrigger")
-        WeaponRemote:FireServer()
-        ClothingRemote:FireServer()
-        Character:WaitForChild("HumanoidRootPart").CFrame = CFrame.new(-128.048264, 215.999954, -753.320984, 0.999702752, -1.25554733e-09, 0.0243795477, 4.81836904e-10, 1, 3.17419158e-08, -0.0243795477, -3.17207345e-08, 0.999702752)
+DRINKSection:NewButton("Instant Drink","Drink", function()
+                    for i,v in pairs(game.Players.LocalPlayer.Backpack:GetChildren()) do
+                    if v:IsA("Tool") and string.find(v.Name, "Juice") or string.find(v.Name, "Milk") or string.find(v.Name, "Cider") or string.find(v.Name, "Lemonade") or string.find(v.Name, "Smoothie") or string.find(v.Name, "Golden") then
+                                            game.Players.LocalPlayer.Character.Humanoid:EquipTool(v)
+                                            game:GetService'VirtualUser':CaptureController()
+                                            game:GetService'VirtualUser':Button1Down(Vector2.new(1280, 672))
+                                        end
+                    end
         end)
-    end)
-    end
-        else
-           _G.AutoSpawn = false
-        end
+DRINKSection:NewButton("Drop Drink","Drop Drink", function()
+local plr = game.Players.LocalPlayer
+for i,v in pairs(plr.Backpack:GetChildren()) do
+		if v:IsA("Tool") and string.find(v.Name, "Juice") or string.find(v.Name, "Milk") or string.find(v.Name, "Cider") or string.find(v.Name, "Lemonade") or string.find(v.Name, "Smoothie") then
+			v.Parent = plr.Character
+		end
+	end
+	wait()
+	for i,v in pairs(plr.Character:GetChildren()) do
+		if v:IsA("Tool") and string.find(v.Name, "Juice") or string.find(v.Name, "Milk") or string.find(v.Name, "Cider") or string.find(v.Name, "Lemonade") or string.find(v.Name, "Smoothie") then
+			v.Parent = workspace
+		end
+	end
+	end)
+DRINKSection:NewButton("Reload The Beries (Rejoin)","Rejoin",function()
+game.Players.LocalPlayer:Kick("Rejoining  Please Wait...")
+game:GetService("TeleportService"):TeleportToPlaceInstance(game.PlaceId, game.JobId)
 end)
-
-
-
------------------------------------ Drinks/Barrel Farming
-DrinkingSection:NewDropdown("The Drink", "Buys chosen drinks", {"Cider+", "Lemonade+", "Juice+", "Smoothie+"}, function(An)
-Choice = An
+AFFSection:NewButton("Dupe Mode (Turn On Before Duping)","Turn On Before Dupe", function()
+local plr = game.Players.LocalPlayer
+game:GetService("Workspace").UserData["User_"..plr.UserId].UpdateClothing_Extras:FireServer("A","\255",34)
 end)
-
-DrinkingSection:NewTextBox("Drink Amount", "Makes you buy drinks", function(text)
-    for i = 1,(text) do
-        wait(0.1)
-        game.Workspace.Merchants.BetterDrinkMerchant.Clickable.Retum:FireServer(Choice)
-        end
-end)
-
-DrinkingSection:NewToggle("Auto Drink", "Auto Drinks juices", function(state)
-    if state then
-        _G.Using = true
-while _G.Using do
-    wait(0.5)  
-pcall(function()
-local Players = game:GetService("Players")
-local Lp = Players.LocalPlayer
-local Character = Lp.Character or Lp.CharacterAdded:Wait()
-local Humanoid = Character.Humanoid
-local user = tostring(game.Players.LocalPlayer.Name)
-for i,v in pairs(Lp.Backpack:GetChildren()) do 
-    if v:IsA("Tool") and string.find(v.Name, "Juice") or string.find(v.Name, "Cider") or string.find(v.Name, "Milk")  or string.find(v.Name, "+")  or string.find(v.Name, "Smoothie") or string.find(v.Name, "Lemonade") or string.find(v.Name, "Golden") then  
-        Humanoid:EquipTool(v)
-        v:Activate()
-        wait()
-    end 
-end 
-end)
-end
-else
-        _G.Using = false
-    end
-end)
-
-DrinkingSection:NewToggle("Auto Barrels", "Auto clicks all barrels", function(state)
-    if state then
-         _G.AutoMixer = true
-local user = tostring(game.Players.LocalPlayer.Name)
-local StoredLocation = game.workspace[""..user].HumanoidRootPart.CFrame 
-
-spawn(function()
-local plrid = tostring(game.Players.LocalPlayer.UserId)
-local plr = tostring(game.Players.LocalPlayer)
-while _G.AutoMixer do
-wait()
-pcall(function()
-repeat task.wait() until game.Players[""..plr].PlayerGui.Challenges.Frame.Frame.ChallengesFrame.ScrollingFrame["Challenge_13"].Claim.AutoButtonColor == true
-workspace.UserData["User_"..plrid].ChallengesRemote:FireServer("Claim","Challenge13")
-workspace.UserData["User_"..plrid].ChallengesRemote:FireServer("Claim","Challenge14")
-end)
-end
-end)
-
-function amongus()
-for i,v in pairs(game:GetService("Workspace").Barrels:GetDescendants()) do
+AFFSection:NewButton("Affinities GUI", "Open Lucy GUI", function()
+for i,v in pairs(game:GetService("Workspace").Merchants.AffinityMerchant:GetDescendants()) do
 if v:IsA("ClickDetector") then
 fireclickdetector(v)
 end
 end
-for i,v in pairs(game:GetService("Workspace").Island8.Kitchen:GetDescendants()) do
-if v:IsA("ClickDetector") then
-fireclickdetector(v)
-end
-end
-end
-
-while _G.AutoMixer do
+end)
+AFFSection:NewButton("Save Affinities","Save Affinities", function()
+local plr = game.Players.LocalPlayer
+game:GetService("Workspace").UserData["User_"..plr.UserId].UpdateClothing_Extras:FireServer("A","None",34)
+end)
+AFFSection:NewButton("Reload The Beries (Rejoin)","Rejoin",function()
+game.Players.LocalPlayer:Kick("Rejoining  Please Wait...")
+game:GetService("TeleportService"):TeleportToPlaceInstance(game.PlaceId, game.JobId)
+end)
+GrabSection:NewToggle("Grab Tools",false, function(tpmodelight)
+getgenv().lightttt = tpmodelight
+while getgenv().lightttt do wait()
 pcall(function()
-for i,v in pairs(game:GetService("Workspace").Barrels.Barrels:GetDescendants()) do
-if v.Name == "Barrel" then
-game.workspace[""..user].HumanoidRootPart.CFrame = v.CFrame + Vector3.new(0, 5, 0)
-amongus()
-wait(0.1)
-end
-end
-for i,v in pairs(game:GetService("Workspace").Barrels:GetDescendants()) do
-if v.Name == "Crate" then
-game.workspace[""..user].HumanoidRootPart.CFrame = v.CFrame + Vector3.new(0, 5, 0)
-amongus()
-wait(0.1)
-end
-end
-game.workspace[""..user].HumanoidRootPart.CFrame = StoredLocation
-end)
-wait(15)
-end
-    else
-       _G.AutoMixer = false
-    end
-end)
-
------------------------------------ Sam
-SamSection:NewButton("Collect all compass's", "Collects all compass's", function()
-workspace.Merchants.QuestMerchant.Clickable.Retum:FireServer("Claim10")
-end)
-
-SamSection:NewButton("Collect one compass", "Collects single compass", function()
-workspace.Merchants.QuestMerchant.Clickable.Retum:FireServer("Claim1")
-end)
-
-
-SamSection:NewToggle("Compass Destination", "Tp's you to your compass destination", function(state)
-    if state then
-        _G.Destination = true
-while _G.Destination do 
-    task.wait(0.2)        
-local user = tostring(game.Players.LocalPlayer.Name)
-game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(game:GetService("Players")[""..user].Backpack.Compass.Poser.Value)
-game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game:GetService("Workspace")[""..user].Compass.Power.Value
-local user = tostring(game.Players.LocalPlayer.Name)
-for i,v in pairs(Lp.Backpack:GetChildren()) do 
-    if v:IsA("Tool") and string.find(v.Name, "Compass")
-        v:Activate()
-        wait()
-end 
-     end
-    else
-        _G.Destination = false
-    end
-end)
-
-SamSection:NewToggle("Compass Stealing", "Steals a compass if dropped", function(state)
-
-if state then
-    _G.CompassSteal = true
-    local plr=game:GetService'Players'.LocalPlayer              --compass stealing
-local find='Compass' 
-while _G.Compass do
-local char=plr.Character or plr.CharacterAdded:Wait()
-local HRP=char:WaitForChild'HumanoidRootPart'
-for i,v in next, workspace:GetChildren() do
-local Handle=v:FindFirstChild'Handle'
-if v:IsA'Tool' and string.find(v.Name:lower(), find:lower()) and Handle then
-Handle.CFrame=HRP.CFrame
-end
-end
-wait()
-end
-else
-    _G.CompassSteal = false
-end
-end)
-SamSection:NewToggle("RareBox Stealing", "Steals a RareBox if dropped", function(state)
-if state then
-    _G.Rare = true
-    local plr=game:GetService'Players'.LocalPlayer              --Steals rare if dropped
-local find='Rare Box' 
-while _G.Rare do
-local char=plr.Character or plr.CharacterAdded:Wait()
-local HRP=char:WaitForChild'HumanoidRootPart'
-for i,v in next, workspace:GetChildren() do
-local Handle=v:FindFirstChild'Handle'
-if v:IsA'Tool' and string.find(v.Name:lower(), find:lower()) and Handle then
-Handle.CFrame=HRP.CFrame
-end
-end
-wait()
-end
-else
-    _G.Rare = false
-end
-end)
-SamSection:NewToggle("UltraRareBox stealing", "Steals a UltraRareBox if dropped", function(state)
-    if state then
-        _G.Ultra = true
-        local plr=game:GetService'Players'.LocalPlayer--------- compass stealing
-local find='Ultra Rare Box' 
-while _G.Ultra do
-local char=plr.Character or plr.CharacterAdded:Wait()
-local HRP=char:WaitForChild'HumanoidRootPart'
-for i,v in next, workspace:GetChildren() do
-local Handle=v:FindFirstChild'Handle'
-if v:IsA'Tool' and string.find(v.Name:lower(), find:lower()) and Handle then
-Handle.CFrame=HRP.CFrame
-end
-end
-wait()
-end
-    else
-        _G.Ultra = false
-    end
-end)
-SamSection:NewToggle("TpFruit", "Tps fruits", function(state)
-    if state then
-     _G.Tpfruit = true
- while _G.Tpfruit do
-     task.wait()
+	local humanoid = game.Players.LocalPlayer.Character:FindFirstChildWhichIsA("Humanoid")
+	for _, child in ipairs(workspace:GetChildren()) do
+		if game.Players.LocalPlayer.Character and child:IsA("BackpackItem") and child:FindFirstChild("Handle") then
+			humanoid:EquipTool(child)
+			wait()
+		end
+	end
+	end)
+	end
+	end)
+GrabSection:NewToggle("Grab Devil Fruit",false, function(grabfruit)
+getgenv().gfhh = grabfruit
+while getgenv().gfhh do wait()
+pcall(function()
  for i,v in pairs(game:GetService("Workspace").Trees.Tree:GetDescendants()) do
 if v:IsA("ClickDetector") then
 fireclickdetector(v)
-end
-end
-end    
-    else
-        _G.Tpfruit = false
-    end
-end) 
-
------------------------------------ Haki Scripts
-HakiSection:NewButton("Haki levels", "Grinds ur haki level", function(state)
-
-local pl = tostring(game:GetService("Players").LocalPlayer.UserId)
-local lv = game:GetService("Workspace").UserData["User_"..pl].Data.HakiLevel.Value
-for i = 1,25 do
-while wait() do
-workspace.UserData["User_"..pl].III:FireServer("On", lv)
 wait()
-workspace.UserData["User_"..pl].III:FireServer("On", lv)
-wait()
-workspace.UserData["User_"..pl].III:FireServer("Off", lv)
-wait()
-workspace.UserData["User_"..pl].III:FireServer("Off", lv)   
 end
 end
 end)
+end
+end)
 
------------------------------------ Teleports
-TPSection:NewDropdown("Island Teleports", "Teleports you to chosen island", {"Sand", "RaceTrack" , "Disco" ,"Cave", "MarineFort" ,"Sam", "Krizma", "Moss" , "Expertise", "Mansion" , "Tall Trees" , "Dead Trees", "Pyramid", "BigSnow", "Little Snow", "Vokkun", "Kaizu", "Purple", "Pursuer", "Safe Place"}, function(currentOption)
-    if currentOption == "Expertise" then
-game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(902.105103, 282.199921, 1219.1825, 0.000111424371, -4.80737405e-08, 1, -5.58505509e-09, 1, 4.80743623e-08, -1, -5.59041169e-09, 0.000111424371)
-    end
-    
-    if currentOption == "Krizma" then
-game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-1074.2793, 360.999908, 1687.67566, 0.998138607, -2.49312624e-08, 0.0609866381, 1.98675316e-08, 1, 8.3636543e-08, -0.0609866381, -8.22692101e-08, 0.998138607)
-       end
+FFarmSection:NewToggle("Light Farm" , false, function(farmlight)  --Light
+getgenv().farmlight1 = farmlight
+ while getgenv().farmlight1 do wait()
+pcall(function()
+local x = getsenv(game:GetService("Players").LocalPlayer.Character.Powers.Light)
+local v = x.VTCrv
+game:GetService("Players").LocalPlayer.Character.Powers.Light.RemoteEvent:FireServer(v,"LightPower2", "StopCharging",CFrame.new(Vector3.new(-988.4560546875, 283, 1616.5068359375), Vector3.new(-0.44781866669654846, -0.36267393827438354, 0.8172675371170044)),workspace.IslandCaver.Stones.Stone, 100)
+wait()
+game:GetService("Players").LocalPlayer.Character.Powers.Light.RemoteEvent:FireServer(v,"LightPower2", "StopCharging",CFrame.new(Vector3.new(-1037.58544921875, 215.7229461669922, 1508.449951171875), Vector3.new(-0.7139230966567993, -0.5779988169670105, 0.39526084065437317)),workspace.IslandCaver.Stones.Stone, 100)
+wait()
+game:GetService("Players").LocalPlayer.Character.Powers.Light.RemoteEvent:FireServer(v,"LightPower2", "StopCharging",CFrame.new(Vector3.new(-908.2176513671875, 214, 1621.364990234375), Vector3.new(-0.21460314095020294, -0.40479180216789246, 0.88886958360672)),workspace.IslandCaver.Stones.Stone, 100)
+wait()
+game:GetService("Players").LocalPlayer.Character.Powers.Light.RemoteEvent:FireServer(v,"LightPower2", "StopCharging",CFrame.new(Vector3.new(-248.8604736328125, 273.4266052246094, 355.64453125), Vector3.new(0.6645273566246033, -0.5016912817955017, -0.5538134574890137)),workspace.IslandCaver.Stones.Stone, 100)
+wait()
+game:GetService("Players").LocalPlayer.Character.Powers.Light.RemoteEvent:FireServer(v,"LightPower2", "StopCharging",CFrame.new(Vector3.new(-319.3795471191406, 272.3931884765625, 388.7362060546875), Vector3.new(0.5347911715507507, -0.7442643046379089, -0.40008631348609924)),workspace.IslandCaver.Stones.Stone, 100)
+wait()
+game:GetService("Players").LocalPlayer.Character.Powers.Light.RemoteEvent:FireServer(v,"LightPower2", "StopCharging",CFrame.new(Vector3.new(-315.74334716796875, 270.4518737792969, 307.21185302734375), Vector3.new(0.4924789369106293, -0.6783868670463562, -0.5452118515968323)),workspace.IslandCaver.Stones.Stone, 100)
+wait()
+game:GetService("Players").LocalPlayer.Character.Powers.Light.RemoteEvent:FireServer(v,"LightPower2", "StopCharging",CFrame.new(Vector3.new(-178.00997924804688, 272.4919128417969, 390.1238708496094), Vector3.new(0.6851771473884583, -0.678036093711853, -0.26608139276504517)),workspace.IslandCaver.Stones.Stone, 100)
+wait()
+game:GetService("Players").LocalPlayer.Character.Powers.Light.RemoteEvent:FireServer(v,"LightPower2", "StopCharging",CFrame.new(Vector3.new(-159.9521026611328, 269.81768798828125, 312.1455993652344), Vector3.new(0.6065837144851685, -0.7200759649276733, -0.33696722984313965)),workspace.IslandCaver.Stones.Stone, 100)
+wait()
+game:GetService("Players").LocalPlayer.Character.Powers.Light.RemoteEvent:FireServer(v,"LightPower2", "StopCharging",CFrame.new(Vector3.new(89.97474670410156, 299.3000183105469, -936.1035766601562), Vector3.new(0.2870140075683594, -0.6174480319023132, -0.7323803305625916)),workspace.IslandCaver.Stones.Stone, 100)
+wait()
+game:GetService("Players").LocalPlayer.Character.Powers.Light.RemoteEvent:FireServer(v,"LightPower2", "StopCharging",CFrame.new(Vector3.new(-1169.5670166015625, 219.90908813476562, -1588.0274658203125), Vector3.new(0.015137090347707272, -0.6970996260643005, -0.7168144583702087)),workspace.IslandCaver.Stones.Stone, 100)
+wait()
+game:GetService("Players").LocalPlayer.Character.Powers.Light.RemoteEvent:FireServer(v,"LightPower2", "StopCharging",CFrame.new(Vector3.new(-1201.4923095703125, 254.11367797851562, -1660.2674560546875), Vector3.new(0.04675392061471939, -0.6955714225769043, -0.7169341444969177)),workspace.IslandCaver.Stones.Stone, 100)
+wait()
+game:GetService("Players").LocalPlayer.Character.Powers.Light.RemoteEvent:FireServer(v,"LightPower2", "StopCharging",CFrame.new(Vector3.new(-1288.0887451171875, 245.90695190429688, -1653.00537109375), Vector3.new(0.025024037808179855, -0.7537118196487427, -0.6567284464836121)),workspace.IslandCaver.Stones.Stone, 100)
+wait()
+game:GetService("Players").LocalPlayer.Character.Powers.Light.RemoteEvent:FireServer(v,"LightPower2", "StopCharging",CFrame.new(Vector3.new(-1339.789306640625, 245.81817626953125, -1634.641845703125), Vector3.new(0.07458476722240448, -0.6587507128715515, -0.7486552596092224)),workspace.IslandCaver.Stones.Stone, 100)
+wait()
+game:GetService("Players").LocalPlayer.Character.Powers.Light.RemoteEvent:FireServer(v,"LightPower2", "StopCharging",CFrame.new(Vector3.new(-1432.3958740234375, 256.3514709472656, -1652.33984375), Vector3.new(0.007446270436048508, -0.6148971319198608, -0.7885722517967224)),workspace.IslandCaver.Stones.Stone, 100)
+wait()
+game:GetService("Players").LocalPlayer.Character.Powers.Light.RemoteEvent:FireServer(v,"LightPower2", "StopCharging",CFrame.new(Vector3.new(-1270.039794921875, 263.09088134765625, -1793.016357421875), Vector3.new(0.32165566086769104, -0.4306340515613556, -0.8432627320289612)),workspace.IslandCaver.Stones.Stone, 100)
+wait()
+local args = {
+    [1] = v,
+    [2] = "LightPower2",
+    [3] = "StopCharging",
+    [4] = CFrame.new(1006.49609, 214, 3343.88672, -0.658374071, 0.456948608, -0.598114967, 1.49011612e-08, 0.794635653, 0.607086658, 0.752690911, 0.399690121, -0.523167491),
+    [5] = workspace:WaitForChild("IslandWindmill"):WaitForChild("Beach"):WaitForChild("Beach"),
+    [6] = 100
+}
 
-    if currentOption == "Sand" then
-        for i,v in pairs(game.Workspace.IslandWindmill:GetDescendants()) do
-            if v.Name == "Part" then
-            game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = v.CFrame
+game:GetService("Players").LocalPlayer.Character.Powers.Light.RemoteEvent:FireServer(unpack(args))
+wait()
+local args = {
+    [1] = v,
+    [2] = "LightPower2",
+    [3] = "StopCharging",
+    [4] = CFrame.new(63.7783852, 224.092834, -22.6948109, 0.880218983, -0.199063435, 0.430799752, -0, 0.907772779, 0.419462502, -0.47456789, -0.369218856, 0.799038708),
+    [5] = workspace:WaitForChild("IslandWindmill"):WaitForChild("Beach"):WaitForChild("Beach"),
+    [6] = 100
+}
+
+game:GetService("Players").LocalPlayer.Character.Powers.Light.RemoteEvent:FireServer(unpack(args))
+wait()
+local args = {
+    [1] = v,
+    [2] = "LightPower2",
+    [3] = "StopCharging",
+    [4] = CFrame.new(78.0910568, 224.257538, -250.038528, -0.929546118, 0.140650496, -0.340824872, 7.4505806e-09, 0.924381137, 0.381470531, 0.368706048, 0.354594439, -0.859254777),
+    [5] = workspace:WaitForChild("IslandWindmill"):WaitForChild("Beach"):WaitForChild("Beach"),
+    [6] = 100
+}
+
+game:GetService("Players").LocalPlayer.Character.Powers.Light.RemoteEvent:FireServer(unpack(args))
+wait()
+local args = {
+    [1] = v,
+    [2] = "LightPower2",
+    [3] = "StopCharging",
+    [4] = CFrame.new(-83.3654709, 213.507431, -291.45694, -0.803052127, 0.286845595, -0.522328377, -1.49011647e-08, 0.876523972, 0.481358171, 0.59590888, 0.386555701, -0.703894377),
+    [5] = workspace:WaitForChild("IslandWindmill"):WaitForChild("Beach"):WaitForChild("Beach"),
+    [6] = 100
+}
+
+game:GetService("Players").LocalPlayer.Character.Powers.Light.RemoteEvent:FireServer(unpack(args))
+wait()
+local args = {
+    [1] = v,
+    [2] = "LightPower2",
+    [3] = "StopCharging",
+    [4] = CFrame.new(-361.610687, 226.601395, -483.790314, -0.127329662, -0.748218894, 0.651118755, -7.4505806e-09, 0.656462073, 0.754359066, -0.991860449, 0.0960522816, -0.0835870951),
+    [5] = workspace:WaitForChild("IslandWindmill"):WaitForChild("Beach"):WaitForChild("Beach"),
+    [6] = 100
+}
+
+game:GetService("Players").LocalPlayer.Character.Powers.Light.RemoteEvent:FireServer(unpack(args))
+wait()
+local args = {
+    [1] = v,
+    [2] = "LightPower2",
+    [3] = "StopCharging",
+    [4] = CFrame.new(-417.081055, 215.650604, -199.940262, -0.999979317, 0.00165595487, -0.00622563809, -0, 0.966397822, 0.257051706, 0.00644210819, 0.257046402, -0.966377676),
+    [5] = workspace:WaitForChild("IslandWindmill"):WaitForChild("Beach"):WaitForChild("Beach"),
+    [6] = 100
+}
+
+game:GetService("Players").LocalPlayer.Character.Powers.Light.RemoteEvent:FireServer(unpack(args))
+wait()
+local args = {
+    [1] = v,
+    [2] = "LightPower2",
+    [3] = "StopCharging",
+    [4] = CFrame.new(1189.82031, 209.504807, -253.076477, -0.0244355015, 0.911407471, -0.410779238, -9.31322575e-10, 0.410901964, 0.911679626, 0.9997015, 0.0222773496, -0.0100405924),
+    [5] = workspace:WaitForChild("IslandWindmill"):WaitForChild("Beach"):WaitForChild("Beach"),
+    [6] = 100
+}
+
+game:GetService("Players").LocalPlayer.Character.Powers.Light.RemoteEvent:FireServer(unpack(args))
+wait()
+local args = {
+    [1] = v,
+    [2] = "LightPower2",
+    [3] = "StopCharging",
+    [4] = CFrame.new(997.100281, 221.200043, -3273.66992, -0.999911904, 0.00796189532, -0.0106200371, 4.65661287e-10, 0.80011332, 0.599848986, 0.0132731665, 0.599796116, -0.800042808),
+    [5] = workspace:WaitForChild("IslandWindmill"):WaitForChild("Beach"):WaitForChild("Beach"),
+    [6] = 100
+}
+
+game:GetService("Players").LocalPlayer.Character.Powers.Light.RemoteEvent:FireServer(unpack(args))
+wait()
+local args = {
+    [1] = v,
+    [2] = "LightPower2",
+    [3] = "StopCharging",
+    [4] = CFrame.new(1135.32324, 221.200058, -3279.3938, -0.962248683, 0.192036361, -0.192872062, -1.49011612e-08, 0.708640337, 0.705569923, 0.272172004, 0.67893374, -0.681888163),
+    [5] = workspace:WaitForChild("IslandWindmill"):WaitForChild("Beach"):WaitForChild("Beach"),
+    [6] = 100
+}
+
+game:GetService("Players").LocalPlayer.Character.Powers.Light.RemoteEvent:FireServer(unpack(args))
+wait()
+local args = {
+    [1] = v,
+    [2] = "LightPower2",
+    [3] = "StopCharging",
+    [4] = CFrame.new(1069.11377, 221.200027, -3392.5415, -0.242442578, 0.617383361, -0.748371243, -0, 0.771385014, 0.636368871, 0.970165849, 0.154282913, -0.187016517),
+    [5] = workspace:WaitForChild("IslandWindmill"):WaitForChild("Beach"):WaitForChild("Beach"),
+    [6] = 100
+}
+
+game:GetService("Players").LocalPlayer.Character.Powers.Light.RemoteEvent:FireServer(unpack(args))
+wait()
+local args = {
+    [1] = v,
+    [2] = "LightPower2",
+    [3] = "StopCharging",
+    [4] = CFrame.new(1119.41455, 221, -3377.73682, -0.973147631, 0.127094254, -0.191913262, -7.45057971e-09, 0.833746493, 0.552147388, 0.230181754, 0.537320912, -0.811358511),
+    [5] = workspace:WaitForChild("IslandWindmill"):WaitForChild("Beach"):WaitForChild("Beach"),
+    [6] = 100
+}
+
+game:GetService("Players").LocalPlayer.Character.Powers.Light.RemoteEvent:FireServer(unpack(args))
+wait()
+local args = {
+    [1] = v,
+    [2] = "LightPower2",
+    [3] = "StopCharging",
+    [4] = CFrame.new(-1848.74072, 222, -445.570709, -0.737809598, -0.349238694, 0.577641249, -0, 0.855753541, 0.517383814, -0.675008953, 0.381730735, -0.631383121),
+    [5] = workspace:WaitForChild("IslandWindmill"):WaitForChild("Beach"):WaitForChild("Beach"),
+    [6] = 100
+}
+
+game:GetService("Players").LocalPlayer.Character.Powers.Light.RemoteEvent:FireServer(unpack(args))
+wait()
+local args = {
+    [1] = v,
+    [2] = "LightPower2",
+    [3] = "StopCharging",
+    [4] = CFrame.new(-1934.89453, 222.827698, -287.688354, -0.201752827, 0.466540843, -0.86118263, 7.45058149e-09, 0.87926352, 0.476335943, 0.979436576, 0.0961021185, -0.177393854),
+    [5] = workspace:WaitForChild("IslandWindmill"):WaitForChild("Beach"):WaitForChild("Beach"),
+    [6] = 100
+}
+
+game:GetService("Players").LocalPlayer.Character.Powers.Light.RemoteEvent:FireServer(unpack(args))
+wait()
+local args = {
+    [1] = v,
+    [2] = "LightPower2",
+    [3] = "StopCharging",
+    [4] = CFrame.new(-1902.58936, 225.020691, -200.327271, 0.482329607, 0.390431523, -0.784169197, 1.49011612e-08, 0.895180702, 0.445703268, 0.875989795, -0.214975893, 0.431772202),
+    [5] = workspace:WaitForChild("IslandWindmill"):WaitForChild("Beach"):WaitForChild("Beach"),
+    [6] = 100
+}
+
+game:GetService("Players").LocalPlayer.Character.Powers.Light.RemoteEvent:FireServer(unpack(args))
+wait()
+
+local args = {
+    [1] = v,
+    [2] = "LightPower2",
+    [3] = "StopCharging",
+    [4] = CFrame.new(219.922928, 216.962555, 5.62356806, 0.7696684, -0.491379827, 0.407622814, -0, 0.63846314, 0.769652426, -0.638443828, -0.592377126, 0.491404891),
+    [5] = workspace:WaitForChild("IslandWindmill"):WaitForChild("Beach"):WaitForChild("Beach"),
+    [6] = 100
+}
+
+game:GetService("Players").LocalPlayer.Character.Powers.Light.RemoteEvent:FireServer(unpack(args))
+wait()
+
+local args = {
+    [1] = v,
+    [2] = "LightPower2",
+    [3] = "StopCharging",
+    [4] = CFrame.new(-1750.64819, 226.240067, -135.158188, 0.741380215, -0.609925508, 0.279904127, -0, 0.417091757, 0.908864439, -0.671085238, -0.673814118, 0.309223562),
+    [5] = workspace:WaitForChild("IslandWindmill"):WaitForChild("Beach"):WaitForChild("Beach"),
+    [6] = 100
+}
+
+game:GetService("Players").LocalPlayer.Character.Powers.Light.RemoteEvent:FireServer(unpack(args))
+wait()
+
+local args = {
+    [1] = v,
+    [2] = "LightPower2",
+    [3] = "StopCharging",
+    [4] = CFrame.new(-1622.35095, 225.656448, -196.633286, 0.243688434, -0.768282771, 0.591910183, -0, 0.610308826, 0.79216361, -0.96985364, -0.193041116, 0.148725212),
+    [5] = workspace:WaitForChild("IslandWindmill"):WaitForChild("Beach"):WaitForChild("Beach"),
+    [6] = 100
+}
+
+game:GetService("Players").LocalPlayer.Character.Powers.Light.RemoteEvent:FireServer(unpack(args))
+wait()
+local args = {
+    [1] = v,
+    [2] = "LightPower2",
+    [3] = "StopCharging",
+    [4] = CFrame.new(-1011.52802, 325.579163, 1688.44336, 0.0565236248, -0.625209868, 0.778407216, -1.86264515e-09, 0.779653728, 0.626210988, -0.998401344, -0.0353957154, 0.0440688469),
+    [5] = workspace:WaitForChild("IslandWindmill"):WaitForChild("Beach"):WaitForChild("Beach"),
+    [6] = 100
+}
+
+game:GetService("Players").LocalPlayer.Character.Powers.Light.RemoteEvent:FireServer(unpack(args))
+wait()
+end)
+end
+end)
+FFarmSection:NewButton("Create Light Farm Spot","nil", function()
+baseplatee = Instance.new("Part", workspace)
+baseplatee.Size = Vector3.new(50, 1, 50)
+baseplatee.CFrame = CFrame.new(100, 2998, 800)
+baseplatee.Anchored = true
+end)
+FFarmSection:NewButton("Teleport To Farm Spot","nil", function()
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(100, 3000, 800)
+end)
+
+FFarmSection2:NewToggle("Quake Farm" , false, function(quakefarm)  --Quake
+getgenv().quakefarm1 = quakefarm
+        while getgenv().quakefarm1 do wait()
+    pcall(function()
+local x = getsenv(game:GetService("Players").LocalPlayer.Character.Powers.Quake)
+local v = x.VTCebvc
+game:GetService("Players").LocalPlayer.Character.Powers.Quake.RemoteEvent:FireServer(v,"QuakePower4", "StopCharging",workspace.IslandCaver.Stones.Stone,CFrame.new(Vector3.new(-1848.4346923828125, 222, -450.0833740234375), Vector3.new(-0.5347824096679688, -0.43560168147087097, -0.7240573167800903)),100,Vector3.new(-1848.4346923828125, 222, -450.0833740234375), Vector3.new(-0.5347824096679688, -0.43560168147087097, -0.7240573167800903))
+wait(0.1)
+game:GetService("Players").LocalPlayer.Character.Powers.Quake.RemoteEvent:FireServer(v,"QuakePower4", "StopCharging",workspace.IslandCaver.Stones.Stone,CFrame.new(Vector3.new(-1898.96728515625, 225.03367614746094, -200.6829071044922), Vector3.new(-0.9484627842903137, -0.18392488360404968, 0.25805023312568665)),100,Vector3.new(-1898.96728515625, 225.03367614746094, -200.6829071044922), Vector3.new(-0.9484627842903137, -0.18392488360404968, 0.25805023312568665))
+wait(0.1)
+game:GetService("Players").LocalPlayer.Character.Powers.Quake.RemoteEvent:FireServer(v,"QuakePower4", "StopCharging",workspace.IslandCaver.Stones.Stone,CFrame.new(Vector3.new(-1749.58203125, 224.88922119140625, -134.49240112304688), Vector3.new(-0.6882264614105225, -0.40487319231033325, 0.6020150184631348)),100,Vector3.new(-1749.58203125, 224.88922119140625, -134.49240112304688), Vector3.new(-0.6882264614105225, -0.40487319231033325, 0.6020150184631348))
+wait(0.1)
+game:GetService("Players").LocalPlayer.Character.Powers.Quake.RemoteEvent:FireServer(v,"QuakePower4", "StopCharging",workspace.IslandCaver.Stones.Stone,CFrame.new(Vector3.new(-1622.5482177734375, 225.85337829589844, -200.26828002929688), Vector3.new(-0.3189719319343567, -0.7127735018730164, 0.6246685981750488)),100,Vector3.new(-1622.5482177734375, 225.85337829589844, -200.26828002929688), Vector3.new(-0.3189719319343567, -0.7127735018730164, 0.6246685981750488))
+wait(0.1)
+game:GetService("Players").LocalPlayer.Character.Powers.Quake.RemoteEvent:FireServer(v,"QuakePower4", "StopCharging",workspace.IslandCaver.Stones.Stone,CFrame.new(Vector3.new(1002.1565551757812, 214, 3349.3857421875), Vector3.new(-0.2978745698928833, -0.6442758440971375, 0.7044001221656799)),100,Vector3.new(1002.1565551757812, 214, 3349.3857421875), Vector3.new(-0.2978745698928833, -0.6442758440971375, 0.7044001221656799))
+wait(0.1)
+game:GetService("Players").LocalPlayer.Character.Powers.Quake.RemoteEvent:FireServer(v,"QuakePower4", "StopCharging",workspace.IslandCaver.Stones.Stone,CFrame.new(Vector3.new(2167.46923828125, 213, -631.9636840820312), Vector3.new(0.6589730978012085, -0.6376858949661255, -0.3988874852657318)),100,Vector3.new(2167.46923828125, 213, -631.9636840820312), Vector3.new(0.6589730978012085, -0.6376858949661255, -0.3988874852657318))
+wait(0.1)
+game:GetService("Players").LocalPlayer.Character.Powers.Quake.RemoteEvent:FireServer(v,"QuakePower4", "StopCharging",workspace.IslandCaver.Stones.Stone,CFrame.new(Vector3.new(1178.6993408203125, 212.26193237304688, -263.04681396484375), Vector3.new(0.04516664147377014, -0.9571055173873901, 0.28619781136512756)),100,Vector3.new(1178.6993408203125, 212.26193237304688, -263.04681396484375), Vector3.new(0.04516664147377014, -0.9571055173873901, 0.28619781136512756))
+wait(0.1)
+game:GetService("Players").LocalPlayer.Character.Powers.Quake.RemoteEvent:FireServer(v,"QuakePower4", "StopCharging",workspace.IslandCaver.Stones.Stone,CFrame.new(Vector3.new(-1040.117919921875, 215, 1662.1202392578125), Vector3.new(0.9582481980323792, -0.13812202215194702, 0.2503652274608612)), 100,Vector3.new(-1040.117919921875, 215, 1662.1202392578125), Vector3.new(0.9582481980323792, -0.13812202215194702, 0.2503652274608612))
+wait(0.1)
+game:GetService("Players").LocalPlayer.Character.Powers.Quake.RemoteEvent:FireServer(v,"QuakePower4", "StopCharging",workspace.IslandCaver.Stones.Stone,CFrame.new(Vector3.new(-988.4560546875, 283, 1616.5068359375), Vector3.new(-0.44781866669654846, -0.36267393827438354, 0.8172675371170044)), 100,Vector3.new(-988.4560546875, 283, 1616.5068359375), Vector3.new(-0.44781866669654846, -0.36267393827438354, 0.8172675371170044))
+wait(0.1)
+game:GetService("Players").LocalPlayer.Character.Powers.Quake.RemoteEvent:FireServer(v,"QuakePower4", "StopCharging",workspace.IslandCaver.Stones.Stone,CFrame.new(Vector3.new(-1037.58544921875, 215.7229461669922, 1508.449951171875), Vector3.new(-0.7139230966567993, -0.5779988169670105, 0.39526084065437317)),100,Vector3.new(-1037.58544921875, 215.7229461669922, 1508.449951171875), Vector3.new(-0.7139230966567993, -0.5779988169670105, 0.39526084065437317))
+wait(0.1)
+game:GetService("Players").LocalPlayer.Character.Powers.Quake.RemoteEvent:FireServer(v,"QuakePower4", "StopCharging",workspace.IslandCaver.Stones.Stone,CFrame.new(Vector3.new(-908.2176513671875, 214, 1621.364990234375), Vector3.new(-0.21460314095020294, -0.40479180216789246, 0.88886958360672)),100,Vector3.new(-908.2176513671875, 214, 1621.364990234375), Vector3.new(-0.21460314095020294, -0.40479180216789246, 0.88886958360672))
+wait(0.1)
+game:GetService("Players").LocalPlayer.Character.Powers.Quake.RemoteEvent:FireServer(v,"QuakePower4", "StopCharging",workspace.IslandCaver.Stones.Stone,CFrame.new(Vector3.new(-248.8604736328125, 273.4266052246094, 355.64453125), Vector3.new(0.6645273566246033, -0.5016912817955017, -0.5538134574890137)),100,Vector3.new(-248.8604736328125, 273.4266052246094, 355.64453125), Vector3.new(0.6645273566246033, -0.5016912817955017, -0.5538134574890137))
+wait(0.1)
+game:GetService("Players").LocalPlayer.Character.Powers.Quake.RemoteEvent:FireServer(v,"QuakePower4", "StopCharging",workspace.IslandCaver.Stones.Stone,CFrame.new(Vector3.new(-319.3795471191406, 272.3931884765625, 388.7362060546875), Vector3.new(0.5347911715507507, -0.7442643046379089, -0.40008631348609924)),100,Vector3.new(-319.3795471191406, 272.3931884765625, 388.7362060546875), Vector3.new(0.5347911715507507, -0.7442643046379089, -0.40008631348609924))
+wait(0.1)
+game:GetService("Players").LocalPlayer.Character.Powers.Quake.RemoteEvent:FireServer(v,"QuakePower4", "StopCharging",workspace.IslandCaver.Stones.Stone,CFrame.new(Vector3.new(-315.74334716796875, 270.4518737792969, 307.21185302734375), Vector3.new(0.4924789369106293, -0.6783868670463562, -0.5452118515968323)),100,Vector3.new(-315.74334716796875, 270.4518737792969, 307.21185302734375), Vector3.new(0.4924789369106293, -0.6783868670463562, -0.5452118515968323))
+wait(0.1)
+game:GetService("Players").LocalPlayer.Character.Powers.Quake.RemoteEvent:FireServer(v,"QuakePower4", "StopCharging",workspace.IslandCaver.Stones.Stone,CFrame.new(Vector3.new(-178.00997924804688, 272.4919128417969, 390.1238708496094), Vector3.new(0.6851771473884583, -0.678036093711853, -0.26608139276504517)),100,Vector3.new(-178.00997924804688, 272.4919128417969, 390.1238708496094), Vector3.new(0.6851771473884583, -0.678036093711853, -0.26608139276504517))
+wait(0.1)
+game:GetService("Players").LocalPlayer.Character.Powers.Quake.RemoteEvent:FireServer(v,"QuakePower4", "StopCharging",workspace.IslandCaver.Stones.Stone,CFrame.new(Vector3.new(-159.9521026611328, 269.81768798828125, 312.1455993652344), Vector3.new(0.6065837144851685, -0.7200759649276733, -0.33696722984313965)),100,Vector3.new(-159.9521026611328, 269.81768798828125, 312.1455993652344), Vector3.new(0.6065837144851685, -0.7200759649276733, -0.33696722984313965))
+wait(0.1)
+game:GetService("Players").LocalPlayer.Character.Powers.Quake.RemoteEvent:FireServer(v,"QuakePower4", "StopCharging",workspace.IslandCaver.Stones.Stone,CFrame.new(Vector3.new(89.97474670410156, 299.3000183105469, -936.1035766601562), Vector3.new(0.2870140075683594, -0.6174480319023132, -0.7323803305625916)),100,Vector3.new(89.97474670410156, 299.3000183105469, -936.1035766601562), Vector3.new(0.2870140075683594, -0.6174480319023132, -0.7323803305625916))
+wait(0.1)
+game:GetService("Players").LocalPlayer.Character.Powers.Quake.RemoteEvent:FireServer(v,"QuakePower4", "StopCharging",workspace.IslandCaver.Stones.Stone,CFrame.new(Vector3.new(-1169.5670166015625, 219.90908813476562, -1588.0274658203125), Vector3.new(0.015137090347707272, -0.6970996260643005, -0.7168144583702087)),100,Vector3.new(-1169.5670166015625, 219.90908813476562, -1588.0274658203125), Vector3.new(0.015137090347707272, -0.6970996260643005, -0.7168144583702087))
+wait(0.1)
+game:GetService("Players").LocalPlayer.Character.Powers.Quake.RemoteEvent:FireServer(v,"QuakePower4", "StopCharging",workspace.IslandCaver.Stones.Stone,CFrame.new(Vector3.new(-1201.4923095703125, 254.11367797851562, -1660.2674560546875), Vector3.new(0.04675392061471939, -0.6955714225769043, -0.7169341444969177)),100,Vector3.new(-1201.4923095703125, 254.11367797851562, -1660.2674560546875), Vector3.new(0.04675392061471939, -0.6955714225769043, -0.7169341444969177))
+wait(0.1)
+game:GetService("Players").LocalPlayer.Character.Powers.Quake.RemoteEvent:FireServer(v,"QuakePower4", "StopCharging",workspace.IslandCaver.Stones.Stone,CFrame.new(Vector3.new(-1288.0887451171875, 245.90695190429688, -1653.00537109375), Vector3.new(0.025024037808179855, -0.7537118196487427, -0.6567284464836121)),100,Vector3.new(-1288.0887451171875, 245.90695190429688, -1653.00537109375))
+wait(0.1)
+game:GetService("Players").LocalPlayer.Character.Powers.Quake.RemoteEvent:FireServer(v,"QuakePower4", "StopCharging",workspace.IslandCaver.Stones.Stone,CFrame.new(Vector3.new(-1339.789306640625, 245.81817626953125, -1634.641845703125), Vector3.new(0.07458476722240448, -0.6587507128715515, -0.7486552596092224)),100,Vector3.new(-1339.789306640625, 245.81817626953125, -1634.641845703125), Vector3.new(0.07458476722240448, -0.6587507128715515, -0.7486552596092224))
+wait(0.1)
+game:GetService("Players").LocalPlayer.Character.Powers.Quake.RemoteEvent:FireServer(v,"QuakePower4", "StopCharging",workspace.IslandCaver.Stones.Stone,CFrame.new(Vector3.new(-1432.3958740234375, 256.3514709472656, -1652.33984375), Vector3.new(0.007446270436048508, -0.6148971319198608, -0.7885722517967224)),100,Vector3.new(-1432.3958740234375, 256.3514709472656, -1652.33984375), Vector3.new(0.007446270436048508, -0.6148971319198608, -0.7885722517967224))
+wait(0.1)
+game:GetService("Players").LocalPlayer.Character.Powers.Quake.RemoteEvent:FireServer(v,"QuakePower4", "StopCharging",workspace.IslandCaver.Stones.Stone,CFrame.new(Vector3.new(-1270.039794921875, 263.09088134765625, -1793.016357421875), Vector3.new(0.32165566086769104, -0.4306340515613556, -0.8432627320289612)),100,Vector3.new(-1270.039794921875, 263.09088134765625, -1793.016357421875), Vector3.new(0.32165566086769104, -0.4306340515613556, -0.8432627320289612))
+wait(0.1)
+local args = {
+    [1] = 939731.82,
+    [2] = "QuakePower4",
+    [3] = "StopCharging",
+    [4] = workspace:WaitForChild("IslandCaver"):WaitForChild("Stones"):WaitForChild("Stone"),
+    [5] = CFrame.new(-1049.37659, 215, 1646.53479, 0.999993384, 0.00298895454, -0.00207511522, -0, 0.570294261, 0.821440458, 0.00363867474, -0.821435034, 0.570290446),
+    [6] = 100,
+    [7] = Vector3.new(-43.01959991455078, 216.19691467285156, -200.375732421875)
+}
+
+game:GetService("Players").LocalPlayer.Character.Powers.Quake.RemoteEvent:FireServer(unpack(args))
+wait(0.1)
+local args = {
+    [1] = v,
+    [2] = "QuakePower4",
+    [3] = "StopCharging",
+    [4] = workspace:WaitForChild("IslandWindmill"):WaitForChild("Beach"):WaitForChild("Beach"),
+    [5] = CFrame.new(-1048.52368, 215, 1683.08154, 0.969707072, 0.241547287, -0.0363770761, -0, 0.148920938, 0.988849103, 0.244271129, -0.958893955, 0.144409657),
+    [6] = 100,
+    [7] = Vector3.new(-47.42127990722656, 215.7339324951172, -202.49114990234375)
+}
+
+game:GetService("Players").LocalPlayer.Character.Powers.Quake.RemoteEvent:FireServer(unpack(args))
+wait(0.1)
+local args = {
+    [1] = v,
+    [2] = "QuakePower4",
+    [3] = "StopCharging",
+    [4] = workspace:WaitForChild("IslandWindmill"):WaitForChild("Beach"):WaitForChild("Beach"),
+    [5] = CFrame.new(-987.150879, 215, 1667.19971, 0.914944112, 0.390497267, -0.101927787, -0, 0.252558649, 0.96758157, 0.403580725, -0.885283053, 0.231077015),
+    [6] = 100,
+    [7] = Vector3.new(-42.87627029418945, 216.94845581054688, -200.90744018554688)
+}
+
+game:GetService("Players").LocalPlayer.Character.Powers.Quake.RemoteEvent:FireServer(unpack(args))
+wait(0.1)
+local args = {
+    [1] = 939731.82,
+    [2] = "QuakePower4",
+    [3] = "StopCharging",
+    [4] = workspace:WaitForChild("IslandWindmill"):WaitForChild("Beach"):WaitForChild("Beach"),
+    [5] = CFrame.new(4572.08203, 219.497177, 5281.18506, 0.653541863, -0.156973243, 0.740433991, -0, 0.978257895, 0.207392335, -0.756890297, -0.135539576, 0.639332533),
+    [6] = 100,
+    [7] = Vector3.new(-47.45362854003906, 217.59515380859375, -201.30079650878906)
+}
+
+game:GetService("Players").LocalPlayer.Character.Powers.Quake.RemoteEvent:FireServer(unpack(args))
+wait(0.1)
+local args = {
+    [1] = v,
+    [2] = "QuakePower4",
+    [3] = "StopCharging",
+    [4] = workspace:WaitForChild("IslandWindmill"):WaitForChild("Beach"):WaitForChild("Beach"),
+    [5] = CFrame.new(2150.41626, 216.977631, -620.214966, 0.542576551, -0.533092737, 0.649170995, -1.49011612e-08, 0.772816777, 0.634629369, -0.840006411, -0.34433502, 0.419312209),
+    [6] = 100,
+    [7] = Vector3.new(-45.78693389892578, 215.7545623779297, -203.71022033691406)
+}
+
+game:GetService("Players").LocalPlayer.Character.Powers.Quake.RemoteEvent:FireServer(unpack(args))
+wait(0.1)
+local args = {
+    [1] = v,
+    [2] = "QuakePower4",
+    [3] = "StopCharging",
+    [4] = workspace:WaitForChild("IslandWindmill"):WaitForChild("Beach"):WaitForChild("Beach"),
+    [5] = CFrame.new(2168.10864, 215.442368, -648.2948, 0.999150634, 0.0168674383, -0.0375972874, -9.31322686e-10, 0.912387192, 0.409328282, 0.0412076041, -0.408980608, 0.911612153),
+    [6] = 100,
+    [7] = Vector3.new(-46.27024459838867, 217.59515380859375, -199.48678588867188)
+}
+
+game:GetService("Players").LocalPlayer.Character.Powers.Quake.RemoteEvent:FireServer(unpack(args))
+wait(0.1)
+local args = {
+    [1] = v,
+    [2] = "QuakePower4",
+    [3] = "StopCharging",
+    [4] = workspace:WaitForChild("IslandWindmill"):WaitForChild("Beach"):WaitForChild("Beach"),
+    [5] = CFrame.new(2195.74121, 214.947037, -633.380371, 0.627761662, 0.333073497, -0.703546286, 1.49011612e-08, 0.903829932, 0.42789197, 0.778405607, -0.268614173, 0.567389786),
+    [6] = 100,
+    [7] = Vector3.new(-46.923622131347656, 217.59515380859375, -202.7979278564453)
+}
+
+game:GetService("Players").LocalPlayer.Character.Powers.Quake.RemoteEvent:FireServer(unpack(args))
+wait(0.1)
+local args = {
+    [1] = v,
+    [2] = "QuakePower4",
+    [3] = "StopCharging",
+    [4] = workspace:WaitForChild("IslandWindmill"):WaitForChild("Beach"):WaitForChild("Beach"),
+    [5] = CFrame.new(1135.47461, 221.200058, -3280.20483, 0.816403747, -0.3288019, 0.474736094, -0, 0.822080135, 0.569371998, -0.577481687, -0.464837432, 0.671149135),
+    [6] = 100,
+    [7] = Vector3.new(-80.33919525146484, 215.00575256347656, -884.0109252929688)
+}
+
+game:GetService("Players").LocalPlayer.Character.Powers.Quake.RemoteEvent:FireServer(unpack(args))
+wait(0.1)
+local args = {
+    [1] = v,
+    [2] = "QuakePower4",
+    [3] = "StopCharging",
+    [4] = workspace:WaitForChild("IslandWindmill"):WaitForChild("Beach"):WaitForChild("Beach"),
+    [5] = CFrame.new(1118.67578, 221.866333, -3374.4729, -0.639936566, -0.691518486, 0.33508715, 1.49011612e-08, 0.436068505, 0.89991349, -0.76842773, 0.575887561, -0.279056191),
+    [6] = 100,
+    [7] = Vector3.new(-76.82958221435547, 216.3629913330078, -881.9810791015625)
+}
+
+game:GetService("Players").LocalPlayer.Character.Powers.Quake.RemoteEvent:FireServer(unpack(args))
+wait(0.1)
+local args = {
+    [1] = v,
+    [2] = "QuakePower4",
+    [3] = "StopCharging",
+    [4] = workspace:WaitForChild("IslandWindmill"):WaitForChild("Beach"):WaitForChild("Beach"),
+    [5] = CFrame.new(1069.92468, 221.200027, -3394.1084, -0.861241043, 0.33216387, -0.384618104, -0, 0.756829202, 0.653612733, 0.508196771, 0.562918127, -0.651812315),
+    [6] = 100,
+    [7] = Vector3.new(-76.7877426147461, 216.2060546875, -882.0983276367188)
+}
+
+game:GetService("Players").LocalPlayer.Character.Powers.Quake.RemoteEvent:FireServer(unpack(args))
+wait(0.1)
+local args = {
+    [1] = v,
+    [2] = "QuakePower4",
+    [3] = "StopCharging",
+    [4] = workspace:WaitForChild("IslandWindmill"):WaitForChild("Beach"):WaitForChild("Beach"),
+    [5] = CFrame.new(995.937073, 221.200043, -3273.97607, -0.255309492, 0.30323121, -0.918078482, -7.45057971e-09, 0.949547052, 0.313624918, 0.9668594, 0.0800714269, -0.242428377),
+    [6] = 100,
+    [7] = Vector3.new(-81.3091049194336, 216.05020141601562, -884.2357788085938)
+}
+
+game:GetService("Players").LocalPlayer.Character.Powers.Quake.RemoteEvent:FireServer(unpack(args))
+wait(0.1)
+local args = {
+    [1] = v,
+    [2] = "QuakePower4",
+    [3] = "StopCharging",
+    [4] = workspace:WaitForChild("IslandWindmill"):WaitForChild("Beach"):WaitForChild("Beach"),
+    [5] = CFrame.new(-368.032806, 229.199478, -483.861359, -0.0814099088, 0.579163373, -0.811136484, -3.72528985e-09, 0.813837826, 0.581092179, 0.996680737, 0.0473066643, -0.0662544593),
+    [6] = 100,
+    [7] = Vector3.new(-80.90997314453125, 216.20582580566406, -884.9806518554688)
+}
+
+game:GetService("Players").LocalPlayer.Character.Powers.Quake.RemoteEvent:FireServer(unpack(args))
+wait(0.1)
+local args = {
+    [1] = v,
+    [2] = "QuakePower4",
+    [3] = "StopCharging",
+    [4] = workspace:WaitForChild("IslandWindmill"):WaitForChild("Beach"):WaitForChild("Beach"),
+    [5] = CFrame.new(-420.017883, 216.896423, -200.341003, 0.0463441163, 0.618907869, -0.784095347, -1.86264515e-09, 0.784938812, 0.619573534, 0.998925626, -0.0287135858, 0.0363772884),
+    [6] = 100,
+    [7] = Vector3.new(-81.10070037841797, 216.1497344970703, -884.7239379882812)
+}
+
+game:GetService("Players").LocalPlayer.Character.Powers.Quake.RemoteEvent:FireServer(unpack(args))
+wait(0.1)
+local args = {
+    [1] = v,
+    [2] = "QuakePower4",
+    [3] = "StopCharging",
+    [4] = workspace:WaitForChild("IslandWindmill"):WaitForChild("Beach"):WaitForChild("Beach"),
+    [5] = CFrame.new(61.3417625, 224.774521, -23.4785957, 0.00760989357, 0.389301956, -0.921078801, -2.32830644e-10, 0.921105444, 0.389313221, 0.999971032, -0.00296263187, 0.00700951461),
+    [6] = 100,
+    [7] = Vector3.new(-76.59005737304688, 216.6658477783203, -884.2120361328125)
+}
+
+game:GetService("Players").LocalPlayer.Character.Powers.Quake.RemoteEvent:FireServer(unpack(args))
+wait(0.1)
+local args = {
+    [1] = v,
+    [2] = "QuakePower4",
+    [3] = "StopCharging",
+    [4] = workspace:WaitForChild("IslandWindmill"):WaitForChild("Beach"):WaitForChild("Beach"),
+    [5] = CFrame.new(217.870819, 216.467972, 3.97104454, -0.0854031295, 0.680155993, -0.728075624, -0, 0.730745435, 0.682650089, 0.996346474, 0.0583004542, -0.0624079481),
+    [6] = 100,
+    [7] = Vector3.new(-81.43997955322266, 216.1997833251953, -882.7205200195312)
+}
+
+game:GetService("Players").LocalPlayer.Character.Powers.Quake.RemoteEvent:FireServer(unpack(args))
+wait(0.1)
+local args = {
+    [1] = v,
+    [2] = "QuakePower4",
+    [3] = "StopCharging",
+    [4] = workspace:WaitForChild("IslandWindmill"):WaitForChild("Beach"):WaitForChild("Beach"),
+    [5] = CFrame.new(78.618309, 225.43338, -250.790756, -0.931004524, -0.221155539, 0.290380716, -1.4901163e-08, 0.795546651, 0.605892539, -0.365007848, 0.564088702, -0.740657389),
+    [6] = 100,
+    [7] = Vector3.new(3.1437907218933105, 215.29119873046875, -200.572509765625)
+}
+
+game:GetService("Players").LocalPlayer.Character.Powers.Quake.RemoteEvent:FireServer(unpack(args))
+wait(0.1)
+local args = {
+    [1] = v,
+    [2] = "QuakePower4",
+    [3] = "StopCharging",
+    [4] = workspace:WaitForChild("IslandWindmill"):WaitForChild("Beach"):WaitForChild("Beach"),
+    [5] = CFrame.new(-82.7837143, 213.28685, -292.159271, -0.953455389, -0.273064911, 0.127900094, -0, 0.424164504, 0.90558517, -0.301534206, 0.86343509, -0.404421896),
+    [6] = 100,
+    [7] = Vector3.new(-46.6608772277832, 215.0364990234375, -201.5364227294922)
+}
+
+game:GetService("Players").LocalPlayer.Character.Powers.Quake.RemoteEvent:FireServer(unpack(args))
+wait(0.1)
+
+end)
+end
+end)
+FFarmSection2:NewToggle("Refresh For Balance Lag (Every 30mins)",false,function(fc)
+        getgenv().qw = fc
+        while getgenv().qw do wait(1800)
+            pcall(function()
+game.Players.LocalPlayer.Character.Humanoid.Health = 0
+game:GetService("Workspace").LocalPlayer.CharacterTrait.Health = 0
+            end)
+        end
+    end)
+FFarmSection2:NewToggle("Auto Spawn",_G.AutoSpawn,function(spawn)
+            _G.AutoSpawn = spawn
+        end)
+            spawn(function()
+            while wait() do
+                if _G.AutoSpawn then
+                    pcall(function()
+                        if game:GetService("Players").LocalPlayer.PlayerGui.Load.Frame.Visible == true then
+                            repeat wait(3)
+                                for i,v in pairs(getconnections(game:GetService("Players").LocalPlayer.PlayerGui.Load.Frame.Load.MouseButton1Click)) do
+                                    v.Function()
+                                end
+                            until game:GetService("Players").LocalPlayer.PlayerGui.Load.Frame.Visible == false
+                        end
+                    end)
+                end
             end
-            end    end  
-    
-    if currentOption == "Cave" then
-        game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(76.3779144, 299.999908, -916.032043, 0.0174713228, -3.14204591e-08, 0.999847353, 5.21297814e-08, 1, 3.05143395e-08, -0.999847353, 5.15886995e-08, 0.0174713228)
-    end
+            end)
+SHAVESection:NewToggle("Shave and Dash player to the sea",false, function(mob)
+getgenv().bringmob04 = mob
+while getgenv().bringmob04 do wait()
+pcall(function()
+for i,v in pairs(game.Players:GetChildren()) do
+if v.Name ~= game.Players.LocalPlayer.Name then
+for i,c in pairs(game.Workspace:GetChildren()) do
+if c:IsA("Model") and c.Name == v.Name then
+local args = {
+    [1] = c.HumanoidRootPart.CFrame * CFrame.new(0,-25,0),
+    [2] = workspace:WaitForChild("IslandTown"):WaitForChild("Beach"):WaitForChild("Beach")
+}
 
-    if currentOption == "SandCastle" then
-        for i,v in pairs(game.Workspace.IslandSandCastle:GetDescendants()) do
-            if v.Name == "Part" then
-            game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = v.CFrame
-            end
-            end    end
-      
-    if currentOption == "Sam" then
-        game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-1298.30603, 217.999954, -1352.47571, 0.017669782, -1.08078257e-08, 0.999843895, -7.31044647e-09, 1, 1.09387068e-08, -0.999843895, -7.50258966e-09, 0.017669782)
-    end
+c.Shave:FireServer(unpack(args))
+local args = {
+    [1] = c.HumanoidRootPart.CFrame * CFrame.new(0,-25,0),
+    [2] = workspace:WaitForChild("IslandTown"):WaitForChild("Beach"):WaitForChild("Beach")
+}
 
-    if currentOption == "Mansion" then
-        game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(1818.72119, 218, 881.086304, 0.707021296, 6.48462928e-09, -0.707192302, -5.54870603e-08, 1, -4.63041019e-08, 0.707192302, 7.19780076e-08, 0.707021296)
-    end
-    
-    if currentOption == "Dead Trees" then
-        game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(2053.56348, 491.999908, -603.457642, 0.999845803, -6.42047766e-08, -0.0175616108, 6.59244677e-08, 1, 9.73443264e-08, 0.0175616108, -9.84870496e-08, 0.999845803)
-    end
-
-    if currentOption == "Moss" then
-        game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-2606.74414, 269.599915, 1098.1311, 0.0525588207, -5.60069324e-09, 0.998617828, -1.80996815e-10, 1, 5.61797142e-09, -0.998617828, -4.76020612e-10, 0.0525588207)
-    end
-    
-    if currentOption == "RaceTrack" then
-        game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-6056.94434, 217.643265, 3332.71924, -0.824234724, -3.06996917e-08, -0.566248238, -9.82805215e-09, 1, -3.991018e-08, 0.566248238, -2.73302394e-08, -0.824234724)
-    end
-      
-    if currentOption == "Little Snow" then
-        game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-1897.03699, 224.999954, 3295.97852, 0.422415107, -1.19760401e-07, -0.906402469, 5.81015094e-08, 1, -1.05049857e-07, 0.906402469, -8.28870661e-09, 0.422415107)
-    end
-
-    if currentOption == "Pyramid" then
-        game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(117.47625, 277.999908, 4948.05713, -0.688197017, 3.47416451e-09, 0.725523829, -6.7682937e-10, 1, -5.43049916e-09, -0.725523829, -4.22830926e-09, -0.688197017)
-    end
-    
-    if currentOption == "BigSnow" then
-        game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(6640.6499, 417.998901, -1478.11169, -0.294113189, 6.32640322e-08, -0.955770612, 2.0722144e-08, 1, 5.98149583e-08, 0.955770612, -2.21324803e-09, -0.294113189)
-    end
-
-    if currentOption == "MarineFort" then
-        game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-3134.58325, 275.799927, -3652.50513, 0.99999994, -9.04243613e-09, -0.000312123768, 9.0418677e-09, 1, -1.82297777e-09, 0.000312123768, 1.82015547e-09, 0.99999994)
-    end
-
-    if currentOption == "Purple" then
-        game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-5285.72803, 515.999817, -7745.1543, -0.999651134, 6.1504144e-09, 0.0264117159, 3.64631259e-09, 1, -9.48584287e-08, -0.0264117159, -9.47290317e-08, -0.999651134)
-    end
-
-    if currentOption == "Disco" then
-        game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(1521.71997, 260.38623, 2187.73511, 1, 8.61509197e-11, 7.85281545e-16, -8.61509197e-11, 1, -9.82245325e-08, -7.93743669e-16, 9.82245325e-08, 1)
-    end
-
-    if currentOption == "Tall Trees" then
-        game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-6032.78955, 401.999908, 4.39634514, -0.999964476, 1.89321381e-09, -0.00843126699, 1.84625704e-09, 1, 5.57713209e-09, 0.00843126699, 5.56136781e-09, -0.999964476)
-    end
-
-    if currentOption == "Vokkun" then
-        game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(4572.5, 217.399857, 5094.63428, -0.999854326, 3.65839306e-08, -0.0170693286, 3.71540878e-08, 1, -3.30852146e-08, 0.0170693286, -3.37145885e-08, -0.999854326)
-    end
-
-    if currentOption == "Pursuer" then
-        game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(4846.59082, 569.999817, -7142.89258, 0.996175706, -2.08068229e-09, -0.087372601, 9.85005189e-10, 1, -1.25833957e-08, 0.087372601, 1.24492106e-08, 0.996175706)
-    end
-
-    if currentOption == "Kaizu" then
-        game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-1589.06714, 215.999954, 9941.59766, -0.0209177006, -8.02182285e-08, -0.999781191, 4.7343427e-08, 1, -8.1226311e-08, 0.999781191, -4.90321348e-08, -0.0209177006)
-    end
-
-    if currentOption == "Kaizu" then
-        game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-1589.06714, 215.999954, 9941.59766, -0.0209177006, -8.02182285e-08, -0.999781191, 4.7343427e-08, 1, -8.1226311e-08, 0.999781191, -4.90321348e-08, -0.0209177006)
-    end
-    if currentOption == "Safe Place" then
-    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(1000, 50000, 8000)
-    baseplatee = Instance.new("Part", workspace)
-    baseplatee.Size = Vector3.new(150, 1, 150)
-    baseplatee.CFrame = game.workspace[game.Players.LocalPlayer.Name].HumanoidRootPart.CFrame + Vector3.new(0,-2, 0)
-    baseplatee.Anchored = true
+c.Dash:FireServer(unpack(args))
+end
+end
+end
+end
+wait()
+end)
 end
 end)
+SHAVESection:NewToggle("Quake Kill All",false, function(qare)
+    getgenv().vcm = qare
+        while getgenv().vcm do wait()
+    pcall(function()
+local x = getsenv(game:GetService("Players").LocalPlayer.Character.Powers.Quake)
+local vp = x.VTCebvc
+for i,v in pairs(game.Players:GetChildren()) do
+if v.Name ~= game.Players.LocalPlayer.Name then
+for i,c in pairs(game.Workspace:GetChildren()) do
+if c:IsA("Model") and c.Name == v.Name then
+game:GetService("Players").LocalPlayer.Character.Powers.Quake.RemoteEvent:FireServer(vp,"QuakePower4", "StopCharging",workspace.IslandCaver.Stones.Stone,c.HumanoidRootPart.CFrame,100,Vector3.new(-290.4129333496094, 266.8401794433594, -103.8988037109375))
+end
+end
+end
+end
+end)
+end
+end)
+SHAVESection:NewToggle("Light Kill All",false, function(lare)
+getgenv().ltm = lare
+while getgenv().ltm do wait()
+pcall(function()
+local x = getsenv(game:GetService("Players").LocalPlayer.Character.Powers.Light)
+local campb = x.VTCrv
+for i,v in pairs(game.Players:GetChildren()) do
+if v.Name ~= game.Players.LocalPlayer.Name then
+for i,c in pairs(game.Workspace:GetChildren()) do
+if c:IsA("Model") and c.Name == v.Name then
+local args = {
+    [1] = campb,
+    [2] = "LightPower2",
+    [3] = "StopCharging",
+    [4] = c.HumanoidRootPart.CFrame,
+    [5] = workspace.IslandCaver.Stones.Stone,
+    [6] = 100
+}
 
------------------------------------ Teleport Section 2
-
-local dropdown =  TPSection:NewDropdown("Select Player", "", PLRS, function(rbrhrynr)
-    Choose = rbrhrynr
+game:GetService("Players").LocalPlayer.Character.Powers.Light.RemoteEvent:FireServer(unpack(args))
+end
+end
+end
+end
+end)
+end
+end)
+local dropdown =  AboutSection:NewDropdown("Select Player", "", PLRS, function(f)
+Choose = f
+Choose2 = f
 end)
 
-TPSection:NewButton("Refresh PLR List", "Refreshes Dropdown", function(aa)
+AboutSection:NewButton("Refresh PLR List", "Refreshes Dropdown", function(aa)
 local PLRS = {}
 for i,v in pairs(game:GetService("Players"):GetChildren()) do
 table.insert(PLRS,v.Name)
 end
 dropdown:Refresh(PLRS)
 end)
-
-TPSection:NewButton("View Player", "Views selected player", function()
-    for i,v in pairs(game:GetService("Workspace"):GetChildren()) do
-    if v.Name == Choose then
-    game.Workspace.Camera.CameraSubject = v.Humanoid
-    end
-    end
-    end)
-
-TPSection:NewButton("Teleport", "Teleports you to selected player", function()
+AboutSection:NewToggle("View Player",false,function(bool)
+            Sp = bool
+            local plr1 = game.Players.LocalPlayer.Character.Humanoid
+            local plr2 = game.Players:FindFirstChild(Choose)
+            repeat wait()
+                game.Workspace.Camera.CameraSubject = plr2.Character.Humanoid
+            until Sp == false 
+            game.Workspace.Camera.CameraSubject = game.Players.LocalPlayer.Character.Humanoid
+        end)
+AboutSection:NewButton("Teleport", "Teleports you to selected player", function()
 for i,v in pairs(game:GetService("Workspace"):GetChildren()) do
 if v.Name == Choose then
 game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = v.HumanoidRootPart.CFrame
 end
 end
 end)
+AboutSection:NewToggle("ESP ALL PLAYER",false,function(ESP)
+        
+            ESPPlayer = ESP
+            while ESPPlayer do wait()
+                UpdatePlayerChams()
+            end
+        
+        end)
+            spawn(function()
+            while wait() do
+                if KillPlayer then
+                    game:GetService("Players").LocalPlayer.Character.Humanoid:ChangeState(11)
+                    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.Players:FindFirstChild(SelectedKillPlayer).Character.HumanoidRootPart.CFrame * CFrame.new(0,0,distance)
+                    game.Players:FindFirstChild(SelectedKillPlayer).Character.HumanoidRootPart.Size = Vector3.new(60,60,60)
+                    game:GetService'VirtualUser':CaptureController()
+                    game:GetService'VirtualUser':Button1Down(Vector2.new(1280, 672))
+                end
+            end
+        end)
+        spawn(function()
+            while wait() do
+                if _G.BringPlayer then
+                    pcall(function()
+                        game.Players:FindFirstChild(SelectedKillPlayer).Character.HumanoidRootPart.CFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame * CFrame.new(0,0,-3)
+                    end)
+                end
+            end
+        end)
+        function isnil(thing)
+            return (thing == nil)
+        end
+        local function round(n)
+            return math.floor(tonumber(n) + 0.5)
+        end
+        Number = math.random(1, 1000000)
+        function UpdatePlayerChams()
+            for i,v in pairs(game:GetService'Players':GetChildren()) do
+                pcall(function()
+                    if not isnil(v.Character) then
+                        if ESPPlayer then
+                            if not isnil(v.Character.Head) and not v.Character.Head:FindFirstChild('NameEsp'..Number) then
+                                local bill = Instance.new('BillboardGui',v.Character.Head)
+                                bill.Name = 'NameEsp'..Number
+                                bill.ExtentsOffset = Vector3.new(0, 1, 0)
+                                bill.Size = UDim2.new(1,200,1,30)
+                                bill.Adornee = v.Character.Head
+                                bill.AlwaysOnTop = true
+                                local name = Instance.new('TextLabel',bill)
+                                name.Font = "SourceSansBold"
+                                name.FontSize = "Size14"
+                                name.TextWrapped = true
+                                name.Text = (v.Name ..' \n'.. round((game:GetService('Players').LocalPlayer.Character.Head.Position - v.Character.Head.Position).Magnitude/3) ..' M')
+                                name.Size = UDim2.new(1,0,1,0)
+                                name.TextYAlignment = 'Top'
+                                name.BackgroundTransparency = 1
+                                name.TextStrokeTransparency = 0.5
+                                if v.Team == game.Players.LocalPlayer.Team then
+                                    name.TextColor3 = Color3.new(0, 254, 252)
+                                else
+                                    name.TextColor3 = Color3.new(0, 254, 252)
+                                end
+                            else
+                                v.Character.Head['NameEsp'..Number].TextLabel.Text = (v.Name ..'   \n'.. round((game:GetService('Players').LocalPlayer.Character.Head.Position - v.Character.Head.Position).Magnitude/3) ..' M')
+                            end
+                        else
+                            if v.Character.Head:FindFirstChild('NameEsp'..Number) then
+                                v.Character.Head:FindFirstChild('NameEsp'..Number):Destroy()
+                            end
+                        end
+                    end
+                end)
+            end
+        end
+CampSection:NewToggle("Light Camp" ,false, function(campbylight)
+getgenv().campto2 = campbylight
+ while getgenv().campto2 do wait()
+pcall(function()
+local x = getsenv(game:GetService("Players").LocalPlayer.Character.Powers.Light)
+local lightcode = x.VTCrv
+    for i,v in pairs(game:GetService("Workspace"):GetChildren()) do
+        if v.Name == Choose2 then
+local args = {
+    [1] = lightcode,
+    [2] = "LightPower2",
+    [3] = "StopCharging",
+    [4] = v.HumanoidRootPart.CFrame,
+    [5] = workspace.IslandCaver.Stones.Stone,
+    [6] = 100
+}
 
------------------------------------ Settings section
-
-SettingsSection:NewKeybind("Toggle Ui", "Toggles the ui on and off when key is pressed", Enum.KeyCode.P, function()
-    Library:ToggleUI()
+game:GetService("Players").LocalPlayer.Character.Powers.Light.RemoteEvent:FireServer(unpack(args))
+        wait()
+        end
+        end
 end)
+ end
+end)
+CampSection:NewToggle("Quake Camp" , false, function(state)
+getgenv().campquake = state
+while getgenv().campquake do wait()
+pcall(function()
+local x = getsenv(game:GetService("Players").LocalPlayer.Character.Powers.Quake)
+local vp = x.VTCebvc
+    for i,v in pairs(game:GetService("Workspace"):GetChildren()) do
+        if v.Name == Choose2 then
+        game:GetService("Players").LocalPlayer.Character.Powers.Quake.RemoteEvent:FireServer(vp,"QuakePower4", "StopCharging",workspace.IslandCaver.Stones.Stone,v.HumanoidRootPart.CFrame,100,Vector3.new(-290.4129333496094, 266.8401794433594, -103.8988037109375))
+               wait()
+               end
+    end
+    end)
+    end
+    end)
+ServerSection:NewButton("LOW GRAPHIC MODE", "", function()
+workspace:FindFirstChildOfClass('Terrain').WaterWaveSize = 0
+	workspace:FindFirstChildOfClass('Terrain').WaterWaveSpeed = 0
+	workspace:FindFirstChildOfClass('Terrain').WaterReflectance = 0
+	workspace:FindFirstChildOfClass('Terrain').WaterTransparency = 0
+	game:GetService("Lighting").GlobalShadows = false
+	game:GetService("Lighting").FogEnd = 9e9
+	settings().Rendering.QualityLevel = 1
+	for i,v in pairs(game:GetDescendants()) do
+		if v:IsA("Part") or v:IsA("UnionOperation") or v:IsA("MeshPart") or v:IsA("CornerWedgePart") or v:IsA("TrussPart") then
+			v.Material = "Plastic"
+			v.Reflectance = 0
+		elseif v:IsA("Decal") then
+			v.Transparency = 1
+		elseif v:IsA("ParticleEmitter") or v:IsA("Trail") then
+			v.Lifetime = NumberRange.new(0)
+		elseif v:IsA("Explosion") then
+			v.BlastPressure = 1
+			v.BlastRadius = 1
+		end
+	end
+	for i,v in pairs(game:GetService("Lighting"):GetDescendants()) do
+		if v:IsA("BlurEffect") or v:IsA("SunRaysEffect") or v:IsA("ColorCorrectionEffect") or v:IsA("BloomEffect") or v:IsA("DepthOfFieldEffect") then
+			v.Enabled = false
+		end
+	end
+	workspace.DescendantAdded:Connect(function(child)
+		coroutine.wrap(function()
+			if child:IsA('ForceField') then
+				game:GetService('RunService').Heartbeat:Wait()
+				child:Destroy()
+			elseif child:IsA('Sparkles') then
+				game:GetService('RunService').Heartbeat:Wait()
+				child:Destroy()
+			elseif child:IsA('Smoke') or child:IsA('Fire') then
+				game:GetService('RunService').Heartbeat:Wait()
+				child:Destroy()
+			end
+		end)()
+	end)
 
+
+end)
+ServerSection:NewButton("Rejoin","Rejoin", function()
+game.Players.LocalPlayer:Kick("Rejoining  Please Wait...")
+            local ts = game:GetService("TeleportService")
+            local p = game:GetService("Players").LocalPlayer
+            ts:Teleport(game.PlaceId, p)
+        end)
+        local function HttpGet(url)
+            return game:GetService("HttpService"):JSONDecode(htgetf(url))
+        end
+ServerSection:NewButton("Server Hop","Teleport To Low Server", function()
+    wait ()
+local Servers = game.HttpService:JSONDecode(game:HttpGet("https://games.roblox.com/v1/games/3237168/servers/Public?sortOrder=Asc&limit=100"))
+for i,v in pairs(Servers.data) do
+  if v.playing ~= v.maxPlayers then
+      game:GetService('TeleportService'):TeleportToPlaceInstance(game.PlaceId, v.id)
+  end
+end
+end)
+SettingsSection:NewKeybind("Toggle Ui", "Toggles the ui on and off when key is pressed", Enum.KeyCode.M, function()
+Library:ToggleUI()
+end)
 local colors = {
-    SchemeColor = Color3.fromRGB(0,255,255),
-    Background = Color3.fromRGB(0, 0, 0),
-    Header = Color3.fromRGB(0, 0, 0),
+    SchemeColor = Color3.fromRGB(0, 166, 58),
+    Background = Color3.fromRGB(31, 41, 43),
+    Header = Color3.fromRGB(22, 29, 31),
     TextColor = Color3.fromRGB(255,255,255),
-    ElementColor = Color3.fromRGB(20, 20, 20)
+    ElementColor = Color3.fromRGB(22, 29, 31)
     }
 
 for theme, color in pairs(colors) do
@@ -876,4 +1150,4 @@ for theme, color in pairs(colors) do
     Library:ChangeColor(theme, color3)
     end)
 end
-end  
+end
