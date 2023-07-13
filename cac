@@ -51,7 +51,7 @@ for i,v in pairs(getconnections(game:GetService("Players").LocalPlayer.PlayerGui
    end
 end
 repeat task.wait()
-game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(4795, 570, -7047)
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-1689, 215, 9941)
 until plr.Backpack:FindFirstChild("Melee")
 spawn(function()
 for i = 1,99999999 do
@@ -93,7 +93,7 @@ game:GetService("TeleportService"):TeleportToPlaceInstance(game.PlaceId, game.Jo
 end)
 
 KILLSection:NewButton("Teleport To Dupe Place","teleport", function()
-game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(4795, 570, -7047)
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-1689, 215, 9941)
 end)
 
 KILLSection:NewToggle("Auto Find Compass",false,function(bool)
