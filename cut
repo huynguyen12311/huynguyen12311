@@ -1,0 +1,269 @@
+if game.placeId == 8569358381 or game.placeId == 3237168 then
+local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHeptc/Kavo-UI-Library/main/source.lua"))()
+local Window = Library.CreateLib("IRENKISS SCRIPT | OPL: ARNACHY", "Serpent", colors)
+local Tab = Window:NewTab("SAM DUPE")
+local Tab2 = Window:NewTab("GRAB/DROP TOOLS")
+local Tab3 = Window:NewTab("SERVER")
+local KILLSection = Tab:NewSection(" ┇ DUPE SAM (DUPE ALL TOKEN YOU GOT) ┇ ")
+local KILLSection2 = Tab:NewSection(" ┇ ADD SAM'S TOKEN (RESETSTATS, BE CAREFUL) ┇ ")
+local DropSection = Tab2:NewSection(" ┇ DROP TOOLS ┇ ")
+local GrabSection = Tab2:NewSection(" ┇ GRAB TOOLS ┇ ")
+local ServerSection = Tab3:NewSection(" ┇ ABOUT THE SERVER ┇ ")
+local Settings = Window:NewTab("SETTINGS")
+local SettingsSection = Settings:NewSection("Settings")
+local ColorSection = Settings:NewSection("Ui Color")
+
+DropSection:NewButton("Drop All Compasses","Drop", function()
+local plr = game.Players.LocalPlayer
+for i,v in pairs(plr.Backpack:GetChildren()) do
+if v.Name == "Compass" then
+v.Parent = plr.Character
+  end
+end
+local compass = plr.Character:FindFirstChild("Compass")
+for i,v in pairs(plr.Character:GetChildren()) do
+if v.Name == "Compass" then
+v.Parent = workspace
+  end
+end
+end)
+KILLSection:NewButton("Dupe Sam","dupe", function()
+repeat wait() until game:IsLoaded() 
+repeat wait() until game.Players.LocalPlayer.Character:FindFirstChild("Humanoid") ~= nil
+local plr = game.Players.LocalPlayer
+local plr = game.Players.LocalPlayer
+game:GetService("Workspace").UserData["User_"..plr.UserId].UpdateClothing_Extras:FireServer("A","\255",34)
+wait(1)
+if plr.PlayerGui.Load.Frame.Visible == true then
+for i,v in pairs(getconnections(game:GetService("Players").LocalPlayer.PlayerGui.Load.Frame.Load.MouseButton1Click)) do
+       v:Fire()
+   end
+end
+repeat task.wait()
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-1689, 215, 9941)
+until plr.Backpack:FindFirstChild("Melee")
+spawn(function()
+for i = 1,99999999 do
+workspace.Merchants.QuestMerchant.Clickable.Retum:FireServer("Claim10")
+wait(0.7)
+end
+end)
+repeat task.wait()
+until plr.Backpack:FindFirstChild("Compass")
+spawn(function()
+for i = 1,99999999 do
+for i,v in pairs(plr.Backpack:GetChildren()) do
+if v.Name == "Compass" then
+v.Parent = plr.Character
+  end
+end
+wait(0.5)
+end
+end)
+repeat task.wait()
+until plr.Character:FindFirstChild("Compass")
+spawn(function()
+for i = 1,99999999 do
+local compass = plr.Character:FindFirstChild("Compass")
+for i,v in pairs(plr.Character:GetChildren()) do
+if v.Name == "Compass" then
+v.Parent = workspace
+  end
+end
+wait(0.5)
+end
+end)
+local plr = game.Players.LocalPlayer
+repeat task.wait()
+until workspace.UserData["User_"..plr.UserId].Data.CompassTokens.Value == 0
+wait(0.5)
+game.Players.LocalPlayer:Kick("Rejoining  Please Wait...")
+game:GetService("TeleportService"):TeleportToPlaceInstance(game.PlaceId, game.JobId)
+end)
+
+KILLSection:NewButton("Teleport To Dupe Place","teleport", function()
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-1689, 215, 9941)
+end)
+
+KILLSection:NewToggle("Auto Find Compass",false,function(bool)
+            getgenv().autofindsam = bool
+            while getgenv().autofindsam do wait()
+                pcall(function()
+                        if game.Players.LocalPlayer.Backpack:FindFirstChild("Compass") and not game.Players.LocalPlayer.Character:FindFirstChild("Compass") then
+                            game.Players.LocalPlayer.Backpack:FindFirstChild("Compass").Parent = game.Players.LocalPlayer.Character
+                        elseif game.Players.LocalPlayer.Character:FindFirstChild("Compass") then
+                            game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(game.Players.LocalPlayer.Character:FindFirstChild("Compass").Poser.Value)
+                        end
+                game.Players.LocalPlayer.Character.Compass:Activate()
+    
+       end)
+    end
+    end)
+KILLSection:NewButton("Compasses Quest","Open SAM GUI", function()
+for i,v in pairs(game:GetService("Workspace").Merchants.QuestMerchant:GetDescendants()) do
+if v:IsA("ClickDetector") then
+fireclickdetector(v)
+end
+end
+end)
+KILLSection2:NewButton("Auto Token (needs sam in inventory)","Reset Stats your account", function()
+getgenv().start = true
+while getgenv().start do wait(0.3)
+if game.Players.LocalPlayer.Backpack:FindFirstChild("Compass") then
+game.Players.LocalPlayer.Character.Humanoid:EquipTool(game.Players.LocalPlayer.Backpack["Compass"])
+end
+for i,v in pairs(game.Players.LocalPlayer.Character:GetChildren()) do
+            if v.Name == "Compass" then
+            if not workspace.UserData["User_"..game.Players.LocalPlayer.UserId].Data.QQQ_Weekly3.Value == true then
+local args = {[1] = "Claim",[2] = "Weekly3"}workspace:WaitForChild("UserData"):WaitForChild("User_"..game.Players.LocalPlayer.UserId):WaitForChild("ChallengesRemote"):FireServer(unpack(args))
+else
+workspace:WaitForChild("UserData"):WaitForChild("User_"..game.Players.LocalPlayer.UserId):WaitForChild("Stats"):FireServer()
+end
+                game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(v.Poser.Value)
+                if game.Players.LocalPlayer.Character:FindFirstChild("Compass") then
+                game.Players.LocalPlayer.Character.Compass:Activate()
+                end
+            else
+            game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-1296, 218, -1350)
+            end
+        end
+end
+end)
+KILLSection2:NewButton("Stop Auto Token","Stop Auto Token", function()
+getgenv().start = false
+end)
+DropSection:NewButton("Drop Common Box","nil", function()
+local plr = game.Players.LocalPlayer
+for i,v in pairs(plr.Backpack:GetChildren()) do
+		if v:IsA("Tool") and string.find(v.Name, "Common Box") then
+			v.Parent = plr.Character
+		end
+	end
+	wait()
+	for i,v in pairs(plr.Character:GetChildren()) do
+		if v:IsA("Tool") and string.find(v.Name, "Common Box") then
+			v.Parent = workspace
+		end
+	end
+end)
+DropSection:NewButton("Drop Uncommon Box","nil", function()
+local plr = game.Players.LocalPlayer
+for i,v in pairs(plr.Backpack:GetChildren()) do
+		if v:IsA("Tool") and string.find(v.Name, "Uncommon Box") then
+			v.Parent = plr.Character
+		end
+	end
+	wait()
+	for i,v in pairs(plr.Character:GetChildren()) do
+		if v:IsA("Tool") and string.find(v.Name, "Uncommon Box") then
+			v.Parent = workspace
+		end
+	end
+end)
+DropSection:NewButton("Drop Rare Box","nil", function()
+local plr = game.Players.LocalPlayer
+for i,v in pairs(plr.Backpack:GetChildren()) do
+		if v:IsA("Tool") and string.find(v.Name, "Rare Box") then
+			v.Parent = plr.Character
+		end
+	end
+	wait()
+	for i,v in pairs(plr.Character:GetChildren()) do
+		if v:IsA("Tool") and string.find(v.Name, "Rare Box") then
+			v.Parent = workspace
+		end
+	end
+end)
+DropSection:NewButton("Drop Ultra Rare Box","nil", function()
+local plr = game.Players.LocalPlayer
+for i,v in pairs(plr.Backpack:GetChildren()) do
+		if v:IsA("Tool") and string.find(v.Name, "Ultra Rare Box") then
+			v.Parent = plr.Character
+		end
+	end
+	wait()
+	for i,v in pairs(plr.Character:GetChildren()) do
+		if v:IsA("Tool") and string.find(v.Name, "Ultra Rare Box") then
+			v.Parent = workspace
+		end
+	end
+end)
+
+ServerSection:NewButton("LOW GRAPHIC MODE", "", function()
+workspace:FindFirstChildOfClass('Terrain').WaterWaveSize = 0
+	workspace:FindFirstChildOfClass('Terrain').WaterWaveSpeed = 0
+	workspace:FindFirstChildOfClass('Terrain').WaterReflectance = 0
+	workspace:FindFirstChildOfClass('Terrain').WaterTransparency = 0
+	game:GetService("Lighting").GlobalShadows = false
+	game:GetService("Lighting").FogEnd = 9e9
+	settings().Rendering.QualityLevel = 1
+	for i,v in pairs(game:GetDescendants()) do
+		if v:IsA("Part") or v:IsA("UnionOperation") or v:IsA("MeshPart") or v:IsA("CornerWedgePart") or v:IsA("TrussPart") then
+			v.Material = "Plastic"
+			v.Reflectance = 0
+		elseif v:IsA("Decal") then
+			v.Transparency = 1
+		elseif v:IsA("ParticleEmitter") or v:IsA("Trail") then
+			v.Lifetime = NumberRange.new(0)
+		elseif v:IsA("Explosion") then
+			v.BlastPressure = 1
+			v.BlastRadius = 1
+		end
+	end
+	for i,v in pairs(game:GetService("Lighting"):GetDescendants()) do
+		if v:IsA("BlurEffect") or v:IsA("SunRaysEffect") or v:IsA("ColorCorrectionEffect") or v:IsA("BloomEffect") or v:IsA("DepthOfFieldEffect") then
+			v.Enabled = false
+		end
+	end
+	workspace.DescendantAdded:Connect(function(child)
+		coroutine.wrap(function()
+			if child:IsA('ForceField') then
+				game:GetService('RunService').Heartbeat:Wait()
+				child:Destroy()
+			elseif child:IsA('Sparkles') then
+				game:GetService('RunService').Heartbeat:Wait()
+				child:Destroy()
+			elseif child:IsA('Smoke') or child:IsA('Fire') then
+				game:GetService('RunService').Heartbeat:Wait()
+				child:Destroy()
+			end
+		end)()
+	end)
+
+
+end)
+ServerSection:NewButton("Rejoin","Rejoin", function()
+game.Players.LocalPlayer:Kick("Rejoining  Please Wait...")
+            local ts = game:GetService("TeleportService")
+            local p = game:GetService("Players").LocalPlayer
+            ts:Teleport(game.PlaceId, p)
+        end)
+        local function HttpGet(url)
+            return game:GetService("HttpService"):JSONDecode(htgetf(url))
+        end
+ServerSection:NewButton("Server Hop","Teleport To Low Server", function()
+    wait ()
+local Servers = game.HttpService:JSONDecode(game:HttpGet("https://games.roblox.com/v1/games/3237168/servers/Public?sortOrder=Asc&limit=100"))
+for i,v in pairs(Servers.data) do
+  if v.playing ~= v.maxPlayers then
+      game:GetService('TeleportService'):TeleportToPlaceInstance(game.PlaceId, v.id)
+  end
+end
+end)
+SettingsSection:NewKeybind("Toggle Ui", "Toggles the ui on and off when key is pressed", Enum.KeyCode.M, function()
+Library:ToggleUI()
+end)
+local colors = {
+    SchemeColor = Color3.fromRGB(0, 166, 58),
+    Background = Color3.fromRGB(31, 41, 43),
+    Header = Color3.fromRGB(22, 29, 31),
+    TextColor = Color3.fromRGB(255,255,255),
+    ElementColor = Color3.fromRGB(22, 29, 31)
+    }
+
+for theme, color in pairs(colors) do
+    ColorSection:NewColorPicker(theme, "Change your "..theme, color, function(color3)
+    Library:ChangeColor(theme, color3)
+    end)
+end
+end
