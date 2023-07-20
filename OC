@@ -38,7 +38,7 @@ if game.PlaceId == 8569358381 or game.PlaceId == 3237168 then
     end
     
     ----------------------------------- Weapon Spams
-    WeaponSection1:NewSlider("Yoru Speed", "Increase/Decrease", 100, 1, function(s) -- 50 (MaxValue) | 0 (MinValue)
+    WeaponSection1:NewSlider("Yoru Speed", "Increase/Decrease", 500, 1, function(s) -- 50 (MaxValue) | 0 (MinValue)
         Speed = s
     end)
     
@@ -67,7 +67,7 @@ if game.PlaceId == 8569358381 or game.PlaceId == 3237168 then
         end
     end)
     
-    WeaponSection2:NewSlider("Seastone Speed", "Increase/Decrease", 50, 1, function(ss) -- 50 (MaxValue) | 0 (MinValue)
+    WeaponSection2:NewSlider("Seastone Speed", "Increase/Decrease", 500, 1, function(ss) -- 50 (MaxValue) | 0 (MinValue)
         Speed2 = ss
     end)
     
