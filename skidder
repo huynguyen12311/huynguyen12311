@@ -1,5 +1,5 @@
 if game.PlaceId == 8569358381 or game.PlaceId == 3237168 then
-local Flux = loadstring(game:HttpGet"https://raw.githubusercontent.com/KangKung02/H2O/main/Flux_Ui.lua")()
+local Flux = loadstring(game:HttpGet("https://raw.githubusercontent.com/KangKung02/H2O/main/Flux_Ui.lua"))()
 local win = Flux:Window("cac Premium")
 Ui_Tab["Farming beri"] = win:Tab("Farming beri", "http://www.roblox.com/asset/?id=6756586445")
 
