@@ -10,6 +10,12 @@ game:GetService("Players").LocalPlayer.Idled:connect(function()
     game:GetService("VirtualUser"):ClickButton2(Vector2.new())
 end)
 
+
+local GC = getconnections
+for i, v in pairs(GC(game.Players.LocalPlayer.Idled)) do
+    v:Disable()
+end
+
 local ScreenGui = Instance.new("ScreenGui")
 local Frame = Instance.new("Frame")
 local TextButton = Instance.new("TextButton")
@@ -162,7 +168,7 @@ function create:Win(text)
     local library = {toggledui = false;}
     game:GetService("UserInputService").InputBegan:Connect(function(input)
         pcall(function()
-            if input.KeyCode == Enum.KeyCode.P then
+            if input.KeyCode == Enum.KeyCode.F6 then
                 if library.toggledui == false then
                     library.toggledui = true
                     tween:Create(MainSceen,TweenInfo.new(0.4,Enum.EasingStyle.Back,Enum.EasingDirection.In),{Size = UDim2.new(0, 0, 0, 0)}):Play()
@@ -3793,7 +3799,7 @@ local SafeZoneUnderSea = Instance.new("Part",game.Workspace)
 local SafeZoneOuterSpace = Instance.new("Part",game.Workspace)
     SafeZoneOuterSpace.Name = "SafeZoneOuterSpacePart"
     SafeZoneOuterSpace.Size = Vector3.new(200,3,200)
-    SafeZoneOuterSpace.Position = Vector3.new((math.random(-1000000, 1000000)), (math.random(500000, 1000000)), (math.random(-1000000, 1000000)))
+    SafeZoneOuterSpace.Position = Vector3.new((math.random(-1000000, 1000000)), (math.random(10000, 50000)), (math.random(-1000000, 1000000)))
     SafeZoneOuterSpace.Anchored = true
 
 
@@ -3811,7 +3817,7 @@ for i,v in pairs(game:GetService("Players").LocalPlayer.Backpack:GetChildren()) 
 
 
 --script
-local Window = create:Win("OC LON")
+local Window = create:Win("ToggleUI: [ F6 ] ")
 game:GetService("CoreGui").redui.MainSceen.Visible = false
 
 --create:Notifile("", "   Welcome " .. game.Players.LocalPlayer.Name .. " To OP:L", 5)
@@ -3886,8 +3892,12 @@ local page2 = Tap1:newpage()
 
 page2:Label(" ┇ Other Farm ┇ ")
 
-page2:Toggle("Cannon Kill Mobs", false,function(daxc)
+page2:Toggle("Cannon Farm (Fast)", false,function(daxc)
     _G.autocannon = daxc
+end)
+
+page2:Toggle("Cannon Farm (Slow)", false,function(daxc)
+    _G.autocannonslow = daxc
 end)
 
 page2:Toggle("Cannon Kill Player", false,function(daxccc)
@@ -4254,7 +4264,7 @@ page3:Drop("Choose NPC" , false, {
 --
 page3_5:Label(" ┇ PvP ┇ ")
 
-page3_5:Slider("Distance Player", false , true , 0 , -15, -5, -1,false, function(stma)
+page3_5:Slider("Distance Player", false , true , 0 , 15, 5, 1,false, function(stma)
     getgenv().disbring = stma
 end)
 
@@ -4287,7 +4297,9 @@ page3_5:Toggle("View Player", false, function(viewplr)
     repeat wait(0)
         game.Workspace.Camera.CameraSubject = plr2.Character.Humanoid
     until Sp == false or plr2.Character.Humanoid.Health == 0
-    game.Workspace.Camera.CameraSubject = game.Players.LocalPlayer.Character.Humanoid
+    if Sp == false or plr2.Character.Humanoid.Health ~= 0 then
+        game.Workspace.Camera.CameraSubject = game.Players.LocalPlayer.Character.Humanoid
+    end
 end)
 
 page3_5:Toggle("Behind Player", false,function(axzaxz)
@@ -4697,7 +4709,7 @@ spawn(function()--Behind Plr
         if _G.KillPlayer then
             pcall(function()
              game.Players.LocalPlayer.Character.Humanoid:ChangeState(11)
-             game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.Players:FindFirstChild(PlayerName1).Character.HumanoidRootPart.CFrame * CFrame.new(0,0,-15 or getgenv().disbring)
+             game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.Players:FindFirstChild(PlayerName1).Character.HumanoidRootPart.CFrame * CFrame.new(0,0,getgenv().disbring)
              game.Players:FindFirstChild(PlayerName1).Character.HumanoidRootPart.Size = Vector3.new(60,60,60)
             end)
         end
@@ -4707,7 +4719,7 @@ spawn(function() -- bring Plr
     while wait() do
         if _G.BringPlayer then
             pcall(function()
-                game.Players:FindFirstChild(PlayerName1).Character.HumanoidRootPart.CFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame*CFrame.new(0,0,-15 or getgenv().disbring)
+                game.Players:FindFirstChild(PlayerName1).Character.HumanoidRootPart.CFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame*CFrame.new(0,0,getgenv().disbring)
             end)
         end
     end
@@ -5592,7 +5604,7 @@ end)
 spawn(function() -- autofarm velocity
     while wait(0) do
         pcall(function()
-            if _G.autofarm  or _G.KillPlayer or _G.autopackage or _G.autofish or _G.autocannon then
+            if _G.autofarm  or _G.KillPlayer or _G.autopackage or _G.autofish then
                 if not game:GetService("Players").LocalPlayer.Character.HumanoidRootPart:FindFirstChild("BodyClip") then
                     local Noclip = Instance.new("BodyVelocity")
                     Noclip.Name = "BodyClip"
@@ -5601,9 +5613,10 @@ spawn(function() -- autofarm velocity
                     Noclip.Velocity = Vector3.new(0,0,0)
                 end
                 game.Players.LocalPlayer.Character.Humanoid.JumpPower = 0
-            elseif  _G.autofarm == false or _G.KillPlayer == false or _G.autopackage == false or _G.autofish == false or _G.autocannon == false then
+            elseif  _G.autofarm == false or _G.KillPlayer == false or _G.autopackage == false or _G.autofish == false  then
                 --if game:GetService("Players").LocalPlayer.Character.HumanoidRootPart:FindFirstChild("BodyClip") then
                 game:GetService("Players").LocalPlayer.Character.HumanoidRootPart:FindFirstChild("BodyClip"):Destroy()
+                wait(1)
                 --end
                 game.Players.LocalPlayer.Character.Humanoid.JumpPower = 50
             end
@@ -5611,18 +5624,19 @@ spawn(function() -- autofarm velocity
     end
 end)
 
-spawn(function() -- autofarm teleport cannon
+--[[spawn(function() -- autofarm teleport cannon
     while wait(0) do
         pcall(function()
             if _G.autocannon or  _G.autocannonplr then
                 repeat task.wait(0)
                     --game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game:GetService("Workspace")["SafeZoneOuterSpacePart"].CFrame * CFrame.new(0, 5, 0)
-                    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame =CFrame.new(-1847, 392, 11101)
+                    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-1847, 392, 11101)
                 until _G.autocannon == false or  _G.autocannonplr == false
             end
         end)
     end
-end)
+end)]]
+
 spawn(function() -- autofarm teleport cannon
     while wait(0) do
         pcall(function()
@@ -5632,8 +5646,8 @@ spawn(function() -- autofarm teleport cannon
                         v.Character.HumanoidRootPart.Transparency = 0.9
                     	v.Character.HumanoidRootPart.Color = Color3.fromRGB(255, 255, 255)
                         v.Character.HumanoidRootPart.CanCollide = false
-                        v.Character.HumanoidRootPart.Size = Vector3.new(45, 45, 45)
-                        v.Character.HumanoidRootPart.CFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame*CFrame.new(0,0,-12)
+                        v.Character.HumanoidRootPart.Size = Vector3.new(10, 10, 10)
+                        v.Character.HumanoidRootPart.CFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame*CFrame.new(0,5,-15)
                         if v.Character.Humanoid.Health == 0 then
                             v.Character.HumanoidRootPart.Size = Vector3.new(2, 2, 1)
                             v.Character.HumanoidRootPart.Transparency = 1
@@ -5649,20 +5663,17 @@ spawn(function()
     while task.wait(0) do
         pcall(function()
             if _G.autocannon or _G.autocannonplr then
-                local toolname = "Cannon Ball" -- replace with the name of the tool
+                local toolname = "Cannon Ball" 
                 local Plr = game:GetService("Players").LocalPlayer
-                    wait(0.25)
+                    wait(0.5)
                     if Plr.Backpack:FindFirstChild(toolname) and not Plr.Character:FindFirstChild(toolname) and not Plr.Character:FindFirstChildOfClass("Tool") then
                         local tool = Plr.Backpack:FindFirstChild(toolname)
                         Plr.Character.Humanoid:EquipTool(tool)
-                        wait(0.75)
+                        wait(0.9)
                         game.Players.LocalPlayer.Character.Humanoid:UnequipTools()
                     end
 
-                --[[if not game.Players.LocalPlayer.PlayerGui.HealthBar.Frame.Status:FindFirstChild("BusoHaki") then
-                    wait(1)
-                    game.workspace.UserData["User_" .. game.Players.LocalPlayer.UserId].UpdateHaki:FireServer()
-                end
+                --[[
                 if game.Players.LocalPlayer.Backpack:FindFirstChild("Cannon Ball") 
                 or game.Players.LocalPlayer.Character:FindFirstChild("Cannon Ball") then
                     game.Players.LocalPlayer.Character.Humanoid:EquipTool(game:GetService("Players").LocalPlayer.Backpack:FindFirstChild("Cannon Ball"))
@@ -5672,12 +5683,24 @@ spawn(function()
                     }
                     game:GetService("Players").LocalPlayer.Character:FindFirstChild("Cannon Ball").RemoteEvent:FireServer(unpack(args))
                 end
-                wait(1)
-                if game.Players.LocalPlayer.PlayerGui.HealthBar.Frame.Status:FindFirstChild("BusoHaki") then
-                    game.workspace.UserData["User_" .. game.Players.LocalPlayer.UserId].UpdateHaki:FireServer()
-                end
                 wait(0.1)
                     game.Players.LocalPlayer.Character.Humanoid:UnequipTools()]]
+            end
+        end)
+    end
+end)
+
+spawn(function()
+    while task.wait(0) do
+        pcall(function()
+            if _G.autocannonslow then
+                local toolname = "Cannon Ball"
+                local Plr = game:GetService("Players").LocalPlayer
+                wait(0.5)
+                if Plr.Backpack:FindFirstChild(toolname) and not Plr.Character:FindFirstChild(toolname) and not Plr.Character:FindFirstChildOfClass("Tool") then
+                    local tool = Plr.Backpack:FindFirstChild(toolname)
+                    Plr.Character.Humanoid:EquipTool(tool)
+                end
             end
         end)
     end
@@ -5687,16 +5710,44 @@ end)
 spawn(function()
     while task.wait(0) do
         pcall(function()
-            if _G.autocannon or _G.autocannonplr then
+            if _G.autocannon or _G.autocannonplr or _G.autocannonslow then
                 local args = {
                     [1] = CFrame.new(Vector3.new(game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame))
                 }
                 game:GetService("Players").LocalPlayer.Character:FindFirstChild("Cannon Ball").RemoteEvent:FireServer(unpack(args))
-                wait()
+                wait(0)
                 local args = {
                     [1] = CFrame.new(Vector3.new(game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame))
                 }
                 game:GetService("Players").LocalPlayer.Character:FindFirstChild("Cannon Ball").RemoteEvent:FireServer(unpack(args))
+                wait(0)
+                if game.workspace.ResourceHolder["Resources_" .. game.Players.LocalPlayer.UserId]:FindFirstChild("CannonBall") then
+                    game.workspace.ResourceHolder["Resources_" .. game.Players.LocalPlayer.UserId]:FindFirstChild("CannonBall").CanCollide = false
+                end
+            end
+        end)
+    end
+end)
+
+spawn(function()
+    while task.wait(0) do
+        pcall(function()
+            if _G.autocannon or _G.autocannonplr or _G.autocannonslow then
+                repeat task.wait(0)
+                    for i, v in pairs(game.workspace.ResourceHolder["Resources_" .. game.Players.LocalPlayer.UserId]:GetChildren()) do
+                        if v.Name == "CannonBall" then
+                            v.CFrame = game.Players.LocalPlayer.Character.Head.CFrame * CFrame.new(0, 2, -15)
+                            v.CanCollide = false
+                            if not v:FindFirstChild("BodyClip") then
+                                local Noclip = Instance.new("BodyVelocity")
+                                Noclip.Name = "BodyClip"
+                                Noclip.Parent = v
+                                Noclip.MaxForce = Vector3.new(100000,100000,100000)
+                                Noclip.Velocity = Vector3.new(0,10,0)
+                            end
+                        end
+                    end
+                until _G.autocannon == false or _G.autocannonplr == false or game.Players.LocalPlayer.Character.Humanoid.Health == 0
             end
         end)
     end
@@ -5705,19 +5756,19 @@ end)
 spawn(function()
     while task.wait(5) do
         pcall(function()
-            if _G.autocannon and not game.Players.LocalPlayer.Backpack:FindFirstChild("Cannon Ball")  
-            or _G.autocannonplr and not game.Players.LocalPlayer.Backpack:FindFirstChild("Cannon Ball") 
-            or _G.autocannon and not game.Players.LocalPlayer.Character:FindFirstChild("Cannon Ball") 
-            or _G.autocannonplr and not game.Players.LocalPlayer.Character:FindFirstChild("Cannon Ball") then
-                wait(5)
-                game:GetService("Players").LocalPlayer.Character.Weapons:FireServer()
+            if _G.autocannon and game.Players.LocalPlayer.Backpack:FindFirstChild("Cannon Ball") 
+            or _G.autocannonplr and game.Players.LocalPlayer.Backpack:FindFirstChild("Cannon Ball") then
+                for i=1,2 do
+                    game:GetService("Players").LocalPlayer.Character.Weapons:FireServer()
+                end
             end
         end)
     end
 end)
 
+
 spawn(function()
-    while task.wait(120) do
+    while task.wait(30) do
         pcall(function()
             if _G.autocannon or _G.autocannonplr then
                 task.wait(0.1)
@@ -5736,7 +5787,7 @@ end)
 spawn(function()
     while task.wait(0) do
         pcall(function()
-            if _G.autocannon or _G.autocannonplr then
+            if _G.autocannon  or _G.autocannonplr or _G.autocannonslow then
                 task.wait(0.1)
                 if game.Players.LocalPlayer.Backpack:FindFirstChild("Cannon Ball") then
                     for i, v in pairs(game.Players.LocalPlayer.Backpack:GetChildren()) do
@@ -5753,13 +5804,15 @@ end)
 spawn(function()
     while wait(0) do
         pcall(function()
-            if _G.autocannon or  _G.autocannonplr then
+            if _G.autocannon or  _G.autocannonplr  or _G.autocannonslow then
+                fireclickdetector(workspace.Island11.CentralBuilding.Doors.Button.Button.ClickDetector)
+                task.wait(0)
                 if not game.Players.LocalPlayer.PlayerGui.HealthBar.Frame.Status:FindFirstChild("BusoHaki") then
-                    wait(1)
+                    wait(0.5)
                     game.workspace.UserData["User_" .. game.Players.LocalPlayer.UserId].UpdateHaki:FireServer()
                 end
-                wait(1)
                 if game.Players.LocalPlayer.PlayerGui.HealthBar.Frame.Status:FindFirstChild("BusoHaki") then
+                    wait(0.5)
                     game.workspace.UserData["User_" .. game.Players.LocalPlayer.UserId].UpdateHaki:FireServer()
                 end
 
@@ -5770,14 +5823,14 @@ end)
 spawn(function() -- autofarm cannon
     while wait(0) do
         pcall(function()
-            if _G.autocannon then
+            if _G.autocannon or _G.autocannonslow then
                 for _,v in pairs(game.Workspace.Enemies:GetChildren()) do
                     if string.find(v.Name, " Boar")
                     and v:FindFirstChild("HumanoidRootPart") then
                         v.HumanoidRootPart.CanCollide = false
                     	v.HumanoidRootPart.Size = Vector3.new(10, 10, 10)
                         v:FindFirstChild("HumanoidRootPart").Anchored = true
-                        v:FindFirstChild("HumanoidRootPart").CFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame*CFrame.new(0,0,-12)
+                        v:FindFirstChild("HumanoidRootPart").CFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame*CFrame.new(0,4,-15)
                         if v.Humanoid.Health == 0 then
                             v.HumanoidRootPart.Size = Vector3.new(0, 0, 0)
                             v:Destroy()
@@ -5789,10 +5842,10 @@ spawn(function() -- autofarm cannon
                     and v:FindFirstChild("HumanoidRootPart") then
                         v.HumanoidRootPart.CanCollide = false
                     	v.HumanoidRootPart.Size = Vector3.new(10, 10, 10)
-                        v.HumanoidRootPart.Color = Color3.fromRGB(255, 255, 255)
+                        --v.HumanoidRootPart.Color = Color3.fromRGB(255, 255, 255)
                         v.HumanoidRootPart.Transparency = 0.9
                         v:FindFirstChild("HumanoidRootPart").Anchored = true
-                        v:FindFirstChild("HumanoidRootPart").CFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame*CFrame.new(0,0,-12)
+                        v:FindFirstChild("HumanoidRootPart").CFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame*CFrame.new(0,4,-15)
                         if v.Humanoid.Health == 0 then
                             v.HumanoidRootPart.Size = Vector3.new(0, 0, 0)
                             v:Destroy()
@@ -5816,7 +5869,11 @@ spawn(function() -- autofarm cannon
                         v.HumanoidRootPart.CanCollide = false
                     	v.HumanoidRootPart.Size = Vector3.new(10, 10, 10)
                         v:FindFirstChild("HumanoidRootPart").Anchored = true
-                        v:FindFirstChild("HumanoidRootPart").CFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame*CFrame.new(0,0,-12)
+                        v:FindFirstChild("HumanoidRootPart").CFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame*CFrame.new(0,4,-15)
+                        if v.Humanoid.Health == 0 then
+                            v.HumanoidRootPart.Size = Vector3.new(0, 0, 0)
+                            v:Destroy()
+                        end
                         if v.Humanoid.Health == 0 then
                             v.HumanoidRootPart.Size = Vector3.new(0, 0, 0)
                             v:Destroy()
