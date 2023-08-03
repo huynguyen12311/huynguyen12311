@@ -1,4 +1,14 @@
+--- ANTI AFK
+local Players = game:GetService("Players")
+local VirtualUser = game:GetService("VirtualUser")
 
+repeat
+    wait()
+until game:IsLoaded()
+
+game:GetService("Players").LocalPlayer.Idled:connect(function()
+    game:GetService("VirtualUser"):ClickButton2(Vector2.new())
+end)
 
 local ScreenGui = Instance.new("ScreenGui")
 local Frame = Instance.new("Frame")
