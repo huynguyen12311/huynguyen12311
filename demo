@@ -45,12 +45,25 @@ MainTab:AddToggle({
 
 PlayerTab:AddToggle({
 	Name = "Cannon Kill Player",
-	Default = _G.AutoCannonPlr,
+	Default = _G.autocannonplr,
 	Callback = function(cp)
 		_G.autocannonplr = cp
 	end    
 })
 
+
+--[[spawn(function() -- autofarm teleport cannon
+    while wait(0) do
+        pcall(function()
+            if _G.autocannon or  _G.autocannonplr then
+                repeat task.wait(0)
+                    --game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game:GetService("Workspace")["SafeZoneOuterSpacePart"].CFrame * CFrame.new(0, 5, 0)
+                    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-1847, 392, 11101)
+                until _G.autocannon == false or  _G.autocannonplr == false
+            end
+        end)
+    end
+end)]]
 
 spawn(function() -- autofarm teleport cannon
     while wait(0) do
