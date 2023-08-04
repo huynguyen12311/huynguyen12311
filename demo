@@ -58,12 +58,9 @@ local Section = MainTab:AddSection({
 })
 
 local Section = OthersTab:AddSection({
-	Name = "Auto Compass"
+	Name = "Auto Compass/Bring"
 })
 
-local Section = OtherssTab:AddSection({
-	Name = "Auto Bring"
-})
 
 
 
@@ -113,7 +110,7 @@ OthersTab:AddToggle({
 	end    
 })
 
-OtherssTab:AddToggle({
+OthersTab:AddToggle({
 	Name = "Bring Fruit",
 	Default = _G.BringFruit,
 	Callback = function(fruit)
