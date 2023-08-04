@@ -110,14 +110,6 @@ OthersTab:AddToggle({
 	end    
 })
 
-OthersTab:AddToggle({
-	Name = "Bring Fruit",
-	Default = _G.BringFruit,
-	Callback = function(fruit)
-		G.BringFruit = fruit
-	end    
-})
-
 
 
 
@@ -582,48 +574,6 @@ spawn(function() -- auto tp
     end
 end)
 
-spawn(function()--Bring Tools
-    while wait() do
-        if _G.BringTool then
-            for i,v in pairs(game.Workspace:GetChildren()) do
-                if v:IsA "Tool" then
-                    if string.find(v.Name, "Compass") then
-                        v.Handle.CFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame
-                    end
-                end
-            end
-        end
-    end
- end)
-
-spawn(function()--Bring DF
-    while wait() do
-        if _G.BringFruit then
-            pcall(function()
-                for i,v in pairs(game.Workspace.Trees.Tree.Model:GetChildren()) do 
-                    if v.ClassName == "Tool" then 
-                        fireclickdetector(v.Main.ClickDetector)
-                    end
-                end
-            end)
-        end
-    end
- end)
- 
-spawn(function() -- claim compass
-    while wait() do
-        if _G.GetCompass then
-
-            local args = {
-                [1] = "Claim1"
-            }
-
-            workspace.Merchants.QuestMerchant.Clickable.Retum:FireServer(unpack(args))
-
-        end
-    end
-end)
-
 spawn(function() -- find compass
     while wait(1) do
         pcall(function()
@@ -638,6 +588,20 @@ spawn(function() -- find compass
                 end
             end
         end)
+    end
+end)
+
+spawn(function() -- claim compass
+    while wait() do
+        if _G.GetCompass then
+
+            local args = {
+                [1] = "Claim1"
+            }
+
+            workspace.Merchants.QuestMerchant.Clickable.Retum:FireServer(unpack(args))
+
+        end
     end
 end)
 
