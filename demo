@@ -116,12 +116,17 @@ OthersTab:AddToggle({
 
 
 --Button
-
-
-
-
-
-
+TeleportTab:AddButton({
+	Name = "Safe Place",
+	Callback = function(tt)
+        getgenv().tpisland2 = tt
+        if getgenv().tpisland2 == "Safe Place" then
+            game.Players.LocalPlayer.Character.Humanoid.Sit = true
+            wait(0.15)
+            game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game:GetService("Workspace")["SafeZoneOuterSpacePart"].CFrame * CFrame.new(0, 5, 0)
+        end
+  	end    
+})
 
 
 
