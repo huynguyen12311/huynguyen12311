@@ -61,7 +61,7 @@ local Section = OthersTab:AddSection({
 	Name = "Auto Compass"
 })
 
-local Section = OthersTab:AddSection({
+local Section = OtherssTab:AddSection({
 	Name = "Auto Bring"
 })
 
@@ -113,8 +113,8 @@ OthersTab:AddToggle({
 	end    
 })
 
-OthersTab:AddToggle({
-	Name = "This is a toggle!",
+OtherssTab:AddToggle({
+	Name = "Bring Fruit",
 	Default = _G.BringFruit,
 	Callback = function(fruit)
 		_G.BringFruit = fruit
@@ -126,14 +126,7 @@ OthersTab:AddToggle({
 
 
 --Button
-TeleportTab:AddButton({
-	Name = "Grassy",
-	Callback = function()
-        plr.Character.HumanoidRootPart.CFrame = CFrame.new(737, 241, 1209)
-  	end    
-})
 
-TeleportTab:AddLabel("teleport")
 
 
 
