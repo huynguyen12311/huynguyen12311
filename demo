@@ -176,8 +176,8 @@ spawn(function() -- autofarm teleport cannon
         pcall(function()
             if _G.autocannon or  _G.autocannonplr then
                 repeat task.wait(0)
-                    --game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game:GetService("Workspace")["SafeZoneOuterSpacePart"].CFrame * CFrame.new(0, 5, 0)
-                    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-1847, 392, 11101)
+                    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game:GetService("Workspace")["SafeZoneOuterSpacePart"].CFrame * CFrame.new(0, 5, 0)
+                    --game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-1847, 392, 11101)
                 until _G.autocannon == false or  _G.autocannonplr == false
             end
         end)
