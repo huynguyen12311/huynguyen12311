@@ -14,11 +14,18 @@ local PlayerTab = Window:MakeTab({
 	PremiumOnly = false
 })
 
-local MiscTab = Window:MakeTab({
+local OrtherTab = Window:MakeTab({
 	Name = "Orther Farm",
 	Icon = "rbxassetid://4483345998",
 	PremiumOnly = false
 })
+
+local MiscTab = Window:MakeTab({
+	Name = "Misc",
+	Icon = "rbxassetid://4483345998",
+	PremiumOnly = false
+})
+
 --Section
 local Section = MainTab:AddSection({
 	Name = "EZ Farm"
@@ -40,7 +47,7 @@ MainTab:AddToggle({
 		_G.autocannonslow = cl
 	end    
 })
-MiscTab:AddToggle({
+OrtherTab:AddToggle({
 	Name = "Haki Farm",
 	Default = _G.autohaki2,
 	Callback = function(hk)
@@ -73,6 +80,13 @@ PlayerTab:AddToggle({
 	end    
 })
 
+MiscTab:AddToggle({
+	Name = "Auto Spawn",
+	Default = _G.autospawn,
+	Callback = function(sp)
+		_G.autospawn = sp
+	end    
+})
 
 --[[spawn(function() -- autofarm teleport cannon
     while wait(0) do
@@ -468,6 +482,21 @@ game:GetService('RunService').RenderStepped:connect(function()
         end
     end
 end)
+
+spawn(function() -- auto tp
+    while wait(0) do
+        pcall(function()
+            if _G.autospawn then
+                game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(Xx,Yy,Zz)
+            end
+        end)
+    end
+end)
+
+
+
+
+
 
 
 
