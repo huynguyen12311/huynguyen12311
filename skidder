@@ -10,6 +10,36 @@ game:GetService("Players").LocalPlayer.Idled:connect(function()
     game:GetService("VirtualUser"):ClickButton2(Vector2.new())
 end)
 
+local Players = game:GetService("Players")
+local BlacklistedPlayers = {
+    "Oblivic",
+    "BowTiedPony",
+    "Bige0n",
+    "Farquanetta",
+    "icydragonwingsis",
+    "trashpanda2361",
+    "MarcusVetarus",
+    "ElianJoestar",
+    "Quixotize",
+    "CudlesstheCat",
+    "FoxKingFab",
+    "Tiptop98",
+    "vlonedd",
+    "VortexFragmented",
+    "Natsudragn331"
+}
+
+for i, v in pairs(Players:GetPlayers()) do 
+    if table.find(BlacklistedPlayers, v.Name) then 
+        Players.LocalPlayer:Kick("Staff OPL Has Join Server , Dont Worry. You Got Protect By Chill Hub")
+    end
+end
+
+Players.PlayerAdded:Connect(function(v)
+    if table.find(BlacklistedPlayers, v.Name) then 
+        Players.LocalPlayer:Kick("Staff OPL Has Join Server , Dont Worry. You Got Protect By Chill Hub")
+    end
+end)
 
 local GC = getconnections
 for i, v in pairs(GC(game.Players.LocalPlayer.Idled)) do
@@ -5669,7 +5699,7 @@ spawn(function()
                     if Plr.Backpack:FindFirstChild(toolname) and not Plr.Character:FindFirstChild(toolname) and not Plr.Character:FindFirstChildOfClass("Tool") then
                         local tool = Plr.Backpack:FindFirstChild(toolname)
                         Plr.Character.Humanoid:EquipTool(tool)
-                        wait(0.9)
+                        wait(0.75)
                         game.Players.LocalPlayer.Character.Humanoid:UnequipTools()
                     end
 
@@ -5743,7 +5773,7 @@ spawn(function()
                                 Noclip.Name = "BodyClip"
                                 Noclip.Parent = v
                                 Noclip.MaxForce = Vector3.new(100000,100000,100000)
-                                Noclip.Velocity = Vector3.new(0,10,0)
+                                Noclip.Velocity = Vector3.new(0,20,0)
                             end
                         end
                     end
