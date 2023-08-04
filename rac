@@ -38,7 +38,7 @@ for i,v in pairs(game:GetService("Players"):GetChildren()) do
 end
 
 ----------------------------------- Weapon Spams
-WeaponSection1:NewSlider("Yoru Speed", "Increase/Decrease", 50, 1, function(s) -- 50 (MaxValue) | 0 (MinValue)
+WeaponSection1:NewSlider("Yoru Speed", "Increase/Decrease", 500, 1, function(s) -- 500 (MaxValue) | 0 (MinValue)
     Speed = s
 end)
 
@@ -67,7 +67,7 @@ else
     end
 end)
 
-WeaponSection2:NewSlider("Seastone Speed", "Increase/Decrease", 50, 1, function(ss) -- 50 (MaxValue) | 0 (MinValue)
+WeaponSection2:NewSlider("Seastone Speed", "Increase/Decrease", 500, 1, function(ss) -- 500 (MaxValue) | 0 (MinValue)
     Speed2 = ss
 end)
 
