@@ -127,7 +127,7 @@ OthersTab:AddToggle({
 --DropDown
 TeleportTab:AddDropdown({
 	Name = "Choose Island",
-	Default = "None",
+	Default = "Grassy",
 	Options = {"Grassy","Kaizu's Island","Snowy Mountains","Pursuer's Island","Bar","Cliffs","Windmill", "Cave","Krizma","Pirate","Green","Trees","Pyramid","Package","Snowy","Mountain", "Marine Ford","Sand Castle", "Forest","Evil",
     "Crescent","Islands","Town","Rocky","Palm","Sand","Sand 2","Small","Tiny","Super Tiny","Grass","Atlar"},
 	Callback = function(Value)
