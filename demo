@@ -35,11 +35,20 @@ MainTab:AddToggle({
 	end    
 })
 
+MainTab:AddTextbox({
+	Name = "Yoru Hit",
+	Default = "...",
+	TextDisappear = _G.yoruhit,
+	Callback = function(yh)
+		print(_G.yoruhit)
+	end	  
+})
+
 MainTab:AddToggle({
 	Name = "Fast Attack",
-	Default = _G.fastattack,
+	Default = _G.yorufast,
 	Callback = function(fa)
-		_G.fastattack = fa
+		_G.yorufast = fa
 	end    
 })
 
@@ -314,6 +323,28 @@ spawn(function() -- autofarm cannon
 end)
 
 
+spawn(function() -- yoru
+    while wait(0) do
+        pcall(function()
+            if _G.yorufast then
+                game:GetService'VirtualUser':CaptureController()
+                game:GetService'VirtualUser':Button1Down(Vector2.new(1280, 672))
+                wait(1)
+                if game.Players.LocalPlayer.Character:FindFirstChild("Yoru") and tonumber(serializeTable(attackremote)) ~= nil and tonumber(serializeTable(attackremote)) ~= "" then
+                    repeat wait(0.3)
+                        for i = 1, _G.yoruhit do
+                            local args = {
+                                [1] = tonumber(serializeTable(attackremote))
+                            }
+                            
+                            game:GetService("Players").LocalPlayer.Character.Yoru.RequestAnimation:FireServer(unpack(args))
+                        end
+                    until _G.yorufast == false or game.Players.LocalPlayer.Character.Humanoid.Health == 0 
+                end
+            end
+        end)
+    end
+end)
 
 
 
