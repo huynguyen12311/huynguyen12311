@@ -1,6 +1,10 @@
 if game.PlaceId == 3237168 then
 local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
 local Window = OrionLib:MakeWindow({Name = "Evil Hub", HidePremium = false, SaveConfig = true, ConfigFolder = "OrionTest"})
+
+
+
+
 --Tabs
 local MainTab = Window:MakeTab({
 	Name = "Auto Farm",
@@ -26,10 +30,38 @@ local MiscTab = Window:MakeTab({
 	PremiumOnly = false
 })
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 --Section
 local Section = MainTab:AddSection({
 	Name = "EZ Farm"
 })
+
+
+
+
+
+
+
+
+
+
+
 
 --Toggle
 MainTab:AddToggle({
@@ -54,6 +86,18 @@ OrtherTab:AddToggle({
 		_G.autohaki2 = hk
 	end    
 })
+
+
+
+
+
+
+
+
+
+
+
+
 --Textbox
 MainTab:AddTextbox({
 	Name = "Yoru Hit",
@@ -88,6 +132,15 @@ MiscTab:AddToggle({
 	end    
 })
 
+--Label
+OrtherTab:AddLabel("Auto Compass")
+
+
+
+
+
+
+--funcion
 --[[spawn(function() -- autofarm teleport cannon
     while wait(0) do
         pcall(function()
