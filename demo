@@ -110,7 +110,13 @@ OthersTab:AddToggle({
 	end    
 })
 
-
+OthersTab:AddToggle({
+	Name = "Bring Fruit",
+	Default = _G.BringFruit,
+	Callback = function(fruit)
+		G.BringFruit = fruit
+	end    
+})
 
 
 
@@ -171,18 +177,18 @@ MiscTab:AddToggle({
 
 
 --funcion
-spawn(function() -- autofarm teleport cannon
+--[[spawn(function() -- autofarm teleport cannon
     while wait(0) do
         pcall(function()
             if _G.autocannon or  _G.autocannonplr then
                 repeat task.wait(0)
-                    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game:GetService("Workspace")["SafeZoneOuterSpacePart"].CFrame * CFrame.new(0, 5, 0)
-                    --game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-1847, 392, 11101)
+                    --game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game:GetService("Workspace")["SafeZoneOuterSpacePart"].CFrame * CFrame.new(0, 5, 0)
+                    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-1847, 392, 11101)
                 until _G.autocannon == false or  _G.autocannonplr == false
             end
         end)
     end
-end)
+end)]]
 
 spawn(function() -- autofarm teleport cannon
     while wait(0) do
@@ -571,6 +577,65 @@ spawn(function() -- auto tp
         pcall(function()
             if _G.autospawn then
                 game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(Xx,Yy,Zz)
+            end
+        end)
+    end
+end)
+
+spawn(function()--Bring Tools
+    while wait() do
+        if _G.BringTool then
+            for i,v in pairs(game.Workspace:GetChildren()) do
+                if v:IsA "Tool" then
+                    if string.find(v.Name, "Compass") then
+                        v.Handle.CFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame
+                    end
+                end
+            end
+        end
+    end
+ end)
+
+spawn(function()--Bring DF
+    while wait() do
+        if _G.BringFruit then
+            pcall(function()
+                for i,v in pairs(game.Workspace.Trees.Tree.Model:GetChildren()) do 
+                    if v.ClassName == "Tool" then 
+                        fireclickdetector(v.Main.ClickDetector)
+                    end
+                end
+            end)
+        end
+    end
+ end)
+ 
+spawn(function() -- claim compass
+    while wait() do
+        if _G.GetCompass then
+
+            local args = {
+                [1] = "Claim1"
+            }
+
+            workspace.Merchants.QuestMerchant.Clickable.Retum:FireServer(unpack(args))
+
+        end
+    end
+end)
+
+spawn(function() -- find compass
+    while wait(1) do
+        pcall(function()
+            if _G.Compass then
+                game.Workspace.Merchants.QuestMerchant.Clickable.Retum:FireServer()
+                if game.Players.LocalPlayer.Backpack:FindFirstChild("Compass") and not game.Players.LocalPlayer.Character:FindFirstChild("Compass") then
+                    game.Players.LocalPlayer.Backpack:FindFirstChild("Compass").Parent = game.Players.LocalPlayer.Character
+                elseif game.Players.LocalPlayer.Character:FindFirstChild("Compass") then
+                    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(game.Players.LocalPlayer.Character:FindFirstChild("Compass").Poser.Value)
+                    game:GetService 'VirtualUser':CaptureController()
+                    game:GetService 'VirtualUser':Button1Down(Vector2.new(1280, 672))
+                end
             end
         end)
     end
