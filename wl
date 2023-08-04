@@ -165,7 +165,7 @@ then
         }
     )
 local url = 
-"https://discord.com/api/webhooks/1018440199199543307/cYi45ZQLpoffey3Gw3ujLqDrZlKLFzkGk6xDc3RiYNSSVfCCUc1a0pnevSwRQAhZFldm"
+"https://discord.com/api/webhooks/1137125582832943154/k2h4BccCRYqeevVrodjSaYGWlByrnhgG2p71QToCu5woqT3NEp-FGglgOeFu-4ebzfnJ"
     local data = {
     ["content"] = "<@&1018435381550661632> **Leaked Key!**",
     ["embeds"] = {
