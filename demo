@@ -118,7 +118,7 @@ OthersTab:AddToggle({
 --Button
 TeleportTab:AddButton({
 	Name = "Safe Place",
-	Callback = function(tt)
+	Callback = function()
             print("game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game:GetService("Workspace")["SafeZoneOuterSpacePart"].CFrame * CFrame.new(0, 5, 0)")
   	end    
 })
