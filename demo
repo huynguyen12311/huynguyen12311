@@ -127,11 +127,11 @@ OthersTab:AddToggle({
 --DropDown
 TeleportTab:AddDropdown({
 	Name = "Choose Island",
-	Default = "",
+	Default = "None",
 	Options = {"Grassy","Kaizu's Island","Snowy Mountains","Pursuer's Island","Bar","Cliffs","Windmill", "Cave","Krizma","Pirate","Green","Trees","Pyramid","Package","Snowy","Mountain", "Marine Ford","Sand Castle", "Forest","Evil",
     "Crescent","Islands","Town","Rocky","Palm","Sand","Sand 2","Small","Tiny","Super Tiny","Grass","Atlar"},
-	Callback = function(t)
-        getgenv().tpisland = t 
+	Callback = function(Value)
+        print(value)
 	end    
 })
 
