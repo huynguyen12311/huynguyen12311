@@ -110,13 +110,6 @@ OthersTab:AddToggle({
 	end    
 })
 
-OthersTab:AddToggle({
-	Name = "Bring Fruit",
-	Default = _G.BringFruit,
-	Callback = function(fruit)
-		_G.BringFruit = fruit
-	end    
-})
 
 
 
