@@ -154,6 +154,14 @@ PlayerTab:AddToggle({
 	end    
 })
 
+MainTab:AddToggle({
+    Name = "Auto Claim Quest",
+    Default = _G.autoquest,
+    Callback = function(aq)
+        _G.autoquest = aq 
+    end    
+})
+
 MiscTab:AddToggle({
 	Name = "Auto Spawn",
 	Default = _G.autospawn,
@@ -605,7 +613,16 @@ spawn(function() -- claim compass
     end
 end)
 
-
+spawn(function()--auto quest
+    while wait() do
+        if _G.autoquest then
+            if game:GetService("Players").LocalPlayer.PlayerGui.MissionGui.Frame.Frame.Header.Text == "Mission Objective" then
+                local Event = game:GetService("Workspace").Merchants.ExpertiseMerchant.Clickable.Retum
+                Event:FireServer()
+            end
+        end
+    end
+end)
 
 
 
