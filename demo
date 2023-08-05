@@ -136,7 +136,7 @@ MiscTab:AddToggle({
 
 PlayerTab:AddToggle({
 	Name = "View Player",
-	Default = _G.autodrinkmixer,
+	Default = Sp = viewplr,
 	Callback = function(viewplr)
 		Sp = viewplr
         local plr1 = game.Players.LocalPlayer.Character.Humanoid
