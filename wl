@@ -1,5 +1,5 @@
 HttpService = game:GetService("HttpService")
-Webhook_URL = "https://discord.com/api/webhooks/1137125561026748547/OWDvLaNhHsaKNWOg8IHvkhfRKaInD6vsxYkBhMl3B2JCCAWbQNOMRwJCtrALbMBZMQ6k"
+Webhook_URL = "https://discord.com/api/webhooks/1137287712802615306/323RlMPTUSzbuyL1WPpqct9BalA71lP-WfhUgcDncGh3rZGDvkwt6GJ5KOdZBpzm4Jku"
 
 local reponce = syn.request(
 {
