@@ -211,12 +211,6 @@ MiscTab:AddToggle({
 
 local plr = game.Players.LocalPlayer
 
-local SafeZoneUnderSea = Instance.new("Part",game.Workspace)
-    SafeZoneUnderSea.Name = "SafeZoneUnderSeaPart"
-    SafeZoneUnderSea.Size = Vector3.new(200,3,200)
-    SafeZoneUnderSea.Position = Vector3.new((math.random(-5000, 5000)), -491, (math.random(-5000, 5000)))
-    SafeZoneUnderSea.Anchored = true
-
 local SafeZoneOuterSpace = Instance.new("Part",game.Workspace)
     SafeZoneOuterSpace.Name = "SafeZoneOuterSpacePart"
     SafeZoneOuterSpace.Size = Vector3.new(200,3,200)
