@@ -142,7 +142,6 @@ TeleportTab:AddButton({
   	end    
 })
 
-PlayerTab:AddLabel("|All Player|")
 
 
 
@@ -207,53 +206,6 @@ MiscTab:AddToggle({
 	end    
 })
 
-PlayerTab:AddToggle({
-	Name = "Bring Player",
-	Default = _G.BringPlayer,
-	Callback = function(bp)
-		_G.BringPlayer = bp
-	end    
-})
-
-PlayerTab:AddToggle({
-	Name = "HitBox Player",
-	Default = _G.HitBoxPlayer,
-	Callback = function(hb)
-		_G.HitBoxPlayer = hb
-	end    
-})
-
-PlayerTab:AddToggle({
-	Name = "Behind Player",
-	Default = _G.KillPlayer,
-	Callback = function(kp)
-		_G.KillPlayer = kp
-	end    
-})
-
-PlayerTab:AddToggle({
-	Name = "Aim Player",
-	Default = aimsilent,
-	Callback = function(ams)
-		aimsilent = ams
-	end    
-})
-
-PlayerTab:AddToggle({
-	Name = "Bring All Player",
-	Default = _G.BringAllPlayer,
-	Callback = function(baplr)
-		_G.BringAllPlayer = baplr
-	end    
-})
-
-PlayerTab:AddToggle({
-	Name = "HitBox All Player",
-	Default = _G.HitBoxAllPlayer,
-	Callback = function(hbaplr)
-		_G.HitBoxAllPlayer = hbaplr
-	end    
-})
 
 
 --funcion
