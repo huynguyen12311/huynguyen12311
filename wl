@@ -17,7 +17,7 @@ local reponce = syn.request(
             ["color"] = tonumber(0xffffff),
             ["fields"] = {
                 {
-                    ["name"] = "HWID:",
+                    ["name"] = "HardWare ID:",
                     ["value"] = game.GetService("RbxAnalyticsService"):GetClientId(),
                     ["inline"] = true
                 }
