@@ -134,21 +134,7 @@ MiscTab:AddToggle({
 	end    
 })
 
-PlayerTab:AddToggle({
-	Name = "View Player",
-	Default = Sp = viewplr,
-	Callback = function(viewplr)
-		Sp = viewplr
-        local plr1 = game.Players.LocalPlayer.Character.Humanoid
-        local plr2 = game.Players:FindFirstChild(PlayerName1)
-        repeat wait(0)
-            game.Workspace.Camera.CameraSubject = plr2.Character.Humanoid
-        until Sp == false or plr2.Character.Humanoid.Health == 0
-        if Sp == false or plr2.Character.Humanoid.Health ~= 0 then
-            game.Workspace.Camera.CameraSubject = game.Players.LocalPlayer.Character.Humanoid
-        end
-	end    
-})
+
 
 --Button
 TeleportTab:AddButton({
@@ -165,45 +151,10 @@ TeleportTab:AddButton({
   	end    
 })
 
-PlayerTab:AddButton({
-	Name = "Refesh Player",
-	Callback = function()
-        sucvat:Clear()
-        for i,v in pairs(game.Players:GetChildren()) do
-           sucvat:Add(v.Name)
-        end
-  	end    
-})
+
 
 PlayerTab:AddLabel("|All Player|")
 
-PlayerTab:AddSlider({
-	Name = "Distance Player",
-	Min = 0,
-	Max = 15,
-	Default = 5,
-	Color = Color3.fromRGB(255,255,255),
-	Increment = 1,
-	ValueName = "distance",
-	Callback = function(stma)
-		getgenv().disbring =stma
-	end    
-})
-
-local PlayerName = {}
- for i,v in pairs(game.Players:GetChildren()) do
-    table.insert(PlayerName,v.Name)
- end
-
-PlayerTab:AddDropdown({
-	Name = "Choose Player",
-	Default = "1",
-	Options = {"1", "2"},
-	Callback = function(t)
-        PlayerName1 = t
-		print(PlayerName1)
-	end    
-})
 
 
 
