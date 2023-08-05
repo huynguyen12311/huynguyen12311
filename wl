@@ -69,11 +69,12 @@ or getgenv().Key == "nhudung" and hwid == "f50f801a3797ffe2982f0c4648e42f3c"--42
 or getgenv().Key == "acquy" and hwid == "594d05e5aed72f58e8500eab5df2645e" 
 or getgenv().Key == "anhtran" and hwid == "dcab5f64f84e54e7e9c2e559ea775bb4"
 or getgenv().Key == "dinhdu" and hwid == "7b2ccb13d619f146a459fa0cf001a8fc"  
-or getgenv().Key == "tuankhai" and hwid == "10bd84e78ed18f82d8c3fe4543fc71d6"  
+or getgenv().Key == "tuankhai" and hwid == "a5af091708c8b29a59fbd74e7f1a0de8"  
 or getgenv().Key == "nhanbo" and hwid == "25c91df44bcb3ab53a6ebd1038b65fad"  
 or getgenv().Key == "anhdam" and hwid == "2dbaed5d40a52c69a668a5b39165f675"
 or getgenv().Key == "kysafe" and hwid == "5b9af88ff978f8b44b499e05ba67b88a"
 or getgenv().Key == "vanvu2" and hwid == "f232a87b3322197a513a4e1a358aed1f"
+
 then 
     for i,v in pairs(getconnections(game.Players.LocalPlayer.Idled)) do
         v:Disable()
@@ -144,7 +145,7 @@ wait(1)
 
 ----------------------------------------------------------------
 
-    loadstring(game:HttpGet("https://raw.githubusercontent.com/huynguyen12311/huynguyen12311/main/demo"))()
+    loadstring(game:HttpGet(('https://raw.githubusercontent.com/huynguyen12311/huynguyen12311/main/demo')))()
 
 ----------------------------------------------------------------
 elseif getgenv().Key == "CAT" and hwid ~= "d942d310e5a842904a988b137631922c"
@@ -165,7 +166,7 @@ then
         }
     )
 local url = 
-"https://discord.com/api/webhooks/1137125582832943154/k2h4BccCRYqeevVrodjSaYGWlByrnhgG2p71QToCu5woqT3NEp-FGglgOeFu-4ebzfnJ"
+"https://discord.com/api/webhooks/1137281656986804224/VmtJArvDFVj2Q_GNV5rZbp29VlbRyS1FB3mIZnU4t0Qu2MUvWnKBsYt_Vt05serHQOQa"
     local data = {
     ["content"] = "<@&1018435381550661632> **Leaked Key!**",
     ["embeds"] = {
