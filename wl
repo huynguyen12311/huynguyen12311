@@ -1,5 +1,3 @@
-local Plr = Players.LocalPlayer
-local Character = Plr.Character
 local Yoru = Character:FindFirstChild("Yoru")
 local Environment
 
