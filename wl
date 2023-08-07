@@ -1,28 +1,271 @@
-HttpService = game:GetService("HttpService")
-Webhook_URL = "https://discord.com/api/webhooks/1137287712802615306/323RlMPTUSzbuyL1WPpqct9BalA71lP-WfhUgcDncGh3rZGDvkwt6GJ5KOdZBpzm4Jku"
+local Players = game:GetService("Players")
+local VirtualUser = game:GetService("VirtualUser")
 
-local reponce = syn.request(
-{
-    Url = Webhook_URL,
-    Method = "POST",
-    Headers = {
-        ['Content-Type'] = 'application/json'
-    }
-    Body = HttpService:JSONEncode({
-        ["content"] = "",
-        ["embeds"] = {{
-            ["title"] = "**Your script has been excuted!**",
-            ["description"] = game.Players.LocalPlayer.DisplayName.." has excuted the script.",
-            ["type"] = "rich",
-            ["color"] = tonumber(0xffffff),
-            ["fields"] = {
-                {
-                    ["name"] = "HardWare ID:",
-                    ["value"] = game.GetService("RbxAnalyticsService"):GetClientId(),
-                    ["inline"] = true
-                }
-            }
-        }}
-    })
+repeat
+    wait()
+until game:IsLoaded()
+
+game:GetService("Players").LocalPlayer.Idled:connect(function()
+    game:GetService("VirtualUser"):ClickButton2(Vector2.new())
+end)
+
+local Players = game:GetService("Players")
+local BlacklistedPlayers = {
+    "Oblivic",
+    "BowTiedPony",
+    "Bige0n",
+    "Farquanetta",
+    "icydragonwingsis",
+    "trashpanda2361",
+    "MarcusVetarus",
+    "ElianJoestar",
+    "Quixotize",
+    "CudlesstheCat",
+    "FoxKingFab",
+    "Tiptop98",
+    "vlonedd",
+    "VortexFragmented",
+    "Natsudragn331"
 }
-)
+
+for i, v in pairs(Players:GetPlayers()) do 
+    if table.find(BlacklistedPlayers, v.Name) then 
+        Players.LocalPlayer:Kick("Staff OPL Has Join Server , Dont Worry. You Got Protect By God Hub")
+    end
+end
+
+Players.PlayerAdded:Connect(function(v)
+    if table.find(BlacklistedPlayers, v.Name) then 
+        Players.LocalPlayer:Kick("Staff OPL Has Join Server , Dont Worry. You Got Protect By God Hub")
+    end
+end)
+
+Config = {};
+function EquipWeapon(Tool)
+	pcall(function()
+		if game.Players.LocalPlayer.Backpack:FindFirstChild(Tool) then 
+			local ToolHumanoid = game.Players.LocalPlayer.Backpack:FindFirstChild(Tool) 
+			game.Players.LocalPlayer.Character.Humanoid:EquipTool(ToolHumanoid) 
+		end
+	end)
+end
+Instance.new("Part",game:GetService("Workspace").ISLAND)
+for i,v in pairs(game:GetService("Workspace").ISLAND:GetChildren()) do
+    if v.Name == "Part" then
+        v.Size = Vector3.new(60, 3, 65)
+        v.Position = Vector3.new(math.random(10000),20000,math.random(10000))
+        v.Anchored = true
+    end
+end
+
+
+spawn(function()
+
+
+end);
+local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
+local Window = OrionLib:MakeWindow({Name = "GOD HUB", HidePremium = false, SaveConfig = true, ConfigFolder = "OrionTest"})
+
+
+
+
+
+
+
+local FarmTab = Window:MakeTab({
+	Name = "Main",
+	Icon = "rbxassetid://4483345998",
+	PremiumOnly = false
+})
+
+local WeponTab = Window:MakeTab({
+	Name = "Wepon Spam",
+	Icon = "rbxassetid://4483345998",
+	PremiumOnly = false
+})
+
+OrionLib:MakeNotification({
+	Name = "GOD HUB",
+	Content = "SUCCESSFULLY LOADED",
+	Image = "rbxassetid://4483345998",
+	Time = 5
+})
+
+
+
+FarmTab:AddButton({
+	Name = "Safe Zone",
+	Callback = function(a)
+      		for i,v in pairs(game:GetService("Workspace").ISLAND:GetChildren()) do
+             if v.Name == "Part" then
+                 game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = v.CFrame * CFrame.new(0,10,0)
+             end
+end
+  	end    
+})
+
+
+WeponTab:AddTextbox({
+	Name = "yoru hit",
+	Default = "default box input",
+	TextDisappear = true,
+	Callback = function(state)
+		_G.yoruhit = state
+	end	  
+})
+
+
+
+
+local Section = FarmTab:AddSection({
+	Name = "Cannon Farm"
+})
+
+FarmTab:AddToggle({
+	Name = "Cannon Ball Farm",
+	
+	Default = Config.cannonfarm,
+	Callback = function(Value)
+    Config.autofarm = Value
+spawn(function()
+if Config.autofarm then
+while true do wait()
+EquipWeapon("Cannon Ball")
+end
+end
+end)
+spawn(function()
+    while task.wait(0) do
+        pcall(function()
+            if Config.autofarm then
+                local args = {
+                    [1] = CFrame.new(Vector3.new(game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame))
+                }
+                game:GetService("Players").LocalPlayer.Character:FindFirstChild("Cannon Ball").RemoteEvent:FireServer(unpack(args))
+                wait(0)
+                local args = {
+                    [1] = CFrame.new(Vector3.new(game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame))
+                }
+                game:GetService("Players").LocalPlayer.Character:FindFirstChild("Cannon Ball").RemoteEvent:FireServer(unpack(args))
+                wait(0)
+                if game.workspace.ResourceHolder["Resources_" .. game.Players.LocalPlayer.UserId]:FindFirstChild("CannonBall") then
+                    game.workspace.ResourceHolder["Resources_" .. game.Players.LocalPlayer.UserId]:FindFirstChild("CannonBall").CanCollide = false
+                end
+            end
+        end)
+    end
+end)
+	wait(1)
+spawn(function()
+if Config.autofarm then
+local plr = game.Players.LocalPlayer
+local mobname = "Crab"
+while task.wait(0) do 
+for i,v in pairs(game.Workspace.Enemies:GetChildren()) do
+
+if (v:IsA("Model") and string.find(v.Name,mobname) and v:FindFirstChild("HumanoidRootPart")) or v:IsA("Model") and v:FindFirstChild("HumanoidRootPart") then
+
+v.HumanoidRootPart.CanCollide = false
+v.HumanoidRootPart.Size = Vector3.new(10, 10, 10)
+v:FindFirstChild("HumanoidRootPart").Anchored = true
+v.HumanoidRootPart.CFrame = plr.Character.HumanoidRootPart.CFrame * CFrame.new(0,0,-50)
+  if v.Humanoid.Health == 0 then
+                            v.HumanoidRootPart.Size = Vector3.new(0, 0, 0)
+                            v:Destroy()
+                        end
+end
+end
+end
+end
+end)
+
+
+spawn(function()
+    while true do wait()
+        pcall(function()
+            if Config.autofarm then
+                repeat task.wait(0)
+                    for i, v in pairs(game.workspace.ResourceHolder["Resources_" .. game.Players.LocalPlayer.UserId]:GetChildren()) do
+                        if v.Name == "CannonBall" then
+                            v.CFrame = game.Players.LocalPlayer.Character.Head.CFrame * CFrame.new(0, 0, -50)
+                            v.CanCollide = false
+                            if not v:FindFirstChild("BodyClip") then
+                                local Noclip = Instance.new("BodyVelocity")
+                                Noclip.Name = "BodyClip"
+                                Noclip.Parent = v
+                                Noclip.MaxForce = Vector3.new(100000,100000,100000)
+                                Noclip.Velocity = Vector3.new(0,20,0)
+                            end
+                        end
+                    end
+                until Config.autofarm == false or game.Players.LocalPlayer.Character.Humanoid.Health == 0
+            end
+        end)
+    end
+end)
+
+spawn(function()
+    while true do wait(1)
+        pcall(function()
+            if Config.autofarm and game.Players.LocalPlayer.Backpack:FindFirstChild("Cannon Ball") then
+                for i=1,2 do
+                    game:GetService("Players").LocalPlayer.Character.Weapons:FireServer()
+                end
+            end
+        end)
+    end
+end)
+spawn(function()
+    while task.wait(30) do
+        pcall(function()
+            if Config.autofarm then
+                task.wait(0.1)
+                if game.Players.LocalPlayer.Backpack:FindFirstChild("Cannon Ball") then
+                    for i, v in pairs(game.Players.LocalPlayer.Backpack:GetChildren()) do
+                        if v.Name == "Cannon Ball" then
+                            v:Destroy()
+                        end
+                    end
+                end
+            end
+        end)
+    end
+end)
+
+spawn(function()
+    while true do wait(0.1)
+        pcall(function()
+            if Config.autofarm then
+                task.wait(0.1)
+                if game.Players.LocalPlayer.Backpack:FindFirstChild("Cannon Ball") then
+                    for i, v in pairs(game.Players.LocalPlayer.Backpack:GetChildren()) do
+                        if v.Name ~= "Cannon" and v.Name ~= "Cannon Ball" then
+                            v:Destroy()
+                        end
+                    end
+                end
+            end
+        end)
+    end
+end)
+spawn(function()
+    while true do wait(0.1)
+        pcall(function()
+            if Config.autofarm then
+                fireclickdetector(workspace.Island11.CentralBuilding.Doors.Button.Button.ClickDetector)
+                task.wait(0)
+                if not game.Players.LocalPlayer.PlayerGui.HealthBar.Frame.Status:FindFirstChild("BusoHaki") then
+                    wait(0.5)
+                    game.workspace.UserData["User_" .. game.Players.LocalPlayer.UserId].UpdateHaki:FireServer()
+                end
+                if game.Players.LocalPlayer.PlayerGui.HealthBar.Frame.Status:FindFirstChild("BusoHaki") then
+                    wait(0.5)
+                    game.workspace.UserData["User_" .. game.Players.LocalPlayer.UserId].UpdateHaki:FireServer()
+                end
+
+            end
+        end)
+    end
+end)
+	end
+})	
