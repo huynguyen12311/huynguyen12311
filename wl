@@ -1,3 +1,8 @@
+local Plr = Players.LocalPlayer
+local Character = Plr.Character
+local Yoru = Character:FindFirstChild("Yoru")
+local Environment
+
 local Players = game:GetService("Players")
 local VirtualUser = game:GetService("VirtualUser")
 
@@ -106,17 +111,11 @@ end
 
 
 WeponTab:AddTextbox({
-	Name = "Yoru Fast",
+	Name = "Yoru Hit",
 	Default = "",
 	TextDisappear = true,
-	Callback = function(state)
-        if state then
-            _G.Yoru = true
-            local Players = game:GetService("Players")
-            local Plr = Players.LocalPlayer
-            local Character = Plr.Character
-            local Yoru = Character:FindFirstChild("Yoru")
-            local Environment
+	Callback = function(yh)
+        _G.yoruhit = yh
 	end	  
 })
 
@@ -287,15 +286,15 @@ end)
 
 
 spawn(function()
-    while _G.Yoru do
+    while _G.yorufast do
         wait()
         pcall(function()
         for i,v in pairs(getconnections(Yoru["RequestAnimation"].OnClientEvent)) do 
             Environment = getsenv(Yoru["AnimationController"])
         end
             wait()
-        for i = 1, Speed do
+        for i = 1, yoruhit do
         Yoru["RequestAnimation"]:FireServer(Environment.PlaceId)
-        end
         end)
+    end
 end)
