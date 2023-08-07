@@ -1,7 +1,4 @@
 
-local Yoru = Character:FindFirstChild("Yoru")
-local Environment
-
 local Players = game:GetService("Players")
 local VirtualUser = game:GetService("VirtualUser")
 
