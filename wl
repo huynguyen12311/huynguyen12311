@@ -106,11 +106,17 @@ end
 
 
 WeponTab:AddTextbox({
-	Name = "yoru hit",
-	Default = "default box input",
+	Name = "Yoru Fast",
+	Default = "",
 	TextDisappear = true,
 	Callback = function(state)
-		_G.yoruhit = state
+        if state then
+            _G.Yoru = true
+            local Players = game:GetService("Players")
+            local Plr = Players.LocalPlayer
+            local Character = Plr.Character
+            local Yoru = Character:FindFirstChild("Yoru")
+            local Environment
 	end	  
 })
 
@@ -120,6 +126,15 @@ WeponTab:AddTextbox({
 local Section = FarmTab:AddSection({
 	Name = "Cannon Farm"
 })
+
+WeponTab:AddToggle({
+	Name = "Yoru Fast",
+	Default = _G.yorufast,
+	Callback = function(yf)
+		_G.yorufast = yf
+	end    
+})
+
 
 FarmTab:AddToggle({
 	Name = "Cannon Ball Farm",
@@ -268,4 +283,20 @@ spawn(function()
     end
 end)
 	end
-})	
+})
+
+
+spawn(function()
+    while _G.Yoru do
+        wait()
+        pcall(function()
+        for i,v in pairs(getconnections(Yoru["RequestAnimation"].OnClientEvent)) do 
+            Environment = getsenv(Yoru["AnimationController"])
+        end
+            wait()
+        for i = 1, Speed do
+        Yoru["RequestAnimation"]:FireServer(Environment.PlaceId)
+        end
+        end)
+        end
+    end)
