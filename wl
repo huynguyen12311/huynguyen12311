@@ -298,5 +298,4 @@ spawn(function()
         Yoru["RequestAnimation"]:FireServer(Environment.PlaceId)
         end
         end)
-        end
-    end)
+end)
