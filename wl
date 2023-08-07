@@ -127,9 +127,9 @@ local Section = FarmTab:AddSection({
 
 HakiTab:AddToggle({
 	Name = "Haki Farm",
-	Default = _G.hakifarm1,
-	Callback = function(yf)
-		_G.hakifarm1 = yf
+	Default = _G.hakifarm,
+	Callback = function(hf)
+		_G.hakifarm = hf
 	end    
 })
 
@@ -284,7 +284,7 @@ end)
 })
 
 spawn(function()
-    if _G.autohaki2 then
+    if _G.hakifarm then
         for i = 1, 100 do
             local args = {
                 [1] = "On",
