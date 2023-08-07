@@ -29,8 +29,15 @@ local Tab = Window:MakeTab({
 	Icon = "rbxassetid://4483345998",
 	PremiumOnly = false
 })
+
 local WeponTab = Window:MakeTab({
 	Name = "Wepon Spam",
+	Icon = "rbxassetid://4483345998",
+	PremiumOnly = false
+})
+
+local MicsTab = Window:MakeTab({
+	Name = "Orther",
 	Icon = "rbxassetid://4483345998",
 	PremiumOnly = false
 })
@@ -40,6 +47,30 @@ OrionLib:MakeNotification({
 	Content = "SUCCESSFULLY LOADED",
 	Image = "rbxassetid://4483345998",
 	Time = 5
+})
+
+local Section = MicsTab:AddSection({
+	Name = "Fish Farm"
+})
+
+MicsTabTab:AddToggle({
+	Name = "Farm Fish",
+	Default = _G.autofish,
+	Callback = function(af)
+		_G.autofish = af
+	end    
+})
+
+local Section = MicsTab:AddSection({
+	Name = "Stats Farm (very dangerous by admin)"
+})
+
+MicsTabTab:AddToggle({
+	Name = "Auto Mixer",
+	Default = _G.automixer,
+	Callback = function(am)
+		_G.automixer = am
+	end    
 })
 
 Tab:AddButton({
@@ -246,4 +277,67 @@ _G.Yoru = false
 end
 	end    
 })
+
+spawn(function() -- fish farm
+    while wait(0) do
+        pcall(function()
+            if _G.autofish then
+                wait(0.5)
+                game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-19784, 218, 4675)
+                wait(0.5)
+                for i, v in pairs(game.Players.LocalPlayer.Backpack:GetChildren()) do
+                    if string.find(v.Name, "Rod") then
+                        for i, v in pairs(game.Players.LocalPlayer.Backpack:GetChildren()) do
+                            if string.find(v.Name, "Rod") then
+                                game.Players.LocalPlayer.Character.Humanoid:EquipTool(v)
+                            end
+                        end
+                    end
+                end
+                for i, v in pairs(game.Players.LocalPlayer.Character:GetChildren()) do
+                    if string.find(v.Name, "Rod") then
+                        for _, x in pairs(game.Players.LocalPlayer.Character:GetDescendants()) do
+                            if string.find(x.Name, "Rod") then
+                                for i, v in pairs(game.Players.LocalPlayer.Character:GetDescendants()) do
+                                    if v:FindFirstChild("Bobber") then
+                                        if v.Bobber.Effect.Enabled == true then
+                                            wait(0.6)
+                                            local args = {
+                                                [1] = game.Players.LocalPlayer.Character.HumanoidRootPart.Position
+                                            }
+                                            game:GetService("Players").LocalPlayer.Character:FindFirstChild(x.Name).Click:FireServer(unpack(args))
+                                        end
+                                    elseif v.Name == "Cast" and not v:FindFirstChild("Bobber") then
+                                        wait(0.6)
+                                        local args = {
+                                            [1] = game.Players.LocalPlayer.Character.HumanoidRootPart.Position
+                                        }
+                                        game:GetService("Players").LocalPlayer.Character:FindFirstChild(x.Name).Click:FireServer(unpack(args))
+                                        workspace:WaitForChild("Merchants"):WaitForChild("FishMerchant"):WaitForChild("Clickable"):WaitForChild("Retum"):FireServer()
+                                    end
+                                end
+                            end
+                        end
+                    end
+                end       
+            end
+        end)
+    end
+end)
+
+game:GetService("Players").LocalPlayer:WaitForChild("Click"):FireServer(unpack(args))
+spawn(function() -- auto mixer
+    while wait() do
+        pcall(function()
+            if _G.automixer then
+                wait(1)
+                for i, v in pairs(game:GetService("Workspace").Island8.Kitchen:GetDescendants()) do
+                    if v:IsA("ClickDetector") then
+                        fireclickdetector(v)
+                    end
+                end
+            end
+        end)
+    end
+end)
 
