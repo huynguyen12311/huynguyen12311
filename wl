@@ -1,3 +1,4 @@
+
 local Yoru = Character:FindFirstChild("Yoru")
 local Environment
 
@@ -81,8 +82,8 @@ local FarmTab = Window:MakeTab({
 	PremiumOnly = false
 })
 
-local WeponTab = Window:MakeTab({
-	Name = "Wepon Spam",
+local HakiTab = Window:MakeTab({
+	Name = "Haki Farn",
 	Icon = "rbxassetid://4483345998",
 	PremiumOnly = false
 })
@@ -108,12 +109,12 @@ end
 })
 
 
-WeponTab:AddTextbox({
-	Name = "Yoru Hit",
+HakiTab:AddTextbox({
+	Name = "Haki",
 	Default = "",
 	TextDisappear = true,
-	Callback = function(yh)
-        _G.yoruhit = yh
+	Callback = function(hf)
+        _G.hakifarm = hf
 	end	  
 })
 
@@ -124,11 +125,11 @@ local Section = FarmTab:AddSection({
 	Name = "Cannon Farm"
 })
 
-WeponTab:AddToggle({
-	Name = "Yoru Fast",
-	Default = _G.yorufast,
+HakiTab:AddToggle({
+	Name = "Haki Farm",
+	Default = _G.hakifarm1,
 	Callback = function(yf)
-		_G.yorufast = yf
+		_G.hakifarm1 = yf
 	end    
 })
 
@@ -282,17 +283,112 @@ end)
 	end
 })
 
-
 spawn(function()
-    while _G.yorufast do
-        wait()
-        pcall(function()
-        for i,v in pairs(getconnections(Yoru["RequestAnimation"].OnClientEvent)) do 
-            Environment = getsenv(Yoru["AnimationController"])
+    if _G.autohaki2 then
+        for i = 1, 100 do
+            local args = {
+                [1] = "On",
+                [2] = 528
+            }
+            task.wait(0.1)
+            workspace:WaitForChild("UserData"):WaitForChild("User_" .. game.Players.LocalPlayer.UserId):WaitForChild("III"):FireServer(unpack(args))
+            local args = {
+                [1] = "Off",
+                [2] = 528
+            }
+
+            workspace:WaitForChild("UserData"):WaitForChild("User_" .. game.Players.LocalPlayer.UserId):WaitForChild("III"):FireServer(unpack(args))
+            task.wait(0.1)
+            local args = {
+                [1] = "Off",
+                [2] = 528
+            }
+
+            workspace:WaitForChild("UserData"):WaitForChild("User_" .. game.Players.LocalPlayer.UserId):WaitForChild("III"):FireServer(unpack(args))
+            task.wait(0.1)
+            local args = {
+                [1] = "On",
+                [2] = 528
+            }
+
+            workspace:WaitForChild("UserData"):WaitForChild("User_" .. game.Players.LocalPlayer.UserId):WaitForChild("III"):FireServer(unpack(args))
+            task.wait(0.1)
+            local args = {
+                [1] = "Off",
+                [2] = 528
+            }
+
+            workspace:WaitForChild("UserData"):WaitForChild("User_" .. game.Players.LocalPlayer.UserId):WaitForChild("III"):FireServer(unpack(args))
+            task.wait(0.1)
+            local args = {
+                [1] = "Off",
+                [2] = 528
+            }
+
+            workspace:WaitForChild("UserData"):WaitForChild("User_" .. game.Players.LocalPlayer.UserId):WaitForChild("III"):FireServer(unpack(args))
+            task.wait(0.1)
+            local args = {
+                [1] = "On",
+                [2] = 528
+            }
+
+            workspace:WaitForChild("UserData"):WaitForChild("User_" .. game.Players.LocalPlayer.UserId):WaitForChild("III"):FireServer(unpack(args))
+            task.wait(0.1)
+            local args = {
+                [1] = "Off",
+                [2] = 528
+            }
+
+            workspace:WaitForChild("UserData"):WaitForChild("User_" .. game.Players.LocalPlayer.UserId):WaitForChild("III"):FireServer(unpack(args))
+            task.wait(0.1)
+            local args = {
+                [1] = "Off",
+                [2] = 528
+            }
+
+            workspace:WaitForChild("UserData"):WaitForChild("User_" .. game.Players.LocalPlayer.UserId):WaitForChild("III"):FireServer(unpack(args))
+            task.wait(0.1)
+            local args = {
+                [1] = "On",
+                [2] = 528
+            }
+
+            workspace:WaitForChild("UserData"):WaitForChild("User_" .. game.Players.LocalPlayer.UserId):WaitForChild("III"):FireServer(unpack(args))
+            task.wait(0.1)
+            local args = {
+                [1] = "Off",
+                [2] = 528
+            }
+
+            workspace:WaitForChild("UserData"):WaitForChild("User_" .. game.Players.LocalPlayer.UserId):WaitForChild("III"):FireServer(unpack(args))
+            task.wait(0.1)
+            local args = {
+                [1] = "Off",
+                [2] = 528
+            }
+
+            workspace:WaitForChild("UserData"):WaitForChild("User_" .. game.Players.LocalPlayer.UserId):WaitForChild("III"):FireServer(unpack(args))
+            task.wait(0.1)
+            local args = {
+                [1] = "On",
+                [2] = 528
+            }
+
+            workspace:WaitForChild("UserData"):WaitForChild("User_" .. game.Players.LocalPlayer.UserId):WaitForChild("III"):FireServer(unpack(args))
+            task.wait(0.1)
+            local args = {
+                [1] = "Off",
+                [2] = 528
+            }
+
+            workspace:WaitForChild("UserData"):WaitForChild("User_" .. game.Players.LocalPlayer.UserId):WaitForChild("III"):FireServer(unpack(args))
+            task.wait(0.1)
+            local args = {
+                [1] = "Off",
+                [2] = 528
+            }
+
+            workspace:WaitForChild("UserData"):WaitForChild("User_" .. game.Players.LocalPlayer.UserId):WaitForChild("III"):FireServer(unpack(args))
         end
-            wait()
-        for i = 1, yoruhit do
-        Yoru["RequestAnimation"]:FireServer(Environment.PlaceId)
-        end)
     end
 end)
