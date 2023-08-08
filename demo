@@ -932,3 +932,44 @@ Tab3:AddDropdown({
      end
 	end    
 })
+
+Tab:AddToggle({
+	Name = "Auto Claim Quest",
+	Default = false,
+	Callback = function(Value)
+		Config.quest = Value
+	end    
+})
+
+spawn(function()--auto quest
+    while wait() do
+        if Config.quest then
+            if game:GetService("Players").LocalPlayer.PlayerGui.MissionGui.Frame.Frame.Header.Text == "Mission Objective" then
+                local Event = game:GetService("Workspace").Merchants.ExpertiseMerchant.Clickable.Retum
+                Event:FireServer()
+            end
+        end
+    end
+end)
+
+Tab3:AddToggle({
+	Name = "Auto Spawn",
+	Default = false,
+	Callback = function(Value)
+		Config.respawn = Value
+	end    
+})
+
+spawn(function()--autorespawn
+    while wait() do
+        if Config.respawn then
+            pcall(function()
+                if game:GetService("Players").LocalPlayer.PlayerGui.Load.Frame.Visible == true then
+                    for i,v in pairs(getconnections(game:GetService("Players").LocalPlayer.PlayerGui.Load.Frame.Load.MouseButton1Click)) do
+                        v.Function()
+                    end
+                end
+            end)
+        end
+    end
+end)
