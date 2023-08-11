@@ -2223,3 +2223,44 @@ Tab5:AddToggle({
         end)
     end
 })
+
+Tab5:AddToggle({
+	Name = "Auto Store 1-4",
+	Default = false,
+	Callback = function(t)
+		Config.autostore = t
+	end    
+})
+
+spawn(function()
+    pcall(function()
+        while true do wait()
+            pcall(function()
+                if Config.autostore then
+                    if game:GetService("Players").LocalPlayer.PlayerGui.Storage.Frame.Unlock1.Visible == false and game:GetService("Players").LocalPlayer.PlayerGui.Storage.Frame.StoredDF1.DevilFruit.Text == "Empty" or game:GetService("Players").LocalPlayer.PlayerGui.Storage.Frame.Unlock2.Visible == false and game:GetService("Players").LocalPlayer.PlayerGui.Storage.Frame.StoredDF2.DevilFruit.Text == "Empty" or game:GetService("Players").LocalPlayer.PlayerGui.Storage.Frame.Unlock3.Visible == false and game:GetService("Players").LocalPlayer.PlayerGui.Storage.Frame.StoredDF3.DevilFruit.Text == "Empty" then
+                        if getgenv().autostore then
+                            for i,v in pairs(game.Players.LocalPlayer.Backpack:GetChildren()) do
+                                if v:IsA("Tool") then
+                                    if string.find(v.Name, "Quake") or string.find(v.Name, "Phoenix") or string.find(v.Name, "Dark") or string.find(v.Name, "Vampire") or string.find(v.Name, "Gravity") or string.find(v.Name, "Ope") or string.find(v.Name, "Venom") or string.find(v.Name, "Candy") or string.find(v.Name, "Hollow")or string.find(v.Name, "Chilly")or string.find(v.Name, "Gas")or string.find(v.Name, "Flare")or string.find(v.Name, "Light")or string.find(v.Name, "Smoke")or string.find(v.Name, "Rumble")or string.find(v.Name, "Sand")or string.find(v.Name, "Magma")or string.find(v.Name, "Snow") then
+                                        autostoremain()
+                                    end
+                                end
+                            end
+                        end
+                        if getgenv().autostore then
+                            for i,v in pairs(game.Players.LocalPlayer.Character:GetChildren()) do
+                                if v:IsA("Tool") then
+                                    if string.find(v.Name, "Quake") or string.find(v.Name, "Phoenix") or string.find(v.Name, "Dark") or string.find(v.Name, "Vampire") or string.find(v.Name, "Gravity") or string.find(v.Name, "Ope") or string.find(v.Name, "Venom") or string.find(v.Name, "Candy") or string.find(v.Name, "Hollow")or string.find(v.Name, "Chilly")or string.find(v.Name, "Gas")or string.find(v.Name, "Flare")or string.find(v.Name, "Light")or string.find(v.Name, "Smoke")or string.find(v.Name, "Rumble")or string.find(v.Name, "Sand")or string.find(v.Name, "Magma")or string.find(v.Name, "Snow") then
+                                        autostore()
+                                    end
+                                end
+                            end
+                        end
+                    end
+                end
+            end)
+        end
+    end)
+end)
+
+-
