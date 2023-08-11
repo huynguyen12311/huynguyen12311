@@ -2227,8 +2227,8 @@ Tab5:AddToggle({
 Tab5:AddToggle({
 	Name = "Auto Store 1-4",
 	Default = false,
-	Callback = function(t)
-		Config.autostore = t
+	Callback = function(r)
+		Config.autostore = r
 	end    
 })
 
