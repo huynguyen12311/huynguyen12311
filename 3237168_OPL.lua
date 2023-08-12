@@ -2518,6 +2518,9 @@ spawn(function()--auto quest
     end
 end)
 
+local Section = Tab6:AddSection({
+	Name = "Lightning Sword Farm"
+})
 Tab6:AddToggle({
 	Name = "Auto Package",
 	Default = false,
