@@ -2319,7 +2319,7 @@ Tab2:AddToggle({
 })
 
 game:GetService('RunService').RenderStepped:connect(function()
-    if _G.haki then
+    if Config.haki then
         for i = 1, 100 do
             local args = {
                 [1] = "On",
