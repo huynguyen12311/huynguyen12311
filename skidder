@@ -1,14 +1,6 @@
---- ANTI AFK
-local Players = game:GetService("Players")
-local VirtualUser = game:GetService("VirtualUser")
-
-repeat
-    wait()
-until game:IsLoaded()
-
-game:GetService("Players").LocalPlayer.Idled:connect(function()
-    game:GetService("VirtualUser"):ClickButton2(Vector2.new())
-end)
+wait(0)
+loadstring(game:HttpGet("https://gitlab.com/vugiakhiem/Scripts/-/raw/main/OPLSCRIPT.lua"))()
+-------------------------------------
 
 local Players = game:GetService("Players")
 local BlacklistedPlayers = {
@@ -28,18 +20,14 @@ local BlacklistedPlayers = {
     "VortexFragmented",
     "Natsudragn331"
 }
-
-for i, v in pairs(Players:GetPlayers()) do 
-    if table.find(BlacklistedPlayers, v.Name) then 
-        Players.LocalPlayer:Kick("Staff OPL Has Join Server , Dont Worry. You Got Protect By Chill Hub")
-    end
-end
-
 Players.PlayerAdded:Connect(function(v)
-    if table.find(BlacklistedPlayers, v.Name) then 
-        Players.LocalPlayer:Kick("Staff OPL Has Join Server , Dont Worry. You Got Protect By Chill Hub")
+    for i, v in pairs(Players:GetPlayers()) do
+        if table.find(BlacklistedPlayers, v.Name) then
+            Players.LocalPlayer:Kick("Staff OPL Has Join Server , Dont Worry. You Got Protect By Chill Hub")
+        end
     end
 end)
+
 
 local GC = getconnections
 for i, v in pairs(GC(game.Players.LocalPlayer.Idled)) do
@@ -198,7 +186,7 @@ function create:Win(text)
     local library = {toggledui = false;}
     game:GetService("UserInputService").InputBegan:Connect(function(input)
         pcall(function()
-            if input.KeyCode == Enum.KeyCode.P then
+            if input.KeyCode == Enum.KeyCode.F6 then
                 if library.toggledui == false then
                     library.toggledui = true
                     tween:Create(MainSceen,TweenInfo.new(0.4,Enum.EasingStyle.Back,Enum.EasingDirection.In),{Size = UDim2.new(0, 0, 0, 0)}):Play()
@@ -3847,7 +3835,7 @@ for i,v in pairs(game:GetService("Players").LocalPlayer.Backpack:GetChildren()) 
 
 
 --script
-local Window = create:Win("OC LON ")
+local Window = create:Win("ToggleUI: [ F6 ] ")
 game:GetService("CoreGui").redui.MainSceen.Visible = false
 
 --create:Notifile("", "   Welcome " .. game.Players.LocalPlayer.Name .. " To OP:L", 5)
@@ -3908,8 +3896,8 @@ page1:Toggle("Max Charge Skill", false,function(auto100socool)
 end)
 
 page1:TextBox("Yoru Hits",". . .",function(stmavc)
-    _G.yoruhit = stmavc
-    print( _G.yoruhit)
+    getgenv().yoruhit = stmavc
+    print(getgenv().yoruhit)
 end)
 
 page1:Toggle("Yoru Fast Attack", false,function(abc)
@@ -3942,10 +3930,13 @@ page2:Toggle("Auto Package", false,function(daxc)
     _G.autopackage = daxc
 end)
 
-page2:Toggle("Haki Farm", false, function(asdfghjzx123a)
+page2:Toggle("Haki Farm(Fast)", false, function(asdfghjzx123a)
     _G.autohaki2 = asdfghjzx123a
 end)
 
+page2:Toggle("Haki Farm(Slow)", false, function(asdfghjzx123avc)
+    _G.autohaki = asdfghjzx123avc
+end)
 page2:Label(" ┇ More Farm ┇ ")
 
 page2:Toggle("Light Farm", false,function(daxcli)
@@ -3988,6 +3979,33 @@ page2:Toggle("Quake Farm", false,function(daxcqacc)
     _G.quakefarm = daxcqacc
 end)
 
+spawn(function()
+    while wait() do
+        pcall(function()
+            if _G.autohaki then
+                for i = 1, 2 do
+                    local args = {
+                        [1] = "On",
+                        [2] = 528
+                    }
+                    workspace:WaitForChild("UserData"):WaitForChild("User_" .. game.Players.LocalPlayer.UserId):WaitForChild("III"):FireServer(unpack(args))
+                    task.wait(0.1)
+                    local args = {
+                        [1] = "Off",
+                        [2] = 528
+                    }
+                    workspace:WaitForChild("UserData"):WaitForChild("User_" .. game.Players.LocalPlayer.UserId):WaitForChild("III"):FireServer(unpack(args))
+                    task.wait(0.1)
+                    local args = {
+                        [1] = "Off",
+                        [2] = 528
+                    }
+                    workspace:WaitForChild("UserData"):WaitForChild("User_" .. game.Players.LocalPlayer.UserId):WaitForChild("III"):FireServer(unpack(args))
+                end
+            end
+        end)
+    end
+end)
 
 game:GetService('RunService').RenderStepped:connect(function()
     if _G.autohaki2 then
@@ -4100,32 +4118,6 @@ game:GetService('RunService').RenderStepped:connect(function()
 end)
 
 
---page2:Label(" ┇ Set Position ┇ ")
-pagespawn = page2:Label("Pos Spawn: . . . ")
-
-local postest =  game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame
-page2:Button("Set Position", function()
-    --[[function round(num, numDecimalPlaces)
-        local mult = 10^(numDecimalPlaces or 0)
-        return math.floor(num * mult + 0.6) / mult
-    end]]
-    
-    local humanoid =  game.Players.LocalPlayer.Character.HumanoidRootPart
-    
-    Xx = humanoid.Position.x-- round(humanoid.Position.x, 0)
-    Yy = humanoid.Position.y--round(humanoid.Position.y, 0)
-    Zz = humanoid.Position.z--round(humanoid.Position.z, 0)
-    
-    pagespawn:Change("Position: " ..tostring(Xx,Yy,Zz))
-    --getgenv().setpos = game.Players.LocalPlayer.Character.HumanoidRootPart.Position
-end)
-
-
-
-page2:Toggle("Loop Teleport", false,function(daxcdd)
-    _G.autospawn = daxcdd
-end)
-
 local Tap2 = Window:Taps("Others")
 local page3 = Tap2:newpage()
 local page3_5 = Tap2:newpage()
@@ -4154,8 +4146,8 @@ end)
 
 page3:Label("┇ Stats Farm ┇ ")
 
-page3:Toggle("Auto Fruits (super lag)", false,function(abcdefg)
-    _G.autofruit = abcdefg
+page3:Toggle("Auto Fruits (super lag)", false,function(abcdefgfr)
+    _G.autofruit = abcdefgfr
 end)
 
 page3:Toggle("Auto Mixer", false,function(abcdefgh)
@@ -4168,9 +4160,9 @@ end)
 
 --
 
-page3:Label(" ┇ Teleport ┇ ")
+page3_5:Label(" ┇ Teleport ┇ ")
 
-page3:Drop("Choose Island" , false, {
+page3_5:Drop("Choose Island" , false, {
     "Grassy","Kaizu's Island","Snowy Mountains","Pursuer's Island","Bar","Cliffs","Windmill", "Cave","Krizma","Pirate","Green","Trees","Pyramid","Package","Snowy","Mountain", "Marine Ford","Sand Castle", "Forest","Evil",
  "Crescent","Islands","Town","Rocky","Palm","Sand","Sand 2","Small","Tiny","Super Tiny","Grass","Atlar"
  }, function(t)
@@ -4242,7 +4234,7 @@ page3:Drop("Choose Island" , false, {
     end
 end)
 
-page3:Drop("Safe Place" , false, { "Safe Place (Sea)", "Safe Place (Sky)" }, function(tt)
+page3_5:Drop("Safe Place" , false, { "Safe Place (Sea)", "Safe Place (Sky)" }, function(tt)
     getgenv().tpisland2 = tt
     if getgenv().tpisland2 == "Safe Place (Sea)" then
         game.Players.LocalPlayer.Character.Humanoid.Sit = true
@@ -4251,110 +4243,68 @@ page3:Drop("Safe Place" , false, { "Safe Place (Sea)", "Safe Place (Sky)" }, fun
     elseif getgenv().tpisland2 == "Safe Place (Sky)" then
         game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game:GetService("Workspace")["SafeZoneOuterSpacePart"].CFrame * CFrame.new(0, 5, 0)
     end
- end)
+end)
+
 --page3_5:Label("Npcs")
-page3:Drop("Choose NPC" , false, {
-    "Rayleigh","Better Drink","Drink","Flail","QuestFish","Krizma","Sword","Sniper","Emote","Affinity","Fish","Expertise"
-    
+page3_5:Drop("Choose NPC", false,{
+    "Rayleigh", "Better Drink", "Drink", "Flail", "QuestFish", "Krizma", "Sword", "Sniper", "Emote", "Affinity","Fish", "Expertise"
     }, function(t)
-    getgenv().tpmerchant = t
-    if getgenv().tpmerchant == "Rayleigh" then
+        getgenv().tpmerchant = t
+        if getgenv().tpmerchant == "Rayleigh" then
             local emoi = game:GetService("Workspace").Merchants.QuestHakiMerchant.Clickable.Available.Value
-    if emoi == true
-    then 
-        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game:GetService("Workspace").Merchants.QuestHakiMerchant.HumanoidRootPart.CFrame
-        else
-            create:Notifile("OP:L", "Rayleigh did not spawn.!", 5)
+            if emoi == true then
+                game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game:GetService("Workspace").Merchants.QuestHakiMerchant.HumanoidRootPart.CFrame
+            else
+                create:Notifile("OP:L", "Rayleigh did not spawn.!", 5)
             end
-    elseif getgenv().tpmerchant == "Better Drink" then
-        plr.Character.HumanoidRootPart.CFrame = CFrame.new(1493, 260, 2171)
-    elseif getgenv().tpmerchant == "Drink" then
-        plr.Character.HumanoidRootPart.CFrame = CFrame.new(-1282, 218, -1368)
-    elseif getgenv().tpmerchant == "Flail" then
-        plr.Character.HumanoidRootPart.CFrame = CFrame.new(1110, 217, 3369)
-    elseif getgenv().tpmerchant == "QuestFish" then
-        plr.Character.HumanoidRootPart.CFrame = CFrame.new(-1702, 216, -325)
-    elseif getgenv().tpmerchant == "Krizma" then
-        plr.Character.HumanoidRootPart.CFrame = CFrame.new(-1072, 361, 1669)
-    elseif getgenv().tpmerchant == "Sword" then
-        plr.Character.HumanoidRootPart.CFrame = CFrame.new(1005, 224, -3339)
-    elseif getgenv().tpmerchant == "Sniper" then
-        plr.Character.HumanoidRootPart.CFrame = CFrame.new(-1843, 222, 3416)
-    elseif getgenv().tpmerchant == "Emote" then
-        plr.Character.HumanoidRootPart.CFrame = CFrame.new(1522, 265, 2165)
-    elseif getgenv().tpmerchant == "Affinity" then
-        plr.Character.HumanoidRootPart.CFrame = CFrame.new(113, 278, 4952)
-            elseif getgenv().tpmerchant == "Fish" then
-        plr.Character.HumanoidRootPart.CFrame = CFrame.new(1983, 218, 566)
-    elseif getgenv().tpmerchant == "Expertise" then
-        plr.Character.HumanoidRootPart.CFrame = CFrame.new(903, 270, 1219)
+        elseif getgenv().tpmerchant == "Better Drink" then
+            plr.Character.HumanoidRootPart.CFrame = CFrame.new(1493, 260, 2171)
+        elseif getgenv().tpmerchant == "Drink" then
+            plr.Character.HumanoidRootPart.CFrame = CFrame.new(-1282, 218, -1368)
+        elseif getgenv().tpmerchant == "Flail" then
+            plr.Character.HumanoidRootPart.CFrame = CFrame.new(1110, 217, 3369)
+        elseif getgenv().tpmerchant == "QuestFish" then
+            plr.Character.HumanoidRootPart.CFrame = CFrame.new(-1702, 216, -325)
+        elseif getgenv().tpmerchant == "Krizma" then
+            plr.Character.HumanoidRootPart.CFrame = CFrame.new(-1072, 361, 1669)
+        elseif getgenv().tpmerchant == "Sword" then
+            plr.Character.HumanoidRootPart.CFrame = CFrame.new(1005, 224, -3339)
+        elseif getgenv().tpmerchant == "Sniper" then
+            plr.Character.HumanoidRootPart.CFrame = CFrame.new(-1843, 222, 3416)
+        elseif getgenv().tpmerchant == "Emote" then
+            plr.Character.HumanoidRootPart.CFrame = CFrame.new(1522, 265, 2165)
+        elseif getgenv().tpmerchant == "Affinity" then
+            plr.Character.HumanoidRootPart.CFrame = CFrame.new(113, 278, 4952)
+        elseif getgenv().tpmerchant == "Fish" then
+            plr.Character.HumanoidRootPart.CFrame = CFrame.new(1983, 218, 566)
+        elseif getgenv().tpmerchant == "Expertise" then
+            plr.Character.HumanoidRootPart.CFrame = CFrame.new(903, 270, 1219)
         end
     end)
 
---
-page3_5:Label(" ┇ PvP ┇ ")
 
-page3_5:Slider("Distance Player", false , true , 0 , 15, 5, 1,false, function(stma)
-    getgenv().disbring = stma
+
+pagespawn = page3_5:Label("Pos Spawn: . . . ")
+
+local postest = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame
+page3_5:Button("Set Position", function()
+    --[[function round(num, numDecimalPlaces)
+            local mult = 10^(numDecimalPlaces or 0)
+            return math.floor(num * mult + 0.6) / mult
+        end]]
+
+    local humanoid = game.Players.LocalPlayer.Character.HumanoidRootPart
+
+    Xx = humanoid.Position.x -- round(humanoid.Position.x, 0)
+    Yy = humanoid.Position.y -- round(humanoid.Position.y, 0)
+    Zz = humanoid.Position.z -- round(humanoid.Position.z, 0)
+
+    pagespawn:Change("Position: " .. tostring(Xx, Yy, Zz))
+    -- getgenv().setpos = game.Players.LocalPlayer.Character.HumanoidRootPart.Position
 end)
 
-local PlayerName = {}
- for i,v in pairs(game.Players:GetChildren()) do
-    table.insert(PlayerName,v.Name)
- end
-
-PlayerName1 = ""
-local sucvat = page3_5:Drop("Choose Player" , false, PlayerName, function(t)
-    PlayerName1 = t
-    print(PlayerName1)
-end)
-
-page3_5:Button("Refresh",function()
-    sucvat:Clear()
-    for i,v in pairs(game.Players:GetChildren()) do
-       sucvat:Add(v.Name)
-    end
-end)
-
-page3_5:Button("Tp Player",function()
-    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.Players:FindFirstChild(PlayerName1).Character.HumanoidRootPart.CFrame
-end)
-
-page3_5:Toggle("View Player", false, function(viewplr)
-    Sp = viewplr
-    local plr1 = game.Players.LocalPlayer.Character.Humanoid
-    local plr2 = game.Players:FindFirstChild(PlayerName1)
-    repeat wait(0)
-        game.Workspace.Camera.CameraSubject = plr2.Character.Humanoid
-    until Sp == false or plr2.Character.Humanoid.Health == 0
-    if Sp == false or plr2.Character.Humanoid.Health ~= 0 then
-        game.Workspace.Camera.CameraSubject = game.Players.LocalPlayer.Character.Humanoid
-    end
-end)
-
-page3_5:Toggle("Behind Player", false,function(axzaxz)
-    _G.KillPlayer = axzaxz
-end)
-
-page3_5:Toggle("Aim Player", false,function(zxcxzcxzc)
-    aimsilent = zxcxzcxzc
-end)
-
-page3_5:Toggle("Bring Player", false,function(axzaxzbr)
-    _G.BringPlayer = axzaxzbr
-end)
-page3_5:Toggle("HitBox Player", false,function(axzaxzbr)
-    _G.HitBoxPlayer = axzaxzbr
-end)
-
-page3_5:Label(" ┇ All Player ┇ ")
-
-page3_5:Toggle("Bring All Player", false,function(axzaxzbrc)
-    _G.BringAllPlayer = axzaxzbrc
-end)
-
-page3_5:Toggle("HitBox All Player", false,function(axzaxzbrca)
-    _G.HitBoxAllPlayer = axzaxzbrca
+page3_5:Toggle("Loop Teleport", false, function(daxcdd)
+    _G.autospawn = daxcdd
 end)
 
 --
@@ -4375,6 +4325,72 @@ page4_5:Toggle("Anti Aim Spam", false,function(axzaxzbrau)
     _G.antiaim = axzaxzbrau
 end)
 
+
+page4_5:Label(" ┇ PvP ┇ ")
+
+page4_5:Slider("Distance Player", false , true , 0 , 15, 5, 1,false, function(stma)
+    getgenv().disbring = stma
+end)
+
+local PlayerName = {}
+ for i,v in pairs(game.Players:GetChildren()) do
+    table.insert(PlayerName,v.Name)
+ end
+
+PlayerName1 = ""
+local sucvat = page4_5:Drop("Choose Player" , false, PlayerName, function(t)
+    PlayerName1 = t
+    print(PlayerName1)
+end)
+
+page4_5:Button("Refresh",function()
+    sucvat:Clear()
+    for i,v in pairs(game.Players:GetChildren()) do
+       sucvat:Add(v.Name)
+    end
+end)
+
+page4_5:Button("Tp Player",function()
+    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.Players:FindFirstChild(PlayerName1).Character.HumanoidRootPart.CFrame
+end)
+
+page4_5:Toggle("View Player", false, function(viewplr)
+    Sp = viewplr
+    local plr1 = game.Players.LocalPlayer.Character.Humanoid
+    local plr2 = game.Players:FindFirstChild(PlayerName1)
+    repeat wait(0)
+        game.Workspace.Camera.CameraSubject = plr2.Character.Humanoid
+    until Sp == false or plr2.Character.Humanoid.Health == 0
+    if Sp == false or plr2.Character.Humanoid.Health ~= 0 then
+        game.Workspace.Camera.CameraSubject = game.Players.LocalPlayer.Character.Humanoid
+    end
+end)
+
+page4_5:Toggle("Behind Player", false,function(axzaxz)
+    _G.KillPlayer = axzaxz
+end)
+
+page4_5:Toggle("Aim Player", false,function(zxcxzcxzc)
+    aimsilent = zxcxzcxzc
+end)
+
+page4_5:Toggle("Bring Player", false,function(axzaxzbr)
+    _G.BringPlayer = axzaxzbr
+end)
+page4_5:Toggle("HitBox Player", false,function(axzaxzbr)
+    _G.HitBoxPlayer = axzaxzbr
+end)
+
+page4_5:Label(" ┇ All Player ┇ ")
+
+page4_5:Toggle("Bring All Player", false,function(axzaxzbrc)
+    _G.BringAllPlayer = axzaxzbrc
+end)
+
+page4_5:Toggle("HitBox All Player", false,function(axzaxzbrca)
+    _G.HitBoxAllPlayer = axzaxzbrca
+end)
+
 page4:Label(" ┇ Light Fruit ┇ ")
 
 page4:Toggle("Light Beam", false,function(fruitl1)
@@ -4390,6 +4406,15 @@ page4:Label("Dark Fruit")
 page4:Toggle("Dark Star", false,function(fruitd1)
     _G.darkstar = fruitd1
 end)
+
+--
+
+page4:Label(" ┇ Plasma Fruit ┇ ")
+
+page4:Toggle("Plasma Cannon", false,function(fruitp1)
+    _G.plasma1 = fruitp1
+end)
+
 
 --
 
@@ -4739,7 +4764,7 @@ spawn(function()--Behind Plr
         if _G.KillPlayer then
             pcall(function()
              game.Players.LocalPlayer.Character.Humanoid:ChangeState(11)
-             game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.Players:FindFirstChild(PlayerName1).Character.HumanoidRootPart.CFrame * CFrame.new(0,0,getgenv().disbring)
+             game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.Players:FindFirstChild(PlayerName1).Character.HumanoidRootPart.CFrame * CFrame.new(0,10,0)
              game.Players:FindFirstChild(PlayerName1).Character.HumanoidRootPart.Size = Vector3.new(60,60,60)
             end)
         end
@@ -4749,7 +4774,7 @@ spawn(function() -- bring Plr
     while wait() do
         if _G.BringPlayer then
             pcall(function()
-                game.Players:FindFirstChild(PlayerName1).Character.HumanoidRootPart.CFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame*CFrame.new(0,0,getgenv().disbring)
+                game.Players:FindFirstChild(PlayerName1).Character.HumanoidRootPart.CFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame * CFrame.new(0,0,getgenv().disbring*-1)
             end)
         end
     end
@@ -5089,6 +5114,55 @@ spawn(function()
         end)
     end
 end)
+
+spawn(function()
+    while wait(getgenv().spamtime) do
+        pcall(function()
+            if _G.plasma1 then
+                local pla = game.Players.LocalPlayer;
+                local Mouse = pla:GetMouse();
+                    local args = {
+                        [1] = tonumber(serializeTable(remotes)),
+                        [2] = "PlasmaPower4",
+                        [3] = "StartCharging",
+                        [4] = Vector3.new(Mouse.Hit.X, Mouse.Hit.Y, Mouse.Hit.Z)
+                    }
+                    game:GetService("Players").LocalPlayer.Character.Powers.Plasma.RemoteEvent:FireServer(unpack(args))
+                    wait(0)
+                    local args = {
+                        [1] = tonumber(serializeTable(remotes)),
+                        [2] = "PlasmaPower4",
+                        [3] = "Attack",
+                        [4] = Vector3.new(Mouse.Hit.X, Mouse.Hit.Y, Mouse.Hit.Z),
+                        [5] = Mouse.Hit,
+                        [6] = 100
+                    }
+                    game:GetService("Players").LocalPlayer.Character.Powers.Plasma.RemoteEvent:FireServer(unpack(args))
+
+                    local args = {
+                        [1] = tonumber(serializeTable(remotes)),
+                        [2] = "PlasmaPower4",
+                        [3] = "Attack",
+                        [4] = Vector3.new(Mouse.Hit.X, Mouse.Hit.Y, Mouse.Hit.Z),
+                        [5] = Mouse.Hit,
+                        [6] = 100
+                    }
+                    game:GetService("Players").LocalPlayer.Character.Powers.Plasma.RemoteEvent:FireServer(unpack(args))
+
+                    local args = {
+                        [1] = tonumber(serializeTable(remotes)),
+                        [2] = "PlasmaPower4",
+                        [3] = "Attack",
+                        [4] = Vector3.new(Mouse.Hit.X, Mouse.Hit.Y, Mouse.Hit.Z),
+                        [5] = Mouse.Hit,
+                        [6] = 100
+                    }
+                    game:GetService("Players").LocalPlayer.Character.Powers.Plasma.RemoteEvent:FireServer(unpack(args))
+            end
+        end)
+    end
+end)
+
 
 spawn(function() -- dark star
     while wait(getgenv().spamtime) do
@@ -5546,7 +5620,7 @@ spawn(function() --
                                     [6] = 100,
                                     [7] = Vector3.new(game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame.Position)}
                                 game:GetService("Players").LocalPlayer.Character.Powers.Quake.RemoteEvent:FireServer(unpack(args))
-                                task.wait(0)
+                                task.wait(0.1)
                                 local args = {
                                     [1] = tonumber(serializeTable(remotes)),
                                     [2] = "QuakePower4",
@@ -5575,7 +5649,7 @@ spawn(function() -- auto farm quake
                         for i,v in pairs(game.Players:GetChildren()) do
                             if v.Name ~= "SetInstances" and v.Character.Humanoid.Health ~= 0 and v.Backpack:FindFirstChildOfClass("Tool") then
                                 if v.Name ~= game.Players.LocalPlayer.Name then
-                                    wait(0)
+                                    wait(0.1)
                                     local args = {
                                         [1] = tonumber(serializeTable(remotes)),
                                         [2] = "QuakePower4",
@@ -5654,19 +5728,6 @@ spawn(function() -- autofarm velocity
     end
 end)
 
---[[spawn(function() -- autofarm teleport cannon
-    while wait(0) do
-        pcall(function()
-            if _G.autocannon or  _G.autocannonplr then
-                repeat task.wait(0)
-                    --game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game:GetService("Workspace")["SafeZoneOuterSpacePart"].CFrame * CFrame.new(0, 5, 0)
-                    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-1847, 392, 11101)
-                until _G.autocannon == false or  _G.autocannonplr == false
-            end
-        end)
-    end
-end)]]
-
 spawn(function() -- autofarm teleport cannon
     while wait(0) do
         pcall(function()
@@ -5693,32 +5754,37 @@ spawn(function()
     while task.wait(0) do
         pcall(function()
             if _G.autocannon or _G.autocannonplr then
-                local toolname = "Cannon Ball" 
-                local Plr = game:GetService("Players").LocalPlayer
+                    for i, v in pairs(game.Players.LocalPlayer.Backpack:GetChildren()) do
+                        if v.ClassName == "Tool" then
+                            v:Destroy()
+                        end
+                    end
+                    wait(1)
+                    if not game.Players.LocalPlayer.Backpack:FindFirstChild("Cannon Ball")  then
+                        for i=1,4 do
+                            game:GetService("Players").LocalPlayer.Character.Weapons:FireServer()
+                        end
+                    end
+                repeat wait(0.25)
+                    local toolname = "Cannon Ball"
+                    local Plr = game:GetService("Players").LocalPlayer
                     wait(0.5)
                     if Plr.Backpack:FindFirstChild(toolname) and not Plr.Character:FindFirstChild(toolname) and not Plr.Character:FindFirstChildOfClass("Tool") then
                         local tool = Plr.Backpack:FindFirstChild(toolname)
                         Plr.Character.Humanoid:EquipTool(tool)
-                        wait(0.75)
-                        game.Players.LocalPlayer.Character.Humanoid:UnequipTools()
                     end
-
-                --[[
-                if game.Players.LocalPlayer.Backpack:FindFirstChild("Cannon Ball") 
-                or game.Players.LocalPlayer.Character:FindFirstChild("Cannon Ball") then
-                    game.Players.LocalPlayer.Character.Humanoid:EquipTool(game:GetService("Players").LocalPlayer.Backpack:FindFirstChild("Cannon Ball"))
-                    wait(0.1)
-                    local args = {
-                        [1] = CFrame.new(Vector3.new(game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame)),
-                    }
-                    game:GetService("Players").LocalPlayer.Character:FindFirstChild("Cannon Ball").RemoteEvent:FireServer(unpack(args))
-                end
-                wait(0.1)
-                    game.Players.LocalPlayer.Character.Humanoid:UnequipTools()]]
+                    wait(0.5)
+                    game.Players.LocalPlayer.Character.Humanoid:UnequipTools()
+                until _G.autocannon ==false or _G.autocannonplr == false
+                
             end
         end)
     end
 end)
+
+
+
+
 
 spawn(function()
     while task.wait(0) do
@@ -5778,37 +5844,6 @@ spawn(function()
                         end
                     end
                 until _G.autocannon == false or _G.autocannonplr == false or game.Players.LocalPlayer.Character.Humanoid.Health == 0
-            end
-        end)
-    end
-end)
-
-spawn(function()
-    while task.wait(5) do
-        pcall(function()
-            if _G.autocannon and game.Players.LocalPlayer.Backpack:FindFirstChild("Cannon Ball") 
-            or _G.autocannonplr and game.Players.LocalPlayer.Backpack:FindFirstChild("Cannon Ball") then
-                for i=1,2 do
-                    game:GetService("Players").LocalPlayer.Character.Weapons:FireServer()
-                end
-            end
-        end)
-    end
-end)
-
-
-spawn(function()
-    while task.wait(30) do
-        pcall(function()
-            if _G.autocannon or _G.autocannonplr then
-                task.wait(0.1)
-                if game.Players.LocalPlayer.Backpack:FindFirstChild("Cannon Ball") then
-                    for i, v in pairs(game.Players.LocalPlayer.Backpack:GetChildren()) do
-                        if v.Name == "Cannon Ball" then
-                            v:Destroy()
-                        end
-                    end
-                end
             end
         end)
     end
@@ -5972,7 +6007,8 @@ spawn(function() -- yoru
                 wait(1)
                 if game.Players.LocalPlayer.Character:FindFirstChild("Yoru") and tonumber(serializeTable(attackremote)) ~= nil and tonumber(serializeTable(attackremote)) ~= "" then
                     repeat wait(0.3)
-                        for i = 1, _G.yoruhit do
+                        local ax = getgenv().yoruhit
+                        for i = 1, ax do
                             local args = {
                                 [1] = tonumber(serializeTable(attackremote))
                             }
@@ -6348,3 +6384,5 @@ spawn(function()--autofruit
         end)
     end
 end)
+
+
