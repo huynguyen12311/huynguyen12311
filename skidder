@@ -1,6 +1,14 @@
-wait(0)
-loadstring(game:HttpGet("https://gitlab.com/vugiakhiem/Scripts/-/raw/main/OPLSCRIPT.lua"))()
--------------------------------------
+--- ANTI AFK
+local Players = game:GetService("Players")
+local VirtualUser = game:GetService("VirtualUser")
+
+repeat
+    wait()
+until game:IsLoaded()
+
+game:GetService("Players").LocalPlayer.Idled:connect(function()
+    game:GetService("VirtualUser"):ClickButton2(Vector2.new())
+end)
 
 local Players = game:GetService("Players")
 local BlacklistedPlayers = {
