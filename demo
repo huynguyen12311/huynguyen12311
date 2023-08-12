@@ -1,3 +1,22 @@
+for i,v in pairs(game:GetService("Workspace").ISLAND:GetChildren()) do
+    if string.find(v.Name,"Base") then
+        v:Destroy()
+    end
+end
+local Base1 = Instance.new("Part",game:GetService("Workspace").ISLAND) Base1.Name = "Base1"
+local Base2 = Instance.new("Part",game:GetService("Workspace").ISLAND) Base2.Name = "Base2"
+for i,v in pairs(game:GetService("Workspace").ISLAND:GetChildren()) do
+    if v.Name == "Base1" then
+        v.Size = Vector3.new(60, 3, 65)
+        v.Position = Vector3.new(math.random(150000,200000),20000,math.random(150000,200000))
+        v.Anchored = true
+    end
+    if v.Name == "Base2" then
+        v.Size = Vector3.new(2,1,2)
+        v.Position = Vector3.new(188679, 210, 176128)
+        v.Anchored = true
+    end
+end
 game:GetService("Players").LocalPlayer.PlayerGui.Menu.Frame.C.Frame.Nametag.Text = "GOD HUB ON THE TOP \ndiscord.gg/2rHrfe637z"
 local plr = game.Players.LocalPlayer
 local remotes = {}
@@ -120,14 +139,7 @@ function ATTACK()
     sethiddenproperty(game.Players.LocalPlayer, "SimulationRadius", math.huge)
 end
 
-Instance.new("Part",game:GetService("Workspace").ISLAND)
-for i,v in pairs(game:GetService("Workspace").ISLAND:GetChildren()) do
-    if v.Name == "Part" then
-        v.Size = Vector3.new(60, 3, 65)
-        v.Position = Vector3.new(math.random(10000),20000,math.random(10000))
-        v.Anchored = true
-    end
-end
+
 
 
 spawn(function()
@@ -135,7 +147,7 @@ spawn(function()
 
 end);
 local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
-local Window = OrionLib:MakeWindow({Name = "Title of the library", HidePremium = false, SaveConfig = true, ConfigFolder = "OrionTest"})
+local Window = OrionLib:MakeWindow({Name = "GoD HuB", HidePremium = false, SaveConfig = true, ConfigFolder = "OrionTest"})
 local Tab = Window:MakeTab({
 	Name = "Main",
 	Icon = "rbxassetid://4483345998",
@@ -172,7 +184,7 @@ Tab:AddButton({
 	Name = "Safe Zone",
 	Callback = function(a)
       		for i,v in pairs(game:GetService("Workspace").ISLAND:GetChildren()) do
-             if v.Name == "Part" then
+             if v.Name == "Base1" then
                  game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = v.CFrame * CFrame.new(0,10,0)
              end
 end
@@ -616,30 +628,43 @@ local Section = Tab:AddSection({
 	
 
 
-spawn(function()
-    while task.wait(0) do
-        pcall(function()
-            if Config.cannonfarm then
-                local toolname = "Cannon Ball"
-                local Plr = game:GetService("Players").LocalPlayer
-                wait(0.5)
-                if Plr.Backpack:FindFirstChild(toolname) and not Plr.Character:FindFirstChild(toolname) and not Plr.Character:FindFirstChildOfClass("Tool") then
-                    local tool = Plr.Backpack:FindFirstChild(toolname)
-                    Plr.Character.Humanoid:EquipTool(tool)
-                    wait(0.5)
-                    game.Players.LocalPlayer.Character.Humanoid:UnequipTools()
-                end
+        spawn(function()
+            while task.wait(0) do
+                pcall(function()
+                    if Config.cannonfarm then
+                            for i, v in pairs(game.Players.LocalPlayer.Backpack:GetChildren()) do
+                                if v.ClassName == "Tool" then
+                                    v:Destroy()
+                                end
+                            end
+                            wait(1)
+                            if not game.Players.LocalPlayer.Backpack:FindFirstChild("Cannon Ball")  then
+                                for i=1,4 do
+                                    game:GetService("Players").LocalPlayer.Character.Weapons:FireServer()
+                                end
+                            end
+                        repeat wait(0.25)
+                            local toolname = "Cannon Ball"
+                            local Plr = game:GetService("Players").LocalPlayer
+                            wait(1.35)
+                            if Plr.Backpack:FindFirstChild(toolname) and not Plr.Character:FindFirstChild(toolname) and not Plr.Character:FindFirstChildOfClass("Tool") then
+                                local tool = Plr.Backpack:FindFirstChild(toolname)
+                                Plr.Character.Humanoid:EquipTool(tool)
+                            end
+                            wait(0.7)
+                            game.Players.LocalPlayer.Character.Humanoid:UnequipTools()
+                        until Config.cannonfarm == false
+                        
+                    end
+                end)
             end
         end)
-    end
-end)
-
-
-
-
-
-spawn(function()
-    while task.wait(0) do
+        
+        
+        
+        
+        spawn(function()
+        while task.wait(0) do
         pcall(function()
             if Config.cannonfarm then
                 local args = {
@@ -657,11 +682,11 @@ spawn(function()
                 end
             end
         end)
-    end
-end)
-
-spawn(function()
-    while task.wait(0) do
+        end
+        end)
+        
+        spawn(function()
+        while task.wait(0) do
         pcall(function()
             if Config.cannonfarm then
                 repeat task.wait(0)
@@ -681,42 +706,15 @@ spawn(function()
                 until Config.cannonfarm == false or game.Players.LocalPlayer.Character.Humanoid.Health == 0
             end
         end)
-    end
-end)
-
-spawn(function()
-    while task.wait(0) do
-        pcall(function()
-            if Config.cannonfarm and game.Players.LocalPlayer.Backpack:FindFirstChild("Cannon Ball") then
-                task.wait(1)
-                for i=1,2 do
-                    game:GetService("Players").LocalPlayer.Character.Weapons:FireServer()
-                end
-            end
+        end
         end)
-    end
-end)
-
-
-spawn(function()
-    while task.wait(15) do
-        pcall(function()
-            if Config.cannonfarm then
-                task.wait(0.1)
-                if game.Players.LocalPlayer.Backpack:FindFirstChild("Cannon Ball") then
-                    for i, v in pairs(game.Players.LocalPlayer.Backpack:GetChildren()) do
-                        if v.Name == "Cannon Ball" then
-                            v:Destroy()
-                        end
-                    end
-                end
-            end
-        end)
-    end
-end)
-
-spawn(function()
-    while task.wait(0) do
+        
+        
+        
+        
+        
+        spawn(function()
+        while task.wait(0) do
         pcall(function()
             if Config.cannonfarm then
                 task.wait(0.1)
@@ -729,92 +727,95 @@ spawn(function()
                 end
             end
         end)
-    end
-end)
-
-spawn(function()
-    while wait(0) do
+        end
+        end)
+        
+        
+        spawn(function()
+        while wait(0) do
         pcall(function()
             if Config.cannonfarm then
                 fireclickdetector(workspace.Island11.CentralBuilding.Doors.Button.Button.ClickDetector)
                 task.wait(0)
                 if not game.Players.LocalPlayer.PlayerGui.HealthBar.Frame.Status:FindFirstChild("BusoHaki") then
-                    wait(1)
+                    wait(2)
                     game.workspace.UserData["User_" .. game.Players.LocalPlayer.UserId].UpdateHaki:FireServer()
                 end
                 if game.Players.LocalPlayer.PlayerGui.HealthBar.Frame.Status:FindFirstChild("BusoHaki") then
-                    wait(1)
+                    wait(2)
                     game.workspace.UserData["User_" .. game.Players.LocalPlayer.UserId].UpdateHaki:FireServer()
                 end
-
+        
             end
         end)
-    end
-end)
-spawn(function() -- autofarm cannon
-    while wait(0) do
-        pcall(function()
-            if Config.cannonfarm then
-                for _,v in pairs(game.Workspace.Enemies:GetChildren()) do
-                    if string.find(v.Name, " Boar")
-                    and v:FindFirstChild("HumanoidRootPart") then
-                        v.HumanoidRootPart.CanCollide = false
-                    	v.HumanoidRootPart.Size = Vector3.new(10, 10, 10)
-                        v:FindFirstChild("HumanoidRootPart").Anchored = true
-                        v:FindFirstChild("HumanoidRootPart").CFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame*CFrame.new(0,0,-50)
-                        if v.Humanoid.Health == 0 then
-                            v.HumanoidRootPart.Size = Vector3.new(0, 0, 0)
-                            v:Destroy()
+        end
+        end)
+        spawn(function() -- autofarm cannon
+            while wait(0) do
+                pcall(function()
+                    if Config.cannonfarm then
+                        for _,v in pairs(game.Workspace.Enemies:GetChildren()) do
+                            if string.find(v.Name, " Boar")
+                            and v:FindFirstChild("HumanoidRootPart") then
+                                v.HumanoidRootPart.CanCollide = false
+                                v.HumanoidRootPart.Size = Vector3.new(10, 10, 10)
+                                v:FindFirstChild("HumanoidRootPart").Anchored = true
+                                v:FindFirstChild("HumanoidRootPart").CFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame*CFrame.new(0,0,-50)
+                                if v.Humanoid.Health == 0 then
+                                    v.HumanoidRootPart.Size = Vector3.new(0, 0, 0)
+                                    v:Destroy()
+                                end
+                             end
                         end
-                     end
-                end
-                for _,v in pairs(game.Workspace.Enemies:GetChildren()) do
-                    if string.find(v.Name, "Crab")
-                    and v:FindFirstChild("HumanoidRootPart") then
-                        v.HumanoidRootPart.CanCollide = false
-                    	v.HumanoidRootPart.Size = Vector3.new(10, 10, 10)
-                        --v.HumanoidRootPart.Color = Color3.fromRGB(255, 255, 255)
-                        v.HumanoidRootPart.Transparency = 0.9
-                        v:FindFirstChild("HumanoidRootPart").Anchored = true
-                        v:FindFirstChild("HumanoidRootPart").CFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame*CFrame.new(0,0,-50)
-                        if v.Humanoid.Health == 0 then
-                            v.HumanoidRootPart.Size = Vector3.new(0, 0, 0)
-                            v:Destroy()
+                        for _,v in pairs(game.Workspace.Enemies:GetChildren()) do
+                            if string.find(v.Name, "Crab")
+                            and v:FindFirstChild("HumanoidRootPart") then
+                                v.HumanoidRootPart.CanCollide = false
+                                v.HumanoidRootPart.Size = Vector3.new(10, 10, 10)
+                                --v.HumanoidRootPart.Color = Color3.fromRGB(255, 255, 255)
+                                v.HumanoidRootPart.Transparency = 0.9
+                                v:FindFirstChild("HumanoidRootPart").Anchored = true
+                                v:FindFirstChild("HumanoidRootPart").CFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame*CFrame.new(0,0,-50)
+                                if v.Humanoid.Health == 0 then
+                                    v.HumanoidRootPart.Size = Vector3.new(0, 0, 0)
+                                    v:Destroy()
+                                end
+                             end
                         end
-                     end
-                end
-                for _,v in pairs(game.Workspace.Enemies:GetChildren()) do
-                    if string.find(v.Name, "Angry ") 
-                    or string.find(v.Name, "Bandit") 
-                    or string.find(v.Name, "Thief")
-                    or string.find(v.Name, "Bruno") 
-                    or string.find(v.Name, "Bucky") 
-                    or string.find(v.Name, " Vokun") 
-                    or string.find(v.Name, "Freddy")  
-                    or string.find(v.Name, "Cave ") 
-                    or string.find(v.Name, "Thug") 
-                    or string.find(v.Name, "Gunslinger")
-                    or string.find(v.Name, "Gunner") 
-                    or string.find(v.Name, "Buster") 
-                    and v:FindFirstChild("HumanoidRootPart") then
-                        v.HumanoidRootPart.CanCollide = false
-                    	v.HumanoidRootPart.Size = Vector3.new(10, 10, 10)
-                        v:FindFirstChild("HumanoidRootPart").Anchored = true
-                        v:FindFirstChild("HumanoidRootPart").CFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame*CFrame.new(0,0,-50)
-                        if v.Humanoid.Health == 0 then
-                            v.HumanoidRootPart.Size = Vector3.new(0, 0, 0)
-                            v:Destroy()
-                        end
-                        if v.Humanoid.Health == 0 then
-                            v.HumanoidRootPart.Size = Vector3.new(0, 0, 0)
-                            v:Destroy()
+                        for _,v in pairs(game.Workspace.Enemies:GetChildren()) do
+                            if string.find(v.Name, "Angry ") 
+                            or string.find(v.Name, "Bandit") 
+                            or string.find(v.Name, "Thief")
+                            or string.find(v.Name, "Bruno") 
+                            or string.find(v.Name, "Bucky") 
+                            or string.find(v.Name, " Vokun") 
+                            or string.find(v.Name, "Freddy")  
+                            or string.find(v.Name, "Cave ") 
+                            or string.find(v.Name, "Thug") 
+                            or string.find(v.Name, "Gunslinger")
+                            or string.find(v.Name, "Gunner") 
+                            or string.find(v.Name, "Buster") 
+                            and v:FindFirstChild("HumanoidRootPart") then
+                                v.HumanoidRootPart.CanCollide = false
+                                v.HumanoidRootPart.Size = Vector3.new(10, 10, 10)
+                                v:FindFirstChild("HumanoidRootPart").Anchored = true
+                                v:FindFirstChild("HumanoidRootPart").CFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame*CFrame.new(0,0,-50)
+                                if v.Humanoid.Health == 0 then
+                                    v.HumanoidRootPart.Size = Vector3.new(0, 0, 0)
+                                    v:Destroy()
+                                end
+                                if v.Humanoid.Health == 0 then
+                                    v.HumanoidRootPart.Size = Vector3.new(0, 0, 0)
+                                    v:Destroy()
+                                end
+                            end
                         end
                     end
-                end
+                end)
             end
         end)
-    end
-end)
+        
+
 
 	end
 })
@@ -852,15 +853,29 @@ spawn(function()
     while task.wait(0) do
         pcall(function()
             if Config.autocannonplr then
-                local toolname = "Cannon Ball"
-                local Plr = game:GetService("Players").LocalPlayer
-                wait(1)
-                if Plr.Backpack:FindFirstChild(toolname) and not Plr.Character:FindFirstChild(toolname) and not Plr.Character:FindFirstChildOfClass("Tool") then
-                    local tool = Plr.Backpack:FindFirstChild(toolname)
-                    Plr.Character.Humanoid:EquipTool(tool)
+                    for i, v in pairs(game.Players.LocalPlayer.Backpack:GetChildren()) do
+                        if v.ClassName == "Tool" then
+                            v:Destroy()
+                        end
+                    end
                     wait(1)
+                    if not game.Players.LocalPlayer.Backpack:FindFirstChild("Cannon Ball")  then
+                        for i=1,4 do
+                            game:GetService("Players").LocalPlayer.Character.Weapons:FireServer()
+                        end
+                    end
+                repeat wait(0.25)
+                    local toolname = "Cannon Ball"
+                    local Plr = game:GetService("Players").LocalPlayer
+                    wait(1.35)
+                    if Plr.Backpack:FindFirstChild(toolname) and not Plr.Character:FindFirstChild(toolname) and not Plr.Character:FindFirstChildOfClass("Tool") then
+                        local tool = Plr.Backpack:FindFirstChild(toolname)
+                        Plr.Character.Humanoid:EquipTool(tool)
+                    end
+                    wait(0.7)
                     game.Players.LocalPlayer.Character.Humanoid:UnequipTools()
-                end
+                until Config.autocannonplr == false
+                
             end
         end)
     end
@@ -869,119 +884,92 @@ end)
 
 
 
-
 spawn(function()
-    while task.wait(0) do
-        pcall(function()
-            if Config.autocannonplr then
-                local args = {
-                    [1] = CFrame.new(Vector3.new(game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame))
-                }
-                game:GetService("Players").LocalPlayer.Character:FindFirstChild("Cannon Ball").RemoteEvent:FireServer(unpack(args))
-                wait(0)
-                local args = {
-                    [1] = CFrame.new(Vector3.new(game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame))
-                }
-                game:GetService("Players").LocalPlayer.Character:FindFirstChild("Cannon Ball").RemoteEvent:FireServer(unpack(args))
-                wait(0)
-                if game.workspace.ResourceHolder["Resources_" .. game.Players.LocalPlayer.UserId]:FindFirstChild("CannonBall") then
-                    game.workspace.ResourceHolder["Resources_" .. game.Players.LocalPlayer.UserId]:FindFirstChild("CannonBall").CanCollide = false
-                end
-            end
-        end)
+while task.wait(0) do
+pcall(function()
+    if Config.autocannonplr then
+        local args = {
+            [1] = CFrame.new(Vector3.new(game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame))
+        }
+        game:GetService("Players").LocalPlayer.Character:FindFirstChild("Cannon Ball").RemoteEvent:FireServer(unpack(args))
+        wait(0)
+        local args = {
+            [1] = CFrame.new(Vector3.new(game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame))
+        }
+        game:GetService("Players").LocalPlayer.Character:FindFirstChild("Cannon Ball").RemoteEvent:FireServer(unpack(args))
+        wait(0)
+        if game.workspace.ResourceHolder["Resources_" .. game.Players.LocalPlayer.UserId]:FindFirstChild("CannonBall") then
+            game.workspace.ResourceHolder["Resources_" .. game.Players.LocalPlayer.UserId]:FindFirstChild("CannonBall").CanCollide = false
+        end
     end
+end)
+end
 end)
 
 spawn(function()
-    while task.wait(0) do
-        pcall(function()
-            if Config.autocannonplr then
-                repeat task.wait(0)
-                    for i, v in pairs(game.workspace.ResourceHolder["Resources_" .. game.Players.LocalPlayer.UserId]:GetChildren()) do
-                        if v.Name == "CannonBall" then
-                            v.CFrame = game.Players.LocalPlayer.Character.Head.CFrame * CFrame.new(0, 0, -50)
-                            v.CanCollide = false
-                            if not v:FindFirstChild("BodyClip") then
-                                local Noclip = Instance.new("BodyVelocity")
-                                Noclip.Name = "BodyClip"
-                                Noclip.Parent = v
-                                Noclip.MaxForce = Vector3.new(100000,100000,100000)
-                                Noclip.Velocity = Vector3.new(0,20,0)
-                            end
-                        end
-                    end
-                until Config.autocannonplr == false or game.Players.LocalPlayer.Character.Humanoid.Health == 0
-            end
-        end)
-    end
-end)
-
-spawn(function()
-    while task.wait(0) do
-        pcall(function()
-            if Config.autocannonplr and game.Players.LocalPlayer.Backpack:FindFirstChild("Cannon Ball") then
-                task.wait(1)
-                for i=1,2 do
-                    game:GetService("Players").LocalPlayer.Character.Weapons:FireServer()
-                end
-            end
-        end)
-    end
-end)
-
-
-spawn(function()
-    while task.wait(15) do
-        pcall(function()
-            if Config.autocannonplr then
-                task.wait(0.1)
-                if game.Players.LocalPlayer.Backpack:FindFirstChild("Cannon Ball") then
-                    for i, v in pairs(game.Players.LocalPlayer.Backpack:GetChildren()) do
-                        if v.Name == "Cannon Ball" then
-                            v:Destroy()
-                        end
+while task.wait(0) do
+pcall(function()
+    if Config.autocannonplr then
+        repeat task.wait(0)
+            for i, v in pairs(game.workspace.ResourceHolder["Resources_" .. game.Players.LocalPlayer.UserId]:GetChildren()) do
+                if v.Name == "CannonBall" then
+                    v.CFrame = game.Players.LocalPlayer.Character.Head.CFrame * CFrame.new(0, 0, -50)
+                    v.CanCollide = false
+                    if not v:FindFirstChild("BodyClip") then
+                        local Noclip = Instance.new("BodyVelocity")
+                        Noclip.Name = "BodyClip"
+                        Noclip.Parent = v
+                        Noclip.MaxForce = Vector3.new(100000,100000,100000)
+                        Noclip.Velocity = Vector3.new(0,20,0)
                     end
                 end
             end
-        end)
+        until Config.autocannonplr == false or game.Players.LocalPlayer.Character.Humanoid.Health == 0
     end
 end)
-
-spawn(function()
-    while task.wait(0) do
-        pcall(function()
-            if Config.autocannonplr then
-                task.wait(0.1)
-                if game.Players.LocalPlayer.Backpack:FindFirstChild("Cannon Ball") then
-                    for i, v in pairs(game.Players.LocalPlayer.Backpack:GetChildren()) do
-                        if v.Name ~= "Cannon" and v.Name ~= "Cannon Ball" then
-                            v:Destroy()
-                        end
-                    end
-                end
-            end
-        end)
-    end
+end
 end)
 
-spawn(function()
-    while wait(0) do
-        pcall(function()
-            if Config.autocannonplr then
-                fireclickdetector(workspace.Island11.CentralBuilding.Doors.Button.Button.ClickDetector)
-                task.wait(0)
-                if not game.Players.LocalPlayer.PlayerGui.HealthBar.Frame.Status:FindFirstChild("BusoHaki") then
-                    wait(1)
-                    game.workspace.UserData["User_" .. game.Players.LocalPlayer.UserId].UpdateHaki:FireServer()
-                end
-                if game.Players.LocalPlayer.PlayerGui.HealthBar.Frame.Status:FindFirstChild("BusoHaki") then
-                    wait(1)
-                    game.workspace.UserData["User_" .. game.Players.LocalPlayer.UserId].UpdateHaki:FireServer()
-                end
 
+
+
+
+spawn(function()
+while task.wait(0) do
+pcall(function()
+    if Config.autocannonplr then
+        task.wait(0.1)
+        if game.Players.LocalPlayer.Backpack:FindFirstChild("Cannon Ball") then
+            for i, v in pairs(game.Players.LocalPlayer.Backpack:GetChildren()) do
+                if v.Name ~= "Cannon" and v.Name ~= "Cannon Ball" then
+                    v:Destroy()
+                end
             end
-        end)
+        end
     end
+end)
+end
+end)
+
+
+spawn(function()
+while wait(0) do
+pcall(function()
+    if Config.autocannonplr then
+        fireclickdetector(workspace.Island11.CentralBuilding.Doors.Button.Button.ClickDetector)
+        task.wait(0)
+        if not game.Players.LocalPlayer.PlayerGui.HealthBar.Frame.Status:FindFirstChild("BusoHaki") then
+            wait(2)
+            game.workspace.UserData["User_" .. game.Players.LocalPlayer.UserId].UpdateHaki:FireServer()
+        end
+        if game.Players.LocalPlayer.PlayerGui.HealthBar.Frame.Status:FindFirstChild("BusoHaki") then
+            wait(2)
+            game.workspace.UserData["User_" .. game.Players.LocalPlayer.UserId].UpdateHaki:FireServer()
+        end
+
+    end
+end)
+end
 end)
     end
 })
@@ -1149,24 +1137,7 @@ Tab3:AddDropdown({
 	end    
 })
 
-Tab2:AddToggle({
-	Name = "Auto Claim Quest",
-	Default = false,
-	Callback = function(Value)
-		Config.quest = Value
-	end    
-})
 
-spawn(function()--auto quest
-    while wait() do
-        if Config.quest then
-            if game:GetService("Players").LocalPlayer.PlayerGui.MissionGui.Frame.Frame.Header.Text == "Mission Objective" then
-                local Event = game:GetService("Workspace").Merchants.ExpertiseMerchant.Clickable.Retum
-                Event:FireServer()
-            end
-        end
-    end
-end)
 
 Tab3:AddToggle({
 	Name = "Auto Spawn",
@@ -1980,15 +1951,29 @@ Tab4:AddToggle({
             while task.wait(0) do
                 pcall(function()
                     if Config.cannonkillplr and Config.bringplr then
-                        local toolname = "Cannon Ball"
-                        local Plr = game:GetService("Players").LocalPlayer
-                        wait(0.5)
-                        if Plr.Backpack:FindFirstChild(toolname) and not Plr.Character:FindFirstChild(toolname) and not Plr.Character:FindFirstChildOfClass("Tool") then
-                            local tool = Plr.Backpack:FindFirstChild(toolname)
-                            Plr.Character.Humanoid:EquipTool(tool)
+                            for i, v in pairs(game.Players.LocalPlayer.Backpack:GetChildren()) do
+                                if v.ClassName == "Tool" then
+                                    v:Destroy()
+                                end
+                            end
+                            wait(1)
+                            if not game.Players.LocalPlayer.Backpack:FindFirstChild("Cannon Ball")  then
+                                for i=1,4 do
+                                    game:GetService("Players").LocalPlayer.Character.Weapons:FireServer()
+                                end
+                            end
+                        repeat wait(0.25)
+                            local toolname = "Cannon Ball"
+                            local Plr = game:GetService("Players").LocalPlayer
+                            wait(0.7)
+                            if Plr.Backpack:FindFirstChild(toolname) and not Plr.Character:FindFirstChild(toolname) and not Plr.Character:FindFirstChildOfClass("Tool") then
+                                local tool = Plr.Backpack:FindFirstChild(toolname)
+                                Plr.Character.Humanoid:EquipTool(tool)
+                            end
                             wait(0.5)
                             game.Players.LocalPlayer.Character.Humanoid:UnequipTools()
-                        end
+                        until Config.cannonkillplr == false and Config.bringplr == false
+                        
                     end
                 end)
             end
@@ -1997,119 +1982,92 @@ Tab4:AddToggle({
         
         
         
-        
         spawn(function()
-            while task.wait(0) do
-                pcall(function()
-                    if Config.cannonkillplr and Config.bringplr then
-                        local args = {
-                            [1] = CFrame.new(Vector3.new(game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame))
-                        }
-                        game:GetService("Players").LocalPlayer.Character:FindFirstChild("Cannon Ball").RemoteEvent:FireServer(unpack(args))
-                        wait(0)
-                        local args = {
-                            [1] = CFrame.new(Vector3.new(game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame))
-                        }
-                        game:GetService("Players").LocalPlayer.Character:FindFirstChild("Cannon Ball").RemoteEvent:FireServer(unpack(args))
-                        wait(0)
-                        if game.workspace.ResourceHolder["Resources_" .. game.Players.LocalPlayer.UserId]:FindFirstChild("CannonBall") then
-                            game.workspace.ResourceHolder["Resources_" .. game.Players.LocalPlayer.UserId]:FindFirstChild("CannonBall").CanCollide = false
-                        end
-                    end
-                end)
+        while task.wait(0) do
+        pcall(function()
+            if Config.cannonkillplr and Config.bringplr then
+                local args = {
+                    [1] = CFrame.new(Vector3.new(game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame))
+                }
+                game:GetService("Players").LocalPlayer.Character:FindFirstChild("Cannon Ball").RemoteEvent:FireServer(unpack(args))
+                wait(0)
+                local args = {
+                    [1] = CFrame.new(Vector3.new(game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame))
+                }
+                game:GetService("Players").LocalPlayer.Character:FindFirstChild("Cannon Ball").RemoteEvent:FireServer(unpack(args))
+                wait(0)
+                if game.workspace.ResourceHolder["Resources_" .. game.Players.LocalPlayer.UserId]:FindFirstChild("CannonBall") then
+                    game.workspace.ResourceHolder["Resources_" .. game.Players.LocalPlayer.UserId]:FindFirstChild("CannonBall").CanCollide = false
+                end
             end
+        end)
+        end
         end)
         
         spawn(function()
-            while task.wait(0) do
-                pcall(function()
-                    if Config.cannonkillplr and Config.bringplr then
-                        repeat task.wait(0)
-                            for i, v in pairs(game.workspace.ResourceHolder["Resources_" .. game.Players.LocalPlayer.UserId]:GetChildren()) do
-                                if v.Name == "CannonBall" then
-                                    v.CFrame = game.Players.LocalPlayer.Character.Head.CFrame * CFrame.new(0, 0, -50)
-                                    v.CanCollide = false
-                                    if not v:FindFirstChild("BodyClip") then
-                                        local Noclip = Instance.new("BodyVelocity")
-                                        Noclip.Name = "BodyClip"
-                                        Noclip.Parent = v
-                                        Noclip.MaxForce = Vector3.new(100000,100000,100000)
-                                        Noclip.Velocity = Vector3.new(0,20,0)
-                                    end
-                                end
-                            end
-                        until Config.cannonkillplr == false and Config.bringplr == false or game.Players.LocalPlayer.Character.Humanoid.Health == 0
-                    end
-                end)
-            end
-        end)
-        
-        spawn(function()
-            while task.wait(0) do
-                pcall(function()
-                    if Config.cannonkillplr and Config.bringplr and game.Players.LocalPlayer.Backpack:FindFirstChild("Cannon Ball") then
-                        task.wait(1)
-                        for i=1,2 do
-                            game:GetService("Players").LocalPlayer.Character.Weapons:FireServer()
-                        end
-                    end
-                end)
-            end
-        end)
-        
-        
-        spawn(function()
-            while task.wait(15) do
-                pcall(function()
-                    if Config.cannonkillplr and Config.bringplr then
-                        task.wait(0.1)
-                        if game.Players.LocalPlayer.Backpack:FindFirstChild("Cannon Ball") then
-                            for i, v in pairs(game.Players.LocalPlayer.Backpack:GetChildren()) do
-                                if v.Name == "Cannon Ball" then
-                                    v:Destroy()
-                                end
+        while task.wait(0) do
+        pcall(function()
+            if Config.cannonkillplr and Config.bringplr then
+                repeat task.wait(0)
+                    for i, v in pairs(game.workspace.ResourceHolder["Resources_" .. game.Players.LocalPlayer.UserId]:GetChildren()) do
+                        if v.Name == "CannonBall" then
+                            v.CFrame = game.Players.LocalPlayer.Character.Head.CFrame * CFrame.new(0, 0, -50)
+                            v.CanCollide = false
+                            if not v:FindFirstChild("BodyClip") then
+                                local Noclip = Instance.new("BodyVelocity")
+                                Noclip.Name = "BodyClip"
+                                Noclip.Parent = v
+                                Noclip.MaxForce = Vector3.new(100000,100000,100000)
+                                Noclip.Velocity = Vector3.new(0,20,0)
                             end
                         end
                     end
-                end)
+                until Config.cannonkillplr == false and Config.bringplr == false or game.Players.LocalPlayer.Character.Humanoid.Health == 0
             end
         end)
-        
-        spawn(function()
-            while task.wait(0) do
-                pcall(function()
-                    if Config.cannonkillplr and Config.bringplr then
-                        task.wait(0.1)
-                        if game.Players.LocalPlayer.Backpack:FindFirstChild("Cannon Ball") then
-                            for i, v in pairs(game.Players.LocalPlayer.Backpack:GetChildren()) do
-                                if v.Name ~= "Cannon" and v.Name ~= "Cannon Ball" then
-                                    v:Destroy()
-                                end
-                            end
-                        end
-                    end
-                end)
-            end
+        end
         end)
         
-        spawn(function()
-            while wait(0) do
-                pcall(function()
-                    if Config.cannonkillplr and Config.bringplr then
-                        fireclickdetector(workspace.Island11.CentralBuilding.Doors.Button.Button.ClickDetector)
-                        task.wait(0)
-                        if not game.Players.LocalPlayer.PlayerGui.HealthBar.Frame.Status:FindFirstChild("BusoHaki") then
-                            wait(1)
-                            game.workspace.UserData["User_" .. game.Players.LocalPlayer.UserId].UpdateHaki:FireServer()
-                        end
-                        if game.Players.LocalPlayer.PlayerGui.HealthBar.Frame.Status:FindFirstChild("BusoHaki") then
-                            wait(1)
-                            game.workspace.UserData["User_" .. game.Players.LocalPlayer.UserId].UpdateHaki:FireServer()
-                        end
         
+        
+        
+        
+        spawn(function()
+        while task.wait(0) do
+        pcall(function()
+            if Config.cannonkillplr and Config.bringplr then
+                task.wait(0.1)
+                if game.Players.LocalPlayer.Backpack:FindFirstChild("Cannon Ball") then
+                    for i, v in pairs(game.Players.LocalPlayer.Backpack:GetChildren()) do
+                        if v.Name ~= "Cannon" and v.Name ~= "Cannon Ball" then
+                            v:Destroy()
+                        end
                     end
-                end)
+                end
             end
+        end)
+        end
+        end)
+        
+        
+        spawn(function()
+        while wait(0) do
+        pcall(function()
+            if Config.cannonkillplr and Config.bringplr then
+                fireclickdetector(workspace.Island11.CentralBuilding.Doors.Button.Button.ClickDetector)
+                task.wait(0)
+                if not game.Players.LocalPlayer.PlayerGui.HealthBar.Frame.Status:FindFirstChild("BusoHaki") then
+                    wait(1)
+                    game.workspace.UserData["User_" .. game.Players.LocalPlayer.UserId].UpdateHaki:FireServer()
+                end
+                if game.Players.LocalPlayer.PlayerGui.HealthBar.Frame.Status:FindFirstChild("BusoHaki") then
+                    wait(1)
+                    game.workspace.UserData["User_" .. game.Players.LocalPlayer.UserId].UpdateHaki:FireServer()
+                end
+        
+            end
+        end)
+        end
         end)
     end
 })
@@ -2223,44 +2181,249 @@ Tab5:AddToggle({
         end)
     end
 })
+local Section = Tab:AddSection({
+	Name = "Aqua Staff Farm"
+})
+Tab:AddToggle({
+    Name = "Auto Fishing",
+    
+    Default = Config.fish,
+    Callback = function(Value)
+        Config.fish = Value
+        _G.fish = Value
+       spawn(function()
+        if Config.fish then
+            game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(188679, 216, 176128)
+        while true do wait(0.1)
+            
+       end
+    end
+end)
+            spawn(function()
+                pcall(function()
+                            pcall(function()
+               while true do wait()
+                
+                   pcall(function()
+            if Config.fish and _G.fish then
+                pcall(function()
+                                for i,v in pairs(game.Players.LocalPlayer.Backpack:GetChildren()) do
+                                    if string.find(v.Name , "Rod") then
+                                                        for i,v in pairs(game.Players.LocalPlayer.Backpack:GetChildren()) do
+                                if string.find(v.Name , "Rod") then
+                                    game.Players.LocalPlayer.Character.Humanoid:EquipTool(v)
+                                end
+                            end
+                                    end
+                                end
+                                for i,v in pairs(game.Players.LocalPlayer.Character:GetChildren()) do
+                                    if string.find(v.Name , "Rod") then
+                                                        for _,x in pairs(game.Players.LocalPlayer.Character:GetDescendants()) do
+                                if string.find(x.Name , "Rod") then
+                                    for i,v in pairs(game.Players.LocalPlayer.Character:GetDescendants()) do
+                                        if v:FindFirstChild("Bobber") then
+                                            if v.Bobber.Effect.Enabled == true then
+                                                
+                                                wait(0.5)
+                                                local args = {
+                                                    [1] = game.Players.LocalPlayer.Character.HumanoidRootPart.Position
+                                                }
+                                                game:GetService("Players").LocalPlayer.Character:FindFirstChild(x.Name).Click:FireServer(unpack(args))
+                                            end
+                                        elseif v.Name == "Cast" and not v:FindFirstChild("Bobber") then
+                                            
+                                            wait(0.5)
+                                            local args = {
+                                                [1] = game.Players.LocalPlayer.Character.HumanoidRootPart.Position
+                                            }
+                                            game:GetService("Players").LocalPlayer.Character:FindFirstChild(x.Name).Click:FireServer(unpack(args))
+                                        end
+                                    end
+                                end
+                            end
+                                        wait(0.5)
+                                    end
+                                end
+                end)
+            end
+            end)
+            end
+            end)
+            end)
+            end)
+        
+        
+    end
+})
+Tab:AddToggle({
+    Name = "Auto Sell Fish",
+    
+    Default = Config.sellfish,
+    Callback = function(Value)
+        Config.sellfish = Value
+        if Config.sellfish then
+        while true do wait()
+        for i,v in pairs(game.Players.LocalPlayer.Backpack:GetChildren()) do
+            if string.find(v.Name , "Busser") or string.find(v.Name , "Jawber") or string.find(v.Name , "Lubber") or string.find(v.Name, "Flooper") then
+                _G.fish = false
+                game.Players.LocalPlayer.Character.Humanoid:EquipTool(v)
+        wait(0.3)
+        local args = {
+            [1] = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame,
+            [2] = workspace:WaitForChild("Firepit"):WaitForChild("Part")
+        }
+        
+        game:GetService("Players").LocalPlayer.Character:FindFirstChildOfClass("Tool").Click:FireServer(unpack(args))
+        wait(0.1)
+        workspace:WaitForChild("Merchants"):WaitForChild("FishMerchant"):WaitForChild("Clickable"):WaitForChild("Retum"):FireServer()
+            end
+        end
+        _G.fish = true
+    end
 
-Tab5:AddToggle({
-	Name = "Auto Store 1-4",
+    
+end
+
+    end
+})
+local Tab6 = Window:MakeTab({
+    Name = "Quest",
+    Icon = "rbxassetid://4483345998",
+    PremiumOnly = false
+})
+Tab6:AddToggle({
+	Name = "Auto Claim Quest",
 	Default = false,
-	Callback = function(r)
-		Config.autostore = r
+	Callback = function(Value)
+		Config.quest = Value
 	end    
 })
 
-spawn(function()
-    pcall(function()
-        while true do wait()
-            pcall(function()
-                if Config.autostore then
-                    if game:GetService("Players").LocalPlayer.PlayerGui.Storage.Frame.Unlock1.Visible == false and game:GetService("Players").LocalPlayer.PlayerGui.Storage.Frame.StoredDF1.DevilFruit.Text == "Empty" or game:GetService("Players").LocalPlayer.PlayerGui.Storage.Frame.Unlock2.Visible == false and game:GetService("Players").LocalPlayer.PlayerGui.Storage.Frame.StoredDF2.DevilFruit.Text == "Empty" or game:GetService("Players").LocalPlayer.PlayerGui.Storage.Frame.Unlock3.Visible == false and game:GetService("Players").LocalPlayer.PlayerGui.Storage.Frame.StoredDF3.DevilFruit.Text == "Empty" then
-                        if getgenv().autostore then
-                            for i,v in pairs(game.Players.LocalPlayer.Backpack:GetChildren()) do
-                                if v:IsA("Tool") then
-                                    if string.find(v.Name, "Quake") or string.find(v.Name, "Phoenix") or string.find(v.Name, "Dark") or string.find(v.Name, "Vampire") or string.find(v.Name, "Gravity") or string.find(v.Name, "Ope") or string.find(v.Name, "Venom") or string.find(v.Name, "Candy") or string.find(v.Name, "Hollow")or string.find(v.Name, "Chilly")or string.find(v.Name, "Gas")or string.find(v.Name, "Flare")or string.find(v.Name, "Light")or string.find(v.Name, "Smoke")or string.find(v.Name, "Rumble")or string.find(v.Name, "Sand")or string.find(v.Name, "Magma")or string.find(v.Name, "Snow") then
-                                        autostoremain()
-                                    end
-                                end
-                            end
-                        end
-                        if getgenv().autostore then
-                            for i,v in pairs(game.Players.LocalPlayer.Character:GetChildren()) do
-                                if v:IsA("Tool") then
-                                    if string.find(v.Name, "Quake") or string.find(v.Name, "Phoenix") or string.find(v.Name, "Dark") or string.find(v.Name, "Vampire") or string.find(v.Name, "Gravity") or string.find(v.Name, "Ope") or string.find(v.Name, "Venom") or string.find(v.Name, "Candy") or string.find(v.Name, "Hollow")or string.find(v.Name, "Chilly")or string.find(v.Name, "Gas")or string.find(v.Name, "Flare")or string.find(v.Name, "Light")or string.find(v.Name, "Smoke")or string.find(v.Name, "Rumble")or string.find(v.Name, "Sand")or string.find(v.Name, "Magma")or string.find(v.Name, "Snow") then
-                                        autostore()
-                                    end
-                                end
-                            end
-                        end
-                    end
-                end
-            end)
+spawn(function()--auto quest
+    while wait() do
+        if Config.quest then
+            if game:GetService("Players").LocalPlayer.PlayerGui.MissionGui.Frame.Frame.Header.Text == "Mission Objective" then
+                local Event = game:GetService("Workspace").Merchants.ExpertiseMerchant.Clickable.Retum
+                Event:FireServer()
+            end
         end
-    end)
+    end
 end)
 
--
+Tab2:AddToggle({
+	Name = "Haki Farm",
+	Default = false,
+	Callback = function(Value)
+		Config.haki = Value
+	end    
+})
+
+game:GetService('RunService').RenderStepped:connect(function()
+    if _G.haki then
+        for i = 1, 100 do
+            local args = {
+                [1] = "On",
+                [2] = 528
+            }
+            task.wait(0.1)
+            workspace:WaitForChild("UserData"):WaitForChild("User_" .. game.Players.LocalPlayer.UserId):WaitForChild("III"):FireServer(unpack(args))
+            local args = {
+                [1] = "Off",
+                [2] = 528
+            }
+
+            workspace:WaitForChild("UserData"):WaitForChild("User_" .. game.Players.LocalPlayer.UserId):WaitForChild("III"):FireServer(unpack(args))
+            task.wait(0.1)
+            local args = {
+                [1] = "Off",
+                [2] = 528
+            }
+
+            workspace:WaitForChild("UserData"):WaitForChild("User_" .. game.Players.LocalPlayer.UserId):WaitForChild("III"):FireServer(unpack(args))
+            task.wait(0.1)
+            local args = {
+                [1] = "On",
+                [2] = 528
+            }
+
+            workspace:WaitForChild("UserData"):WaitForChild("User_" .. game.Players.LocalPlayer.UserId):WaitForChild("III"):FireServer(unpack(args))
+            task.wait(0.1)
+            local args = {
+                [1] = "Off",
+                [2] = 528
+            }
+
+            workspace:WaitForChild("UserData"):WaitForChild("User_" .. game.Players.LocalPlayer.UserId):WaitForChild("III"):FireServer(unpack(args))
+            task.wait(0.1)
+            local args = {
+                [1] = "Off",
+                [2] = 528
+            }
+
+            workspace:WaitForChild("UserData"):WaitForChild("User_" .. game.Players.LocalPlayer.UserId):WaitForChild("III"):FireServer(unpack(args))
+            task.wait(0.1)
+            local args = {
+                [1] = "On",
+                [2] = 528
+            }
+
+            workspace:WaitForChild("UserData"):WaitForChild("User_" .. game.Players.LocalPlayer.UserId):WaitForChild("III"):FireServer(unpack(args))
+            task.wait(0.1)
+            local args = {
+                [1] = "Off",
+                [2] = 528
+            }
+
+            workspace:WaitForChild("UserData"):WaitForChild("User_" .. game.Players.LocalPlayer.UserId):WaitForChild("III"):FireServer(unpack(args))
+            task.wait(0.1)
+            local args = {
+                [1] = "Off",
+                [2] = 528
+            }
+
+            workspace:WaitForChild("UserData"):WaitForChild("User_" .. game.Players.LocalPlayer.UserId):WaitForChild("III"):FireServer(unpack(args))
+            task.wait(0.1)
+            local args = {
+                [1] = "On",
+                [2] = 528
+            }
+
+            workspace:WaitForChild("UserData"):WaitForChild("User_" .. game.Players.LocalPlayer.UserId):WaitForChild("III"):FireServer(unpack(args))
+            task.wait(0.1)
+            local args = {
+                [1] = "Off",
+                [2] = 528
+            }
+
+            workspace:WaitForChild("UserData"):WaitForChild("User_" .. game.Players.LocalPlayer.UserId):WaitForChild("III"):FireServer(unpack(args))
+            task.wait(0.1)
+            local args = {
+                [1] = "Off",
+                [2] = 528
+            }
+
+            workspace:WaitForChild("UserData"):WaitForChild("User_" .. game.Players.LocalPlayer.UserId):WaitForChild("III"):FireServer(unpack(args))
+            task.wait(0.1)
+            local args = {
+                [1] = "On",
+                [2] = 528
+            }
+
+            workspace:WaitForChild("UserData"):WaitForChild("User_" .. game.Players.LocalPlayer.UserId):WaitForChild("III"):FireServer(unpack(args))
+            task.wait(0.1)
+            local args = {
+                [1] = "Off",
+                [2] = 528
+            }
+
+            workspace:WaitForChild("UserData"):WaitForChild("User_" .. game.Players.LocalPlayer.UserId):WaitForChild("III"):FireServer(unpack(args))
+            task.wait(0.1)
+            local args = {
+                [1] = "Off",
+                [2] = 528
+            }
+
+            workspace:WaitForChild("UserData"):WaitForChild("User_" .. game.Players.LocalPlayer.UserId):WaitForChild("III"):FireServer(unpack(args))
+        end
+    end
+end)
