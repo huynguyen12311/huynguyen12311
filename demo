@@ -30,24 +30,24 @@ local remotes = {}
                 return azc(self,unpack(args))
             end
         end
-          return azc(self,...)
+        return azc(self,...)
     end)
     
     function serializeTable(val, name, skipnewlines, depth)
     skipnewlines = skipnewlines or false
     depth = depth or 0
- 
+
     local tmp = string.rep("", depth)
- 
+
     if name then tmp = tmp end
- 
+
     if type(val) == "table" then
         tmp = tmp .. (not skipnewlines and "" or "")
- 
+
         for k, v in pairs(val) do
             tmp =  tmp .. serializeTable(v, k, skipnewlines, depth + 1) .. (not skipnewlines and "" or "")
         end
- 
+
         tmp = tmp .. string.rep("", depth) 
     elseif type(val) == "number" then
         tmp = tmp .. tostring(val)
@@ -60,9 +60,9 @@ local remotes = {}
     else
         tmp = tmp .. tostring(val)
     end
- 
+
     return tmp
- end
+end
 --- ANTI AFK
 local Players = game:GetService("Players")
 local VirtualUser = game:GetService("VirtualUser")
@@ -84,7 +84,7 @@ end)
             return a(self,unpack(args))
         end
     end
-      return a(self,...)
+    return a(self,...)
     end)
 local Players = game:GetService("Players")
 local BlacklistedPlayers = {
@@ -126,12 +126,12 @@ end
 
 Config = {};
 function EquipWeapon(Tool)
-	pcall(function()
-		if game.Players.LocalPlayer.Backpack:FindFirstChild(Tool) then 
-			local ToolHumanoid = game.Players.LocalPlayer.Backpack:FindFirstChild(Tool) 
-			game.Players.LocalPlayer.Character.Humanoid:EquipTool(ToolHumanoid) 
-		end
-	end)
+    pcall(function()
+        if game.Players.LocalPlayer.Backpack:FindFirstChild(Tool) then 
+            local ToolHumanoid = game.Players.LocalPlayer.Backpack:FindFirstChild(Tool) 
+            game.Players.LocalPlayer.Character.Humanoid:EquipTool(ToolHumanoid) 
+        end
+    end)
 end
 function ATTACK()
     game:GetService'VirtualUser':CaptureController()
@@ -149,57 +149,57 @@ end);
 local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
 local Window = OrionLib:MakeWindow({Name = "GoD HuB", HidePremium = false, SaveConfig = true, ConfigFolder = "OrionTest"})
 local Tab = Window:MakeTab({
-	Name = "Main",
-	Icon = "rbxassetid://4483345998",
-	PremiumOnly = false
+    Name = "Main",
+    Icon = "rbxassetid://4483345998",
+    PremiumOnly = false
 })
 
 local Tab2 = Window:MakeTab({
-	Name = "Misc",
-	Icon = "rbxassetid://4483345998",
-	PremiumOnly = false
+    Name = "Misc",
+    Icon = "rbxassetid://4483345998",
+    PremiumOnly = false
 })
 
 local Tab3 = Window:MakeTab({
-	Name = "Teleport",
-	Icon = "rbxassetid://4483345998",
-	PremiumOnly = false
+    Name = "Teleport",
+    Icon = "rbxassetid://4483345998",
+    PremiumOnly = false
 })
 
 OrionLib:MakeNotification({
-	Name = "SKID HUB",
-	Content = "SUCCESSFULLY LOADED",
-	Image = "rbxassetid://4483345998",
-	Time = 5
+    Name = "SKID HUB",
+    Content = "SUCCESSFULLY LOADED",
+    Image = "rbxassetid://4483345998",
+    Time = 5
 })
 
 OrionLib:MakeNotification({
-	Name = "ANTI AFK ACTIVATED",
-	Content = "SUCCESSFULLY LOADED",
-	Image = "rbxassetid://4483345998",
-	Time = 5
+    Name = "ANTI AFK ACTIVATED",
+    Content = "SUCCESSFULLY LOADED",
+    Image = "rbxassetid://4483345998",
+    Time = 5
 })
 
 Tab:AddButton({
-	Name = "Safe Zone",
-	Callback = function(a)
-      		for i,v in pairs(game:GetService("Workspace").ISLAND:GetChildren()) do
-             if v.Name == "Base1" then
-                 game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = v.CFrame * CFrame.new(0,10,0)
-             end
+    Name = "Safe Zone",
+    Callback = function(a)
+            for i,v in pairs(game:GetService("Workspace").ISLAND:GetChildren()) do
+            if v.Name == "Base1" then
+                game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = v.CFrame * CFrame.new(0,10,0)
+            end
 end
-  	end    
+    end    
 })
 local Section = Tab:AddSection({
-	Name = "Stats Farm"
+    Name = "Stats Farm"
 })
 Tab:AddToggle({
 Name = "Auto Stats Farm",
 
 Default = Config.mixer,
 Callback = function(Value)
-	Config.mixer = Value
-	
+    Config.mixer = Value
+    
 _G.drink = true
 _G.drinkcheck = false
 spawn(function()
@@ -390,7 +390,7 @@ wait(0.2)
                             end
                             game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(1858, 218, 814)
 wait(0.2)
-     for i,v in pairs(game:GetService("Workspace").Barrels.Crates:GetDescendants()) do
+    for i,v in pairs(game:GetService("Workspace").Barrels.Crates:GetDescendants()) do
                                 if v:IsA("ClickDetector") then
                                 fireclickdetector(v)
                                 end
@@ -403,7 +403,7 @@ wait(0.2)
                             end
                             game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(1882, 219, 838)
 wait(0.2)
-     for i,v in pairs(game:GetService("Workspace").Barrels.Crates:GetDescendants()) do
+    for i,v in pairs(game:GetService("Workspace").Barrels.Crates:GetDescendants()) do
                                 if v:IsA("ClickDetector") then
                                 fireclickdetector(v)
                                 end
@@ -416,7 +416,7 @@ wait(0.2)
                             end
 game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(1989, 235, 568)
 wait(0.2)
-     for i,v in pairs(game:GetService("Workspace").Barrels.Crates:GetDescendants()) do
+    for i,v in pairs(game:GetService("Workspace").Barrels.Crates:GetDescendants()) do
                                 if v:IsA("ClickDetector") then
                                 fireclickdetector(v)
                                 end
@@ -429,7 +429,7 @@ wait(0.2)
                             end
 game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(1970, 219, 576)
 wait(0.2)
-     for i,v in pairs(game:GetService("Workspace").Barrels.Crates:GetDescendants()) do
+    for i,v in pairs(game:GetService("Workspace").Barrels.Crates:GetDescendants()) do
                                 if v:IsA("ClickDetector") then
                                 fireclickdetector(v)
                                 end
@@ -442,7 +442,7 @@ wait(0.2)
                             end
 game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(1989, 218, 561)
 wait(0.2)
-     for i,v in pairs(game:GetService("Workspace").Barrels.Crates:GetDescendants()) do
+    for i,v in pairs(game:GetService("Workspace").Barrels.Crates:GetDescendants()) do
                                 if v:IsA("ClickDetector") then
                                 fireclickdetector(v)
                                 end
@@ -455,7 +455,7 @@ wait(0.2)
                             end
 game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(1981, 217, 553)
 wait(0.2)
-     for i,v in pairs(game:GetService("Workspace").Barrels.Crates:GetDescendants()) do
+    for i,v in pairs(game:GetService("Workspace").Barrels.Crates:GetDescendants()) do
                                 if v:IsA("ClickDetector") then
                                 fireclickdetector(v)
                                 end
@@ -468,7 +468,7 @@ wait(0.2)
                             end
 game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-1517, 217, -289)
 wait(0.2)
-     for i,v in pairs(game:GetService("Workspace").Barrels.Crates:GetDescendants()) do
+    for i,v in pairs(game:GetService("Workspace").Barrels.Crates:GetDescendants()) do
                                 if v:IsA("ClickDetector") then
                                 fireclickdetector(v)
                                 end
@@ -481,7 +481,7 @@ wait(0.2)
                             end
 game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(1186, 217, -285)
 wait(0.2)
-     for i,v in pairs(game:GetService("Workspace").Barrels.Crates:GetDescendants()) do
+    for i,v in pairs(game:GetService("Workspace").Barrels.Crates:GetDescendants()) do
                                 if v:IsA("ClickDetector") then
                                 fireclickdetector(v)
                                 end
@@ -494,7 +494,7 @@ wait(0.2)
                             end
 game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(1173, 217, -286)
 wait(0.2)
-     for i,v in pairs(game:GetService("Workspace").Barrels.Crates:GetDescendants()) do
+    for i,v in pairs(game:GetService("Workspace").Barrels.Crates:GetDescendants()) do
                                 if v:IsA("ClickDetector") then
                                 fireclickdetector(v)
                                 end
@@ -507,7 +507,7 @@ wait(0.2)
                             end
 game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(1009, 220, 3342)
 wait(0.2)
-     for i,v in pairs(game:GetService("Workspace").Barrels.Crates:GetDescendants()) do
+    for i,v in pairs(game:GetService("Workspace").Barrels.Crates:GetDescendants()) do
                                 if v:IsA("ClickDetector") then
                                 fireclickdetector(v)
                                 end
@@ -520,7 +520,7 @@ wait(0.2)
                             end
 game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-2601, 254, 1111)
 wait(0.2)
-     for i,v in pairs(game:GetService("Workspace").Barrels.Crates:GetDescendants()) do
+    for i,v in pairs(game:GetService("Workspace").Barrels.Crates:GetDescendants()) do
                                 if v:IsA("ClickDetector") then
                                 fireclickdetector(v)
                                 end
@@ -533,7 +533,7 @@ wait(0.2)
                             end
 game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-2618, 254, 1110)
 wait(0.2)
-     for i,v in pairs(game:GetService("Workspace").Barrels.Crates:GetDescendants()) do
+    for i,v in pairs(game:GetService("Workspace").Barrels.Crates:GetDescendants()) do
                                 if v:IsA("ClickDetector") then
                                 fireclickdetector(v)
                                 end
@@ -546,7 +546,7 @@ wait(0.2)
                             end
 game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(989, 224, -3337)
 wait(0.2)
-     for i,v in pairs(game:GetService("Workspace").Barrels.Crates:GetDescendants()) do
+    for i,v in pairs(game:GetService("Workspace").Barrels.Crates:GetDescendants()) do
                                 if v:IsA("ClickDetector") then
                                 fireclickdetector(v)
                                 end
@@ -559,7 +559,7 @@ wait(0.2)
                             end
 game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(916, 216, 3409)
 wait(0.2)
-     for i,v in pairs(game:GetService("Workspace").Barrels.Crates:GetDescendants()) do
+    for i,v in pairs(game:GetService("Workspace").Barrels.Crates:GetDescendants()) do
                                 if v:IsA("ClickDetector") then
                                 fireclickdetector(v)
                                 end
@@ -572,7 +572,7 @@ wait(0.2)
                             end
 game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(882, 218, 3364)
 wait(0.2)
-     for i,v in pairs(game:GetService("Workspace").Barrels.Crates:GetDescendants()) do
+    for i,v in pairs(game:GetService("Workspace").Barrels.Crates:GetDescendants()) do
                                 if v:IsA("ClickDetector") then
                                 fireclickdetector(v)
                                 end
@@ -585,7 +585,7 @@ wait(0.2)
                             end
 game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(1167, 219, 3228)
 wait(0.2)
-     for i,v in pairs(game:GetService("Workspace").Barrels.Crates:GetDescendants()) do
+    for i,v in pairs(game:GetService("Workspace").Barrels.Crates:GetDescendants()) do
                                 if v:IsA("ClickDetector") then
                                 fireclickdetector(v)
                                 end
@@ -611,21 +611,21 @@ wait(0.2)
             end)
         end
     end)
-	end)
+    end)
 end
 })
 
 local Section = Tab:AddSection({
-	Name = "Cannon Farm"
+    Name = "Cannon Farm"
 })
 
-	Tab:AddToggle({
-		Name = "Cannon Ball Farm",
-		
-		Default = Config.cannonfarm,
-		Callback = function(Value)
-	    Config.cannonfarm = Value
-	
+    Tab:AddToggle({
+        Name = "Cannon Ball Farm",
+        
+        Default = Config.cannonfarm,
+        Callback = function(Value)
+        Config.cannonfarm = Value
+    
 
 
         spawn(function()
@@ -765,7 +765,7 @@ local Section = Tab:AddSection({
                                     v.HumanoidRootPart.Size = Vector3.new(0, 0, 0)
                                     v:Destroy()
                                 end
-                             end
+                            end
                         end
                         for _,v in pairs(game.Workspace.Enemies:GetChildren()) do
                             if string.find(v.Name, "Crab")
@@ -780,7 +780,7 @@ local Section = Tab:AddSection({
                                     v.HumanoidRootPart.Size = Vector3.new(0, 0, 0)
                                     v:Destroy()
                                 end
-                             end
+                            end
                         end
                         for _,v in pairs(game.Workspace.Enemies:GetChildren()) do
                             if string.find(v.Name, "Angry ") 
@@ -817,16 +817,16 @@ local Section = Tab:AddSection({
         
 
 
-	end
+    end
 })
 
 Tab:AddToggle({
-	Name = "Cannon Ball Kill All Player",
-	
-	Default = Config.autocannonplr,
-	Callback = function(Value)
+    Name = "Cannon Ball Kill All Player",
+    
+    Default = Config.autocannonplr,
+    Callback = function(Value)
     Config.autocannonplr = Value
- 
+
 spawn(function() -- autofarm teleport cannon
     while wait(0) do
         pcall(function()
@@ -834,7 +834,7 @@ spawn(function() -- autofarm teleport cannon
                 for i,v in pairs(game.Players:GetChildren()) do
                     if v.Name ~= game.Players.LocalPlayer.Name then
                         v.Character.HumanoidRootPart.Transparency = 0.9
-                    	v.Character.HumanoidRootPart.Color = Color3.fromRGB(255, 255, 255)
+                        v.Character.HumanoidRootPart.Color = Color3.fromRGB(255, 255, 255)
                         v.Character.HumanoidRootPart.CanCollide = false
                         v.Character.HumanoidRootPart.Size = Vector3.new(10, 10, 10)
                         v.Character.HumanoidRootPart.CFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame*CFrame.new(0,0,-50)
@@ -974,25 +974,25 @@ end)
     end
 })
 local Section = Tab:AddSection({
-	Name = "For Yoru"
+    Name = "For Yoru"
 })
 
 Tab:AddSlider({
-	Name = "Multi Damage YOru",
-	Min = 0,
-	Max = 100,
-	Default = 0,
-	Color = Color3.fromRGB(255,255,255),
-	Increment = 1,
-	ValueName = "hits",
-	Callback = function(Value)
-		_G.yoruhits = Value
-	end    
+    Name = "Multi Damage YOru",
+    Min = 0,
+    Max = 100,
+    Default = 0,
+    Color = Color3.fromRGB(255,255,255),
+    Increment = 1,
+    ValueName = "hits",
+    Callback = function(Value)
+        _G.yoruhits = Value
+    end    
 })
 Tab:AddToggle({
-	Name = "Fast Yoru",
-	Default = false,
-	Callback = function(Value)
+    Name = "Fast Yoru",
+    Default = false,
+    Callback = function(Value)
 
     _G.Yoru = Value
 
@@ -1017,24 +1017,24 @@ while _G.Yoru do
     end)
     wait(_G.cdyoru)
     end
-	end    
+    end    
 })
 Tab:AddTextbox({
-	Name = "Cooldown Fast Yoru",
-	Default = Value,
-	TextDisappear = true,
-	Callback = function(Value)
-		_G.cdyoru = Value
-	end	  
+    Name = "Cooldown Fast Yoru",
+    Default = Value,
+    TextDisappear = true,
+    Callback = function(Value)
+        _G.cdyoru = Value
+    end	  
 })
 
 
 Tab2:AddToggle({
-	Name = "Anti Spam(Telport )",
-	Default = Config.antispam,
-	Callback = function(Value)
-	Config.antispam = Value
-	if Config.antispam then
+    Name = "Anti Spam(Telport )",
+    Default = Config.antispam,
+    Callback = function(Value)
+    Config.antispam = Value
+    if Config.antispam then
 spawn(function() --
 while task.wait(0) do
     pcall(function()
@@ -1046,105 +1046,105 @@ end
 end)
 
 end
-	end
+    end
 })
 Tab2:AddToggle({
-	Name = "Auto 100% Skill",
-	
-	Default = Config.autoskillvip,
-	Callback = function(Value)
+    Name = "Auto 100% Skill",
+    
+    Default = Config.autoskillvip,
+    Callback = function(Value)
     Config.autoskillvip = Value
     
     end
 })
 
 Tab3:AddDropdown({
-	Name = "Choose Island",
-	Default = "1",
-	Options = {"Grassy","Snowy Mountains","Pursuer's Island","Bar","Cliffs","Windmill", "Cave","Krizma","Pirate","Green","Trees","Pyramid","Package","Snowy","Mountain", "Marine Ford","Sand Castle", "Forest","Evil",
+    Name = "Choose Island",
+    Default = "1",
+    Options = {"Grassy","Snowy Mountains","Pursuer's Island","Bar","Cliffs","Windmill", "Cave","Krizma","Pirate","Green","Trees","Pyramid","Package","Snowy","Mountain", "Marine Ford","Sand Castle", "Forest","Evil",
 "Crescent","Islands","Town","Rocky","Palm","Sand","Sand 2","Small","Tiny","Super Tiny","Grass","Atlar","Safe Place"},
-	Callback = function(t)
-		getgenv().tpisland = t 
-     if getgenv().tpisland == "Grassy" then
+    Callback = function(t)
+        getgenv().tpisland = t 
+    if getgenv().tpisland == "Grassy" then
         plr.Character.HumanoidRootPart.CFrame = CFrame.new(737, 241, 1209)
-       elseif getgenv().tpisland == "Snowy Mountains"  then
+    elseif getgenv().tpisland == "Snowy Mountains"  then
         plr.Character.HumanoidRootPart.CFrame = CFrame.new(6501, 408, -1261)
-       elseif getgenv().tpisland == "Pursuer's Island" then
+    elseif getgenv().tpisland == "Pursuer's Island" then
         plr.Character.HumanoidRootPart.CFrame = CFrame.new(4847, 570, -7143)
-       elseif getgenv().tpisland == "Bar" then
+    elseif getgenv().tpisland == "Bar" then
         plr.Character.HumanoidRootPart.CFrame = CFrame.new(1522, 260, 2188)
-       elseif getgenv().tpisland == "Cliffs" then
+    elseif getgenv().tpisland == "Cliffs" then
         plr.Character.HumanoidRootPart.CFrame = CFrame.new(4598, 217, 4964)
-       elseif getgenv().tpisland == "Windmill" then
+    elseif getgenv().tpisland == "Windmill" then
         plr.Character.HumanoidRootPart.CFrame = CFrame.new(-7, 224, -91)
-       elseif getgenv().tpisland == "Cave" then
+    elseif getgenv().tpisland == "Cave" then
         plr.Character.HumanoidRootPart.CFrame = CFrame.new(-280, 217, -831)
-       elseif getgenv().tpisland == "Krizma" then
+    elseif getgenv().tpisland == "Krizma" then
         plr.Character.HumanoidRootPart.CFrame = CFrame.new(-1109, 341, 1645)
-       elseif getgenv().tpisland == "Pirate" then
+    elseif getgenv().tpisland == "Pirate" then
         plr.Character.HumanoidRootPart.CFrame = CFrame.new(-1283, 218, -1348)
-       elseif getgenv().tpisland == "Green" then
+    elseif getgenv().tpisland == "Green" then
         plr.Character.HumanoidRootPart.CFrame = CFrame.new(-2727, 253, 1041)
-       elseif getgenv().tpisland == "Trees" then
+    elseif getgenv().tpisland == "Trees" then
         plr.Character.HumanoidRootPart.CFrame = CFrame.new(1068, 217, 3351)
-       elseif getgenv().tpisland == "Pyramid" then
+    elseif getgenv().tpisland == "Pyramid" then
         plr.Character.HumanoidRootPart.CFrame = CFrame.new(118, 216, 4773)
-       elseif getgenv().tpisland == "Package" then
+    elseif getgenv().tpisland == "Package" then
         plr.Character.HumanoidRootPart.CFrame = CFrame.new(-1668, 217, -300)
-       elseif getgenv().tpisland == "Snowy" then
+    elseif getgenv().tpisland == "Snowy" then
         plr.Character.HumanoidRootPart.CFrame = CFrame.new(-1896, 222, 3385)
-       elseif getgenv().tpisland == "Mountain" then
+    elseif getgenv().tpisland == "Mountain" then
         plr.Character.HumanoidRootPart.CFrame = CFrame.new(2052, 488, -701)
-       elseif getgenv().tpisland == "Marine Ford" then
+    elseif getgenv().tpisland == "Marine Ford" then
         plr.Character.HumanoidRootPart.CFrame = CFrame.new(-3164, 296, -3780)
-       elseif getgenv().tpisland == "Sand Castle" then
+    elseif getgenv().tpisland == "Sand Castle" then
         plr.Character.HumanoidRootPart.CFrame = CFrame.new(1020, 224, -3277)
-       elseif getgenv().tpisland == "Forest" then
+    elseif getgenv().tpisland == "Forest" then
         plr.Character.HumanoidRootPart.CFrame = CFrame.new(-5781, 216, 114)
-       elseif getgenv().tpisland == "Evil" then
+    elseif getgenv().tpisland == "Evil" then
         plr.Character.HumanoidRootPart.CFrame = CFrame.new(-5169, 523, -7803)
-       elseif getgenv().tpisland == "Crescent" then
+    elseif getgenv().tpisland == "Crescent" then
         plr.Character.HumanoidRootPart.CFrame = CFrame.new(3193, 357, 1670)
-       elseif getgenv().tpisland == "Islands" then
+    elseif getgenv().tpisland == "Islands" then
         plr.Character.HumanoidRootPart.CFrame = CFrame.new(-4319, 245, 5252)
-       elseif getgenv().tpisland == "Town" then
+    elseif getgenv().tpisland == "Town" then
         plr.Character.HumanoidRootPart.CFrame = CFrame.new(1818, 218, 755)
-       elseif getgenv().tpisland == "Rocky" then
+    elseif getgenv().tpisland == "Rocky" then
         plr.Character.HumanoidRootPart.CFrame = CFrame.new(-37, 229, 2149)
-       elseif getgenv().tpisland == "Palm" then
+    elseif getgenv().tpisland == "Palm" then
         plr.Character.HumanoidRootPart.CFrame = CFrame.new(766, 216, -1374)
-       elseif getgenv().tpisland == "Sand" then
+    elseif getgenv().tpisland == "Sand" then
         plr.Character.HumanoidRootPart.CFrame = CFrame.new(-2747, 216, -942)
-       elseif getgenv().tpisland == "Sand 2" then
+    elseif getgenv().tpisland == "Sand 2" then
         plr.Character.HumanoidRootPart.CFrame = CFrame.new(162, 216, -2265)
-       elseif getgenv().tpisland == "Small" then
+    elseif getgenv().tpisland == "Small" then
         plr.Character.HumanoidRootPart.CFrame = CFrame.new(1237, 240, -244)
-       elseif getgenv().tpisland == "Tiny" then
+    elseif getgenv().tpisland == "Tiny" then
         plr.Character.HumanoidRootPart.CFrame = CFrame.new(-1235, 223, 623)
-       elseif getgenv().tpisland == "Super Tiny" then
+    elseif getgenv().tpisland == "Super Tiny" then
         plr.Character.HumanoidRootPart.CFrame = CFrame.new(-4007, 216, -2190)
-       elseif getgenv().tpisland == "Grass" then
+    elseif getgenv().tpisland == "Grass" then
         plr.Character.HumanoidRootPart.CFrame = CFrame.new(2096, 217, -1884)
-       elseif getgenv().tpisland == "Atlar" then
-         plr.Character.HumanoidRootPart.CFrame = game.workspace.Altar.RecepticalEffect.CFrame * CFrame.new(0, 5, 0)
-       elseif getgenv().tpisland == "Safe Place" then
-         for i,v in pairs(game:GetService("Workspace").ISLAND:GetChildren()) do
-             if v.Name == "Part" then
-                 game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = v.CFrame * CFrame.new(0,10,0)
-             end
-         end
-     end
-	end    
+    elseif getgenv().tpisland == "Atlar" then
+        plr.Character.HumanoidRootPart.CFrame = game.workspace.Altar.RecepticalEffect.CFrame * CFrame.new(0, 5, 0)
+    elseif getgenv().tpisland == "Safe Place" then
+        for i,v in pairs(game:GetService("Workspace").ISLAND:GetChildren()) do
+            if v.Name == "Part" then
+                game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = v.CFrame * CFrame.new(0,10,0)
+            end
+        end
+    end
+    end    
 })
 
 
 
 Tab3:AddToggle({
-	Name = "Auto Spawn",
-	Default = false,
-	Callback = function(Value)
-		Config.respawn = Value
-	end    
+    Name = "Auto Spawn",
+    Default = false,
+    Callback = function(Value)
+        Config.respawn = Value
+    end    
 })
 
 spawn(function()--autorespawn
@@ -1162,21 +1162,21 @@ spawn(function()--autorespawn
 end)
 
 Tab2:AddToggle({
-	Name = "Auto Fix Spam",
-	Default = Config.fixspam,
-	Callback = function(Value)
-		Config.fixspam = Value
-		_G.fixspam = Value
-		if Value then
-					OrionLib:MakeNotification({
-			Name = "Auto Fix Spam",
-			Content = "Change the Skill You Want To Spam To Button C",
-			Image = "rbxassetid://4483345998",
-			Time = 5
-		})
-				end
-			spawn(function()
-			spawn(function()
+    Name = "Auto Fix Spam",
+    Default = Config.fixspam,
+    Callback = function(Value)
+        Config.fixspam = Value
+        _G.fixspam = Value
+        if Value then
+                    OrionLib:MakeNotification({
+            Name = "Auto Fix Spam",
+            Content = "Change the Skill You Want To Spam To Button C",
+            Image = "rbxassetid://4483345998",
+            Time = 5
+        })
+                end
+            spawn(function()
+            spawn(function()
     pcall(function()
         while true do wait()
             pcall(function()
@@ -1189,25 +1189,25 @@ Tab2:AddToggle({
         end
     end)
 end)
-			end)
-	end    
+            end)
+    end    
 })
 local Section = Tab:AddSection({
-	Name = "Auto Farm Beli only Spam"
+    Name = "Auto Farm Beli only Spam"
 })
 Tab:AddDropdown({
-	Name = "Select Fruit Farm",
-	Options = {"Gas", "Light","Quake","Magma"},
-	Callback = function(Value)
-		Config.choosefruit = Value
-	end    
+    Name = "Select Fruit Farm",
+    Options = {"Gas", "Light","Quake","Magma"},
+    Callback = function(Value)
+        Config.choosefruit = Value
+    end    
 })
 Tab:AddToggle({
-	Name = "TP Mob",
-	Default = Config.tpmob,
-	Callback = function(Value)
-	Config.tpmob = Value
-	spawn(function()
+    Name = "TP Mob",
+    Default = Config.tpmob,
+    Callback = function(Value)
+    Config.tpmob = Value
+    spawn(function()
     pcall(function()
         while true do wait()
             if Config.tpmob then
@@ -1220,7 +1220,7 @@ Tab:AddToggle({
                                         if Config.choosefruit == "Gas" then
                                             game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = v.HumanoidRootPart.CFrame * CFrame.new(0,30,0)
                                         end
-                               
+                            
                                         if Config.choosefruit == "Light" then
                                             game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = v.HumanoidRootPart.CFrame * CFrame.new(0,30,0)
                                         end
@@ -1228,10 +1228,10 @@ Tab:AddToggle({
                                             game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = v.HumanoidRootPart.CFrame * CFrame.new(0,30,0)
                                         end
                                         if Config.choosefruit == "Quake" then
-                                        	for i,v in pairs(game:GetService("Workspace").ISLAND:GetChildren()) do
-             if v.Name == "Part" then
-                 game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = v.CFrame * CFrame.new(0,10,0)
-             end
+                                            for i,v in pairs(game:GetService("Workspace").ISLAND:GetChildren()) do
+            if v.Name == "Part" then
+                game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = v.CFrame * CFrame.new(0,10,0)
+            end
 end
                                         end
                                 until not Config.tpmob or v.Humanoid.Health == 0
@@ -1243,16 +1243,16 @@ end
         end
     end)
 end)
-	
-	end
+    
+    end
 })
 Tab2:AddToggle({
-	Name = "No Clip",
-	Default = false,
-	Callback = function(Value)
-	Config.noclip = Value
-	_G.noclip = Value
-	spawn(function()
+    Name = "No Clip",
+    Default = false,
+    Callback = function(Value)
+    Config.noclip = Value
+    _G.noclip = Value
+    spawn(function()
     pcall(function()
         while true do wait()
             pcall(function()
@@ -1274,36 +1274,36 @@ Tab2:AddToggle({
     end)
 end)
 
-	                                            
+                                                
             
-	end
+    end
 })
 Tab:AddTextbox({
-	Name = "Time Spam",
-	Default = Config.timespam,
-	TextDisappear = true,
-	Callback = function(Value)
-		Config.timespam = Value
-	end	  
+    Name = "Time Spam",
+    Default = Config.timespam,
+    TextDisappear = true,
+    Callback = function(Value)
+        Config.timespam = Value
+    end	  
 })
 Tab:AddToggle({
-	Name = "Auto Farm(Spam Skill)",
-	Default = Config.spamskill,
-	Callback = function(Value)
-	Config.spamskill = Value
-	spawn(function()
-	if Config.spamskill then
-	_G.noclip = true
-	_G.autoskillvip = true
-	_G.fixspam = true
-	if Config.choosefruit == "Quake" then
-	_G.noclip = false
-	
-	end
-	
-	end
-	end)
-          spawn(function()
+    Name = "Auto Farm(Spam Skill)",
+    Default = Config.spamskill,
+    Callback = function(Value)
+    Config.spamskill = Value
+    spawn(function()
+    if Config.spamskill then
+    _G.noclip = true
+    _G.autoskillvip = true
+    _G.fixspam = true
+    if Config.choosefruit == "Quake" then
+    _G.noclip = false
+    
+    end
+    
+    end
+    end)
+        spawn(function()
         pcall(function() 
                 while true do wait(0.1)
                     pcall(function()
@@ -1358,7 +1358,7 @@ Tab:AddToggle({
                                     
                                     game:GetService("Players").LocalPlayer.Character.Powers.Gas.RemoteEvent:FireServer(unpack(args))    
                                     end
-                                         if v.Humanoid.Health > 0 and Config.choosefruit == "Light" and (game.Players.LocalPlayer.Character.HumanoidRootPart.Position - v.HumanoidRootPart.Position).Magnitude < 100 then
+                                        if v.Humanoid.Health > 0 and Config.choosefruit == "Light" and (game.Players.LocalPlayer.Character.HumanoidRootPart.Position - v.HumanoidRootPart.Position).Magnitude < 100 then
                                         wait(Config.timespam)
                                         local args = {
                                             [1] = tonumber(serializeTable(remotes)),
@@ -1548,62 +1548,62 @@ if v.Humanoid.MaxHealth - v.Humanoid.Health >= 5000 then
                 end
         end)
     end)  
-	end
+    end
 })
 
 
 
 local Tab4 = Window:MakeTab({
-	Name = "PvP",
-	Icon = "rbxassetid://4483345998",
-	PremiumOnly = false
+    Name = "PvP",
+    Icon = "rbxassetid://4483345998",
+    PremiumOnly = false
 })
 
 function findplr()
-	local players = {};
-	for i, v in pairs(game.Players:GetChildren()) do
+    local players = {};
+    for i, v in pairs(game.Players:GetChildren()) do
         
             if not table.find(players, v.Name)  then
                 table.insert(players, v.Name);
             end;
         
-	end;
-	return players;
+    end;
+    return players;
 end;
 
 local haha = Tab4:AddDropdown({
-	Name = "Choose Players",
+    Name = "Choose Players",
 
-	Options = findplr(),
-	Callback = function(Value)
-		_G.playerr = Value
-       
-		Config.Players = _G.playerr
-	end    
+    Options = findplr(),
+    Callback = function(Value)
+        _G.playerr = Value
+    
+        Config.Players = _G.playerr
+    end    
 })
 
 Tab4:AddButton({
-	Name = "Refresh Players",
-	Callback = function(Value)
-      	haha:Refresh(findplr(), true)	
+    Name = "Refresh Players",
+    Callback = function(Value)
+        haha:Refresh(findplr(), true)	
         
-  	end    
+    end    
 })
 
 Tab4:AddDropdown({
-	Name = "Choose Method Telport",
-	Options = {"Normal", "Above"},
-	Callback = function(Value)
-		Config.methodtp = Value
-	end    
+    Name = "Choose Method Telport",
+    Options = {"Normal", "Above"},
+    Callback = function(Value)
+        Config.methodtp = Value
+    end    
 })
 
 Tab4:AddToggle({
-	Name = "Teleport Players",
-	Default = Config.tpplayer,
-	Callback = function(Value)
-	Config.tpplayer = Value
-	
+    Name = "Teleport Players",
+    Default = Config.tpplayer,
+    Callback = function(Value)
+    Config.tpplayer = Value
+    
 spawn(function()
     pcall(function()
         while true do wait()
@@ -1642,21 +1642,21 @@ spawn(function()
     end
 end)
 end)
-	end
+    end
 })
 if Config.methodtp == nil then
     Config.methodtp = ""
 end
 local Section = Tab4:AddSection({
-	Name = "Spam Skill For Farm Players"
+    Name = "Spam Skill For Farm Players"
 })
 Tab4:AddToggle({
-	Name = "Spam Skill Light",
-	Default = Config.Light,
-	Callback = function(Value)
-	Config.Light = Value
-	
-	
+    Name = "Spam Skill Light",
+    Default = Config.Light,
+    Callback = function(Value)
+    Config.Light = Value
+    
+    
 spawn(function()
     pcall(function()
         while true do wait()
@@ -1665,7 +1665,7 @@ spawn(function()
                     local plr1 = game.Players.LocalPlayer.Character
                     local plr2 = game.Players:FindFirstChild(Config.Players)
                     if (plr2.Character.HumanoidRootPart.Position - game:GetService("Workspace").CustomizeModel.SpawnAreaStuffK.HBase.Position).Magnitude > 1000 then
-                      wait(0.5)
+                    wait(0.5)
                         local args = {
                             [1] = tonumber(serializeTable(remotes)),
                             [2] = "LightPower8",
@@ -1720,11 +1720,11 @@ end)
 end
 })
 Tab4:AddToggle({
-	Name = "Spam Skill Quake",
-	Default = Config.Quake,
-	Callback = function(Value)
-	Config.Quake = Value
-	spawn(function()
+    Name = "Spam Skill Quake",
+    Default = Config.Quake,
+    Callback = function(Value)
+    Config.Quake = Value
+    spawn(function()
     pcall(function()
         while true do wait()
             pcall(function()
@@ -1781,12 +1781,12 @@ Tab4:AddToggle({
     end)
 end)
 
-	end
+    end
 })
 Tab4:AddToggle({
-	Name = "Spam Skill Gas",
-	Default = Config.Gas,
-	Callback = function(Value)
+    Name = "Spam Skill Gas",
+    Default = Config.Gas,
+    Callback = function(Value)
         Config.Gas = Value
         spawn(function()
             pcall(function()
@@ -1796,7 +1796,7 @@ Tab4:AddToggle({
                             local plr1 = game.Players.LocalPlayer.Character
                             local plr2 = game.Players:FindFirstChild(Config.Players)
                             if (plr2.Character.HumanoidRootPart.Position - game:GetService("Workspace").CustomizeModel.SpawnAreaStuffK.HBase.Position).Magnitude > 1000 then
-                              wait(0.5)
+                            wait(0.5)
                                 local args = {
                                     [1] = tonumber(serializeTable(remotes)),
                                     [2] = "GasPower4",
@@ -1853,9 +1853,9 @@ Tab4:AddToggle({
 })
 
 Tab4:AddToggle({
-	Name = "Spam Skill Magma",
-	Default = Config.Magma,
-	Callback = function(Value)
+    Name = "Spam Skill Magma",
+    Default = Config.Magma,
+    Callback = function(Value)
 
     Config.Magma = Value
     spawn(function()
@@ -1866,7 +1866,7 @@ Tab4:AddToggle({
                         local plr1 = game.Players.LocalPlayer.Character
                         local plr2 = game.Players:FindFirstChild(Config.Players)
                         if (plr2.Character.HumanoidRootPart.Position - game:GetService("Workspace").CustomizeModel.SpawnAreaStuffK.HBase.Position).Magnitude > 1000 then
-                         wait(0.5)
+                        wait(0.5)
                             local args = {
                                 [1] = tonumber(serializeTable(remotes)),
                                 [2] = "MagmaPower9",
@@ -1910,12 +1910,12 @@ Tab4:AddToggle({
 end})
 
 local Section = Tab4:AddSection({
-	Name = "Farm Players With Cannon"
+    Name = "Farm Players With Cannon"
 })
 Tab4:AddToggle({
-	Name = "Bring Players",
-	Default = Config.bringplr,
-	Callback = function(Value)
+    Name = "Bring Players",
+    Default = Config.bringplr,
+    Callback = function(Value)
         Config.bringplr = Value
         spawn(function() -- autofarm teleport cannon
             while wait(0) do
@@ -1941,9 +1941,9 @@ Tab4:AddToggle({
     end
 })
 Tab4:AddToggle({
-	Name = "Kill Players With Cannon",
-	Default = Config.cannonkillplr,
-	Callback = function(Value)
+    Name = "Kill Players With Cannon",
+    Default = Config.cannonkillplr,
+    Callback = function(Value)
         Config.cannonkillplr = Value
         
     
@@ -2072,23 +2072,23 @@ Tab4:AddToggle({
     end
 })
 local Section = Tab4:AddSection({
-	Name = "Misc"
+    Name = "Misc"
 })
 Tab4:AddTextbox({
-	Name = "Size HitBoxes",
+    Name = "Size HitBoxes",
 
-	TextDisappear = true,
-	Callback = function(Value)
-		Config.sizehitboxes = Value
-	end	  
+    TextDisappear = true,
+    Callback = function(Value)
+        Config.sizehitboxes = Value
+    end	  
 })
 
 
 Tab4:AddToggle({
-	Name = "Hitboxes Players",
-	Default = Config.hitboxplrs,
-	Callback = function(Value)
-	Config.hitboxplrs = Value
+    Name = "Hitboxes Players",
+    Default = Config.hitboxplrs,
+    Callback = function(Value)
+    Config.hitboxplrs = Value
     spawn(function()
         game:GetService('RunService').RenderStepped:connect(function()
         if Config.hitboxplrs then
@@ -2182,7 +2182,7 @@ Tab5:AddToggle({
     end
 })
 local Section = Tab:AddSection({
-	Name = "Aqua Staff Farm"
+    Name = "Aqua Staff Farm"
 })
 Tab:AddToggle({
     Name = "Auto Fishing",
@@ -2191,20 +2191,20 @@ Tab:AddToggle({
     Callback = function(Value)
         Config.fish = Value
         _G.fish = Value
-       spawn(function()
+    spawn(function()
         if Config.fish then
             game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(188679, 216, 176128)
         while true do wait(0.1)
             
-       end
+    end
     end
 end)
             spawn(function()
                 pcall(function()
                             pcall(function()
-               while true do wait()
+            while true do wait()
                 
-                   pcall(function()
+                pcall(function()
             if Config.fish and _G.fish then
                 pcall(function()
                                 for i,v in pairs(game.Players.LocalPlayer.Backpack:GetChildren()) do
@@ -2292,11 +2292,11 @@ local Tab6 = Window:MakeTab({
     PremiumOnly = false
 })
 Tab6:AddToggle({
-	Name = "Auto Claim Quest",
-	Default = false,
-	Callback = function(Value)
-		Config.quest = Value
-	end    
+    Name = "Auto Claim Quest",
+    Default = false,
+    Callback = function(Value)
+        Config.quest = Value
+    end    
 })
 
 spawn(function()--auto quest
@@ -2311,11 +2311,11 @@ spawn(function()--auto quest
 end)
 
 Tab2:AddToggle({
-	Name = "Haki Farm",
-	Default = false,
-	Callback = function(Value)
-		Config.haki = Value
-	end    
+    Name = "Haki Farm",
+    Default = false,
+    Callback = function(Value)
+        Config.haki = Value
+    end    
 })
 
 game:GetService('RunService').RenderStepped:connect(function()
@@ -2326,104 +2326,104 @@ game:GetService('RunService').RenderStepped:connect(function()
                 [2] = 528
             }
             task.wait(0.1)
-            workspace:WaitForChild("UserData"):WaitForChild("User_" .. game.Players.LocalPlayer.UserId):WaitForChild("III"):FireServer(unpack(args))
+            workspace:WaitForChild("UserData"):WaitForChild("User_" .. game.Players.LocalPlayer.UserId):III:FireServer(unpack(args))
             local args = {
                 [1] = "Off",
                 [2] = 528
             }
 
-            workspace:WaitForChild("UserData"):WaitForChild("User_" .. game.Players.LocalPlayer.UserId):WaitForChild("III"):FireServer(unpack(args))
+            workspace:WaitForChild("UserData"):WaitForChild("User_" .. game.Players.LocalPlayer.UserId):III:FireServer(unpack(args))
             task.wait(0.1)
             local args = {
                 [1] = "Off",
                 [2] = 528
             }
-
-            workspace:WaitForChild("UserData"):WaitForChild("User_" .. game.Players.LocalPlayer.UserId):WaitForChild("III"):FireServer(unpack(args))
-            task.wait(0.1)
             local args = {
                 [1] = "On",
                 [2] = 528
             }
-
-            workspace:WaitForChild("UserData"):WaitForChild("User_" .. game.Players.LocalPlayer.UserId):WaitForChild("III"):FireServer(unpack(args))
             task.wait(0.1)
+            workspace:WaitForChild("UserData"):WaitForChild("User_" .. game.Players.LocalPlayer.UserId):III:FireServer(unpack(args))
             local args = {
                 [1] = "Off",
                 [2] = 528
             }
 
-            workspace:WaitForChild("UserData"):WaitForChild("User_" .. game.Players.LocalPlayer.UserId):WaitForChild("III"):FireServer(unpack(args))
+            workspace:WaitForChild("UserData"):WaitForChild("User_" .. game.Players.LocalPlayer.UserId):III:FireServer(unpack(args))
             task.wait(0.1)
             local args = {
                 [1] = "Off",
                 [2] = 528
             }
-
-            workspace:WaitForChild("UserData"):WaitForChild("User_" .. game.Players.LocalPlayer.UserId):WaitForChild("III"):FireServer(unpack(args))
-            task.wait(0.1)
             local args = {
                 [1] = "On",
                 [2] = 528
             }
-
-            workspace:WaitForChild("UserData"):WaitForChild("User_" .. game.Players.LocalPlayer.UserId):WaitForChild("III"):FireServer(unpack(args))
             task.wait(0.1)
+            workspace:WaitForChild("UserData"):WaitForChild("User_" .. game.Players.LocalPlayer.UserId):III:FireServer(unpack(args))
             local args = {
                 [1] = "Off",
                 [2] = 528
             }
 
-            workspace:WaitForChild("UserData"):WaitForChild("User_" .. game.Players.LocalPlayer.UserId):WaitForChild("III"):FireServer(unpack(args))
+            workspace:WaitForChild("UserData"):WaitForChild("User_" .. game.Players.LocalPlayer.UserId):III:FireServer(unpack(args))
             task.wait(0.1)
             local args = {
                 [1] = "Off",
                 [2] = 528
             }
-
-            workspace:WaitForChild("UserData"):WaitForChild("User_" .. game.Players.LocalPlayer.UserId):WaitForChild("III"):FireServer(unpack(args))
-            task.wait(0.1)
             local args = {
                 [1] = "On",
                 [2] = 528
             }
-
-            workspace:WaitForChild("UserData"):WaitForChild("User_" .. game.Players.LocalPlayer.UserId):WaitForChild("III"):FireServer(unpack(args))
             task.wait(0.1)
+            workspace:WaitForChild("UserData"):WaitForChild("User_" .. game.Players.LocalPlayer.UserId):III:FireServer(unpack(args))
             local args = {
                 [1] = "Off",
                 [2] = 528
             }
 
-            workspace:WaitForChild("UserData"):WaitForChild("User_" .. game.Players.LocalPlayer.UserId):WaitForChild("III"):FireServer(unpack(args))
+            workspace:WaitForChild("UserData"):WaitForChild("User_" .. game.Players.LocalPlayer.UserId):III:FireServer(unpack(args))
             task.wait(0.1)
             local args = {
                 [1] = "Off",
                 [2] = 528
             }
-
-            workspace:WaitForChild("UserData"):WaitForChild("User_" .. game.Players.LocalPlayer.UserId):WaitForChild("III"):FireServer(unpack(args))
-            task.wait(0.1)
             local args = {
                 [1] = "On",
                 [2] = 528
             }
-
-            workspace:WaitForChild("UserData"):WaitForChild("User_" .. game.Players.LocalPlayer.UserId):WaitForChild("III"):FireServer(unpack(args))
             task.wait(0.1)
+            workspace:WaitForChild("UserData"):WaitForChild("User_" .. game.Players.LocalPlayer.UserId):III:FireServer(unpack(args))
             local args = {
                 [1] = "Off",
                 [2] = 528
             }
 
-            workspace:WaitForChild("UserData"):WaitForChild("User_" .. game.Players.LocalPlayer.UserId):WaitForChild("III"):FireServer(unpack(args))
+            workspace:WaitForChild("UserData"):WaitForChild("User_" .. game.Players.LocalPlayer.UserId):III:FireServer(unpack(args))
             task.wait(0.1)
             local args = {
                 [1] = "Off",
                 [2] = 528
             }
+            local args = {
+                [1] = "On",
+                [2] = 528
+            }
+            task.wait(0.1)
+            workspace:WaitForChild("UserData"):WaitForChild("User_" .. game.Players.LocalPlayer.UserId):III:FireServer(unpack(args))
+            local args = {
+                [1] = "Off",
+                [2] = 528
+            }
 
-            workspace:WaitForChild("UserData"):WaitForChild("User_" .. game.Players.LocalPlayer.UserId):WaitForChild("III"):FireServer(unpack(args))
+            workspace:WaitForChild("UserData"):WaitForChild("User_" .. game.Players.LocalPlayer.UserId):III:FireServer(unpack(args))
+            task.wait(0.1)
+            local args = {
+                [1] = "Off",
+                [2] = 528
+            }
+            workspace:WaitForChild("UserData"):WaitForChild("User_" .. game.Players.LocalPlayer.UserId):III:FireServer(unpack(args))
         end
     end
 end)
