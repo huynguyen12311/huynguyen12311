@@ -207,6 +207,12 @@ spawn(function()
         while true do wait()
             pcall(function()
                 if _G.drink and _G.drinkcheck then
+                    local args = {
+                        [1] = "Claim",
+                        [2] = "Challenge13"
+                    }
+                    game.workspace.UserData["User_" .. game.Players.LocalPlayer.UserId].ChallengesRemote:FireServer(unpack(args))
+                    wait(1)    
                 for i,v in pairs(game.Players.LocalPlayer.Backpack:GetChildren()) do
                     if v:IsA("Tool") and string.find(v.Name, "Juice") or string.find(v.Name, "Milk") or string.find(v.Name, "Cider") or string.find(v.Name, "Lemonade") or string.find(v.Name, "Smoothie") or string.find(v.Name, "Golden") then
                                             game.Players.LocalPlayer.Character.Humanoid:EquipTool(v)
